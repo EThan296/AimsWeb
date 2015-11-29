@@ -1,0 +1,27 @@
+
+body {
+    text-align: center;
+}
+
+#body-div {
+    text-align:center;
+    margin-left:5%;
+    margin-right:5%;
+    background-color: aquamarine;
+}
+#right-side {
+    float: right;
+    background-color: coral;
+    width: 35%;
+    word-wrap: break-word;
+}
+#anomaly-box {
+    margin: 20px;
+
+}
+#left-side {
+    float: left;
+    background-color: cadetblue;
+    width: 65%;
+    word-wrap: break-word;
+}

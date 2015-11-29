@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="GBR_Bleaching_Watch">
+<head>
+    <meta charset="UTF-8">
+    <title>GBR Bleaching Watch</title>
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="angular_resources/angular.js"></script>
+    <script src="angular_resources/angular-resource.js"></script>
+
+    <script src="js/controller.js"></script>
+
+</head>
+<body>
+<div id="body-div">
+
+    <div ng-view>
+    <h1>GBR Bleaching Watch</h1>
+    <h4>[Note: This site presents the results of the experimental data products - use with caution.]</h4>
+
+    <div id="right-side" ng-controller="anomalyCTRL">
+        <h3>Temperature Anomaly</h3>
+        <div id="anomaly-box" ng-repeat="anomaly in anomalyArray">
+            <!--{{base = anomaly.vanomolyStatuses; ""}}-->
+            <span id="anomaly-graph"></span>
+            <span id="anomaly-temperature">
+                {{anomaly.vanomolyStatuses[0]}}
+                <script>
+
+                </script>
+            </span>
+        </div>
+    </div>
+
+    <div id="left-side" controller="temperatureCTRL">
+        <h3>Ocean Temperatures</h3>
+        <p>[Click on a Reef Name to get more information about that reef]</p>
+        <div ng-repeat="temperature in tempArray">
+            <form>
+                <button>{{}}</button>
+            </form>
+            <span id="temp-graph"></span>
+            <span id="temp-temperature">
+                <script>
+
+                </script>
+            </span>
+        </div>
+    </div>
+</div>
+</div>
+</body>

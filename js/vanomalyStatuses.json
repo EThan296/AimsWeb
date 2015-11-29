@@ -1,0 +1,161 @@
+{
+  "_links" : {
+    "self" : {
+      "href" : "http://data.aims.gov.au/rtdsrest/api/vanomolyStatuses{?page,size,sort}",
+      "templated" : true
+  }
+  },
+  "_embedded" : {
+    "vanomolyStatuses" : [ {
+        "siteName" : "Oprheus Island",
+        "day" : "2015-11-17",
+        "actualWaterTemp" : 26.81,
+        "modelledWaterTemp" : 27.2,
+        "plusOneSd" : 0.38,
+        "plusTwoSd" : 0.76,
+        "plusThreeSd" : 1.14,
+        "minusOneSd" : -0.38,
+        "minusTwoSd" : -0.76,
+        "minusThreeSd" : -1.14,
+        "anomoly" : -0.39,
+        "status" : -1,
+        "_links" : {
+          "self" : {
+            "href" : "http://data.aims.gov.au/rtdsrest/api/vanomolyStatuses/14837"
+          }
+        }
+      }, {
+        "siteName" : "Davies Reef",
+        "day" : "2015-11-27",
+        "actualWaterTemp" : 27.016,
+        "modelledWaterTemp" : 27.18,
+        "plusOneSd" : 0.53,
+        "plusTwoSd" : 1.06,
+        "plusThreeSd" : 1.59,
+        "minusOneSd" : -0.53,
+        "minusTwoSd" : -1.06,
+        "minusThreeSd" : -1.59,
+        "anomoly" : -0.164,
+        "status" : 0,
+        "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vanomolyStatuses/63"
+        }
+      }
+    }, {
+      "siteName" : "Hardy Reef",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 26.44,
+      "modelledWaterTemp" : 26.54,
+      "plusOneSd" : 0.38,
+      "plusTwoSd" : 0.76,
+      "plusThreeSd" : 1.14,
+      "minusOneSd" : -0.38,
+      "minusTwoSd" : -0.76,
+      "minusThreeSd" : -1.14,
+      "anomoly" : -0.1,
+      "status" : 0,
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vanomolyStatuses/97"
+        }
+      }
+    }, {
+      "siteName" : "Square Rocks",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 26.852,
+      "modelledWaterTemp" : 25.86,
+      "plusOneSd" : 0.69,
+      "plusTwoSd" : 1.38,
+      "plusThreeSd" : 2.07,
+      "minusOneSd" : -0.69,
+      "minusTwoSd" : -1.38,
+      "minusThreeSd" : -2.07,
+      "anomoly" : 0.992,
+      "status" : 1,
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vanomolyStatuses/78"
+        }
+      }
+    }, {
+      "siteName" : "Heron Island",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 25.642,
+      "modelledWaterTemp" : 25.24,
+      "plusOneSd" : 0.81,
+      "plusTwoSd" : 1.62,
+      "plusThreeSd" : 2.43,
+      "minusOneSd" : -0.81,
+      "minusTwoSd" : -1.62,
+      "minusThreeSd" : -2.43,
+      "anomoly" : 0.402,
+      "status" : 0,
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vanomolyStatuses/26"
+        }
+      }
+    }, {
+      "siteName" : "Thursday Island",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 28.486,
+      "modelledWaterTemp" : 28.97,
+      "plusOneSd" : 0.74897,
+      "plusTwoSd" : 1.49794,
+      "plusThreeSd" : 2.24691,
+      "minusOneSd" : -0.74897,
+      "minusTwoSd" : -1.49794,
+      "minusThreeSd" : -2.24691,
+      "anomoly" : -0.484,
+      "status" : 0,
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vanomolyStatuses/8573"
+        }
+      }
+    }, {
+      "siteName" : "Agincourt Reef",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 26.329,
+      "modelledWaterTemp" : 26.76224304,
+      "plusOneSd" : 1.011262892,
+      "plusTwoSd" : 2.022525784,
+      "plusThreeSd" : 3.033788676,
+      "minusOneSd" : -1.011262892,
+      "minusTwoSd" : -2.022525784,
+      "minusThreeSd" : -3.033788676,
+      "anomoly" : -0.433,
+      "status" : 0,
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vanomolyStatuses/15041"
+        }
+      }
+    }, {
+      "siteName" : "Myrmidon Reef",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 26.813,
+      "modelledWaterTemp" : 27.49,
+      "plusOneSd" : 0.6,
+      "plusTwoSd" : 1.2,
+      "plusThreeSd" : 1.8,
+      "minusOneSd" : -0.6,
+      "minusTwoSd" : -1.2,
+      "minusThreeSd" : -1.8,
+      "anomoly" : -0.677,
+      "status" : -1,
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vanomolyStatuses/85075"
+        }
+      }
+    } ]
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 8,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}
