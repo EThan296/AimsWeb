@@ -1,0 +1,121 @@
+{
+  "_links" : {
+    "self" : {
+      "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses{?page,size,sort}",
+      "templated" : true
+    }
+  },
+  "_embedded" : {
+    "vbleachStatuses" : [ {
+      "siteName" : "Oprheus Island",
+      "day" : "2015-11-17",
+      "actualWaterTemp" : 26.81,
+      "watchTemp" : 29.8,
+      "warningTemp" : 30.0,
+      "bleachingTemp" : 30.4,
+      "status" : "NORMAL",
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/14837"
+        }
+      }
+    }, {
+      "siteName" : "Davies Reef",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 27.016,
+      "watchTemp" : 29.5,
+      "warningTemp" : 29.7,
+      "bleachingTemp" : 29.9,
+      "status" : "NORMAL",
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/63"
+        }
+      }
+    }, {
+      "siteName" : "Hardy Reef",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 26.44,
+      "watchTemp" : 29.2,
+      "warningTemp" : 29.4,
+      "bleachingTemp" : 29.6,
+      "status" : "NORMAL",
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/97"
+        }
+      }
+    }, {
+      "siteName" : "Square Rocks",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 26.852,
+      "watchTemp" : 28.5,
+      "warningTemp" : 29.0,
+      "bleachingTemp" : 29.6,
+      "status" : "NORMAL",
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/78"
+        }
+      }
+    }, {
+      "siteName" : "Heron Island",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 25.642,
+      "watchTemp" : 28.2,
+      "warningTemp" : 28.4,
+      "bleachingTemp" : 29.2,
+      "status" : "NORMAL",
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/26"
+        }
+      }
+    }, {
+      "siteName" : "Thursday Island",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 28.486,
+      "watchTemp" : 30.5,
+      "warningTemp" : 31.0,
+      "bleachingTemp" : 31.4,
+      "status" : "NORMAL",
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/8573"
+        }
+      }
+    }, {
+      "siteName" : "Agincourt Reef",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 26.329,
+      "watchTemp" : 29.9,
+      "warningTemp" : 30.1,
+      "bleachingTemp" : 30.3,
+      "status" : "NORMAL",
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/15041"
+        }
+      }
+    }, {
+      "siteName" : "Myrmidon Reef",
+      "day" : "2015-11-27",
+      "actualWaterTemp" : 26.813,
+      "watchTemp" : 29.4,
+      "warningTemp" : 29.6,
+      "bleachingTemp" : 30.0,
+      "status" : "NORMAL",
+      "_links" : {
+        "self" : {
+          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/85075"
+        }
+      }
+    } ]
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 8,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}
