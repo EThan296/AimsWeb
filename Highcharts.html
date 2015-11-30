@@ -1,0 +1,70 @@
+<html>
+<head>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+</head>
+
+<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
+
+    <script type="text/javascript">
+        $(function () {
+            $('#container').highcharts({
+                title: {
+                    text: 'Monthly Average Temperature',
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: 'Source: WorldClimate.com',
+                    x: -20
+                },
+                xAxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Temperature (°C)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    valueSuffix: '°C'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                plotOptions: {
+                    line:{
+                        lineWidth: 40
+
+                    }
+
+                },
+                series: [{
+                    name: 'London',
+                    data: [1,1,1,1,1,1,1,1,1,1,1,1]
+                }, {
+                    name: 'Townsvile',
+                    data: [1,1]
+                }, {
+                    name: 'ingham',
+                    data: [1,1]
+                }
+                ]
+            });
+        });
+    </script>
+
+</div>
+
+</html>

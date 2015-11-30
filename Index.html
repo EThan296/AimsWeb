@@ -5,9 +5,13 @@
     <title>GBR Bleaching Watch</title>
 
     <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script src="angular_resources/angular.js"></script>
     <script src="angular_resources/angular-resource.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
     <script src="js/controller.js"></script>
 
@@ -25,26 +29,75 @@
             <!--{{base = anomaly.vanomolyStatuses; ""}}-->
             <span id="anomaly-graph"></span>
             <span id="anomaly-temperature">
-                {{anomaly.vanomolyStatuses[0]}}
-                <script>
+                {{anomaly.anomoly}}
 
-                </script>
             </span>
         </div>
     </div>
 
-    <div id="left-side" controller="temperatureCTRL">
+    <div id="left-side" ng-controller="temperatureCTRL">
         <h3>Ocean Temperatures</h3>
         <p>[Click on a Reef Name to get more information about that reef]</p>
         <div ng-repeat="temperature in tempArray">
             <form>
-                <button>{{}}</button>
+                <button>{{temperature.siteName}}</button>
             </form>
-            <span id="temp-graph"></span>
-            <span id="temp-temperature">
-                <script>
 
+            <button ng-click="generateChart(temperature.siteId, temperature.actualWaterTemp, temperature.watchTemp, temperature.warningTemp, temperature.bleachingTemp);">create chart</button>
+            <div id="container-{{temperature.siteId}}"></div>
+            <div id="container" style="min-width: 310px; max-width: 800px; height: 200px; margin: 0 auto">
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#container').highcharts({
+                            chart: {
+                                type: 'bar'
+                            },
+                            title: {
+                                text: ''
+                            },
+                            xAxis: {
+                                categories: ['']
+                            },
+                            yAxis: {
+                                max: 34,
+                                min: 24,
+                                title: {
+                                    text: ''
+                                }
+                            },
+                            legend: {
+                                reversed: true
+                            },
+                            plotOptions: {
+                                column: {
+                                    grouping: false
+                                },
+                                series: {
+                                    //stacking: 'normal'
+                                }
+                            },
+                            series: [{
+                                name: '1',
+                                color: 'rgba(0,255,0,1)',
+                                data: [29.8],
+                                pointPlacement: .2
+
+                            }, {
+                                name: '2',
+                                color: 'rgba(0,0,255,.5)',
+                                data: [30.0]
+                            }, {
+                                name: '3',
+                                color: 'rgba(255, 0, 0,.5)',
+                                data: [30.4],
+                                pointPlacement: -.2
+                            }]
+                        });
+                    });
                 </script>
+            </div>
+            <span id="temp-temperature">
+
             </span>
         </div>
     </div>

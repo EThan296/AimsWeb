@@ -11,17 +11,18 @@ body {
 }
 #right-side {
     float: right;
-    background-color: coral;
+    background-color: #B6D0BF;
     width: 35%;
     word-wrap: break-word;
 }
 #anomaly-box {
     margin: 20px;
+    background-color: #A4C4AF;
 
 }
 #left-side {
     float: left;
-    background-color: cadetblue;
+    background-color: #BFC8E4;
     width: 65%;
     word-wrap: break-word;
 }
