@@ -1,14 +1,14 @@
 {
   "_links" : {
     "self" : {
-      "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses{?page,size,sort}",
+      "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses{?page,size,sort}",
       "templated" : true
     }
   },
   "_embedded" : {
     "vbleachStatuses" : [ {
-      "siteId": 1,
-      "siteName" : "Oprheus Island",
+      "siteName" : "Orpheus Island",
+      "siteId" : 9,
       "day" : "2015-11-17",
       "actualWaterTemp" : 26.81,
       "watchTemp" : 29.8,
@@ -17,105 +17,105 @@
       "status" : "NORMAL",
       "_links" : {
         "self" : {
-          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/14837"
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/14837"
         }
       }
     }, {
-      "siteId": 2,
       "siteName" : "Davies Reef",
-      "day" : "2015-11-27",
-      "actualWaterTemp" : 27.016,
+      "siteId" : 4,
+      "day" : "2015-11-30",
+      "actualWaterTemp" : 27.409,
       "watchTemp" : 29.5,
       "warningTemp" : 29.7,
       "bleachingTemp" : 29.9,
       "status" : "NORMAL",
       "_links" : {
         "self" : {
-          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/63"
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/63"
         }
       }
     }, {
-      "siteId": 3,
       "siteName" : "Hardy Reef",
-      "day" : "2015-11-27",
-      "actualWaterTemp" : 26.44,
+      "siteId" : 6,
+      "day" : "2015-11-30",
+      "actualWaterTemp" : 26.793,
       "watchTemp" : 29.2,
       "warningTemp" : 29.4,
       "bleachingTemp" : 29.6,
       "status" : "NORMAL",
       "_links" : {
         "self" : {
-          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/97"
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/97"
         }
       }
     }, {
-      "siteId": 4,
       "siteName" : "Square Rocks",
-      "day" : "2015-11-27",
-      "actualWaterTemp" : 26.852,
+      "siteId" : 5,
+      "day" : "2015-11-30",
+      "actualWaterTemp" : 26.722,
       "watchTemp" : 28.5,
       "warningTemp" : 29.0,
       "bleachingTemp" : 29.6,
       "status" : "NORMAL",
       "_links" : {
         "self" : {
-          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/78"
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/78"
         }
       }
     }, {
-      "siteId": 5,
       "siteName" : "Heron Island",
-      "day" : "2015-11-27",
-      "actualWaterTemp" : 25.642,
+      "siteId" : 130,
+      "day" : "2015-11-30",
+      "actualWaterTemp" : 25.349,
       "watchTemp" : 28.2,
       "warningTemp" : 28.4,
       "bleachingTemp" : 29.2,
       "status" : "NORMAL",
       "_links" : {
         "self" : {
-          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/26"
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/26"
         }
       }
     }, {
-      "siteId": 6,
       "siteName" : "Thursday Island",
-      "day" : "2015-11-27",
-      "actualWaterTemp" : 28.486,
+      "siteId" : 921,
+      "day" : "2015-11-30",
+      "actualWaterTemp" : 28.785,
       "watchTemp" : 30.5,
       "warningTemp" : 31.0,
       "bleachingTemp" : 31.4,
       "status" : "NORMAL",
       "_links" : {
         "self" : {
-          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/8573"
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/8573"
         }
       }
     }, {
-      "siteId": 7,
-      "siteName" : "Agincourt Reef",
-      "day" : "2015-11-27",
-      "actualWaterTemp" : 26.329,
+      "siteName" : "Agincourt Reef Number 3",
+      "siteId" : 1,
+      "day" : "2015-11-30",
+      "actualWaterTemp" : 26.595,
       "watchTemp" : 29.9,
       "warningTemp" : 30.1,
       "bleachingTemp" : 30.3,
       "status" : "NORMAL",
       "_links" : {
         "self" : {
-          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/15041"
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/15041"
         }
       }
     }, {
-      "siteId": 8,
       "siteName" : "Myrmidon Reef",
-      "day" : "2015-11-27",
-      "actualWaterTemp" : 26.813,
+      "siteId" : 7,
+      "day" : "2015-11-29",
+      "actualWaterTemp" : 27.274,
       "watchTemp" : 29.4,
       "warningTemp" : 29.6,
       "bleachingTemp" : 30.0,
       "status" : "NORMAL",
       "_links" : {
         "self" : {
-          "href" : "http://data.aims.gov.au/rtdsrest/api/vbleachStatuses/85075"
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/85075"
         }
       }
     } ]
