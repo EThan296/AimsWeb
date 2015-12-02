@@ -7,7 +7,8 @@ angular.module('site', [])
     {
         $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
     });
-    $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses')
+
+    $http.get('js/json/vbleachStatuses.json')
         .then(function(response) {
             $scope.tempArray = response.data._embedded.vbleachStatuses;
         });
@@ -77,9 +78,17 @@ angular.module('site', [])
 
             });
     };
-});
+})
 
 
+    .controller('detailsController', ['$scope', '$routeParams',
+        function($scope, $routeParams) {
+           $scope.siteId = $routeParams.id;
+            console.log("Stemplate loaded")
+                //$scope.phone = data;
+        }]);
+
+;
 
 /*math bleh
 green = watchtemp

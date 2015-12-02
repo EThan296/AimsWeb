@@ -7,8 +7,12 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute","site"])
                 templateUrl: 'pages/bleaching.html',
                 controller: 'siteCTRL'
             })
+            .when('/site/:id', {
+            templateUrl: 'pages/singleSiteDetails.html',
+            controller: 'detailsController'
+        })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/bleaching'
             });
     }])
 
