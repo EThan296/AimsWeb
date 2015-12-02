@@ -1,0 +1,23 @@
+{
+  "name": "aimsweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.8.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EThan296/AimsWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EThan296/AimsWeb/issues"
+  },
+  "homepage": "https://github.com/EThan296/AimsWeb#readme"
+}
