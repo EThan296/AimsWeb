@@ -1,0 +1,32 @@
+<h1>GBR Bleaching Watch</h1>
+<h4>[Note: This site presents the results of the experimental data products - use with caution.]</h4>
+<div>
+    <div id="right-side">
+        <h3>Temperature Anomaly</h3>
+        <div id="anomaly-box" ng-repeat="anomaly in anomalyArray">
+            <!--{{base = anomaly.vanomolyStatuses; ""}}-->
+            <span id="anomaly-graph"></span>
+            <span id="anomaly-temperature">
+                {{anomaly.anomoly}}
+
+            </span>
+        </div>
+    </div>
+
+    <div id="left-side">
+        <h3>Ocean Temperatures</h3>
+        <p>[Click on a Reef Name to get more information about that reef]</p>
+        <div ng-repeat="temperature in tempArray">
+            <div id="temp-temperature" style="float:right;">
+                {{temperature.actualWaterTemp}}
+            </div>
+            <form style="float:left;">
+                <button>{{temperature.siteName}}</button>
+            </form>
+
+            <button ng-click="generateChart(temperature.siteId, temperature.actualWaterTemp, temperature.watchTemp, temperature.warningTemp, temperature.bleachingTemp);">create chart</button>
+            <div id="container-{{temperature.siteId}}" style="min-width: 310px; max-width: 800px; height: 125px; margin: 0 auto; margin-bottom:10px;"></div>
+
+        </div>
+    </div>
+</div>
