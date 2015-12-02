@@ -6,10 +6,12 @@
         <div id="anomaly-box" ng-repeat="anomaly in anomalyArray">
             <!--{{base = anomaly.vanomolyStatuses; ""}}-->
             <span id="anomaly-graph"></span>
-            <span id="anomaly-temperature">
+            <button ng-mdoel="path" ng-click="generateAnomalyChart(anomaly.siteId, anomaly.plusOneSd, anomaly.plusTwoSd, anomaly.plusThreeSd, anomaly.anomoly);">create chart</button>
+            <div id="anomaly-temperature" style="float:right;">
                 {{anomaly.anomoly}}
+            </div>
+            <div id="anomaly-{{anomaly.siteId}}" style="min-width: 200px; max-width: 80%; height: 125px; margin: 0 auto; margin-bottom:10px;"></div>
 
-            </span>
         </div>
     </div>
 
