@@ -1,7 +1,5 @@
 angular.module('GBR_Bleaching_Watch', [])
 
-<<<<<<< HEAD:js/temperatureController.js
-=======
 .config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
@@ -13,8 +11,7 @@ angular.module('GBR_Bleaching_Watch', [])
                 redirectTo: '/'
             });
         }])
->>>>>>> b21a6cf7d1fbd29fb3989aab874d7ac9562ccfdd:js/controller.js
-
+    
 .controller('siteCTRL', function($scope, $http)
 {
     $http({method: 'GET', url: 'js/json/vanomalyStatuses.json'}).success(function(data)
