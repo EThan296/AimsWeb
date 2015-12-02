@@ -5,90 +5,23 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute"])
         $routeProvider.
             when('/bleaching', {
                 templateUrl: '',
-                controller: 'temperatureCTRL'
-            }).
-            when('/bleaching/site/:id', {
-                templateUrl: '.html',
-                controller: 'PhoneDetailCtrl'
-            }).
-            otherwise({
-                redirectTo: '/bleaching2'
+                controller: 'siteCTRL'
+            })
+            .otherwise({
+                redirectTo: '/'
             });
         }])
 
-// Create the XHR object.
-//function createCORSRequest(method, url) {
-//    var xhr = new XMLHttpRequest();
-//    if ("withCredentials" in xhr) {
-//        // XHR for Chrome/Firefox/Opera/Safari.
-//        xhr.open(method, url, true);
-//    } else if (typeof XDomainRequest != "undefined") {
-//        // XDomainRequest for IE.
-//        xhr = new XDomainRequest();
-//        xhr.open(method, url);
-//    } else {
-//        // CORS not supported.
-//        xhr = null;
-//    }
-//    return xhr;
-//}
-//
-//// Helper method to parse the title tag from the response.
-//function getTitle(text) {
-//    return text.match('<title>(.*)?</title>')[1];
-//}
-//
-//// Make the actual CORS request.
-//function makeCorsRequest() {
-//    // All HTML5 Rocks properties support CORS.
-//    var url = 'http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses';
-//
-//    var xhr = createCORSRequest('GET', url);
-//    if (!xhr) {
-//        alert('CORS not supported');
-//        return;
-//    }
-//
-//    // Response handlers.
-//    xhr.onload = function () {
-//        var text = xhr.responseText;
-//        var title = getTitle(text);
-//        alert('Response from CORS request to ' + url + ': ' + title);
-//    };
-//
-//    xhr.onerror = function () {
-//        alert('Woops, there was an error making the request.');
-//    };
-//
-//    xhr.send();
-//}
-.controller('anomalyCTRL', function($scope, $http)
+.controller('siteCTRL', function($scope, $http)
 {
-    $http({method: 'GET', url: 'js/vanomalyStatuses.json'}).success(function(data)
+    $http({method: 'GET', url: 'js/json/vanomalyStatuses.json'}).success(function(data)
     {
         $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
     });
-})
-
-.controller('temperatureCTRL', function($scope, $http)
-{
-    $http.get('js/vbleachStatuses.json')
+    $http.get('js/json/vbleachStatuses.json')
         .then(function(response) {
             $scope.tempArray = response.data._embedded.vbleachStatuses;
-            //loadChart = generateChart();
-
         });
-    //var invocation = new XMLHttpRequest();
-    //var url = "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/";
-    //
-    //function callOtherDomain() {
-    //    if (invocation){
-    //        invocation.open('GET', url, true);
-    //        invocation.onreadystatechange = handler;
-    //        invocation.send();
-    //    }
-    //}
-    //$scope.tempArray = callOtherDomain();
 
     $scope.generateChart = function(id, currentTemp, watchTemp, warningTemp, bleachingTemp) {
         console.log("chart generated");
@@ -128,15 +61,12 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute"])
                     }
                 },
                 series: [{
-                    //name: '',
                     color: 'rgba(255, 0, 0, 1)',
                     data: [red]
-                    //pointPlacement: 0
+
                 }, {
-                    //name: '',
                     color: 'rgba(283, 118, 0, 1)',
                     data: [orange]
-                    //pointPlacement: -.2
                 }, {
                     //name: '',
                     color: 'rgba(255, 215, 0, 1)',
@@ -145,16 +75,13 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute"])
                     name: '',
                     color: 'rgba(0, 238, 0, 1)',
                     data: [green]
-                    //pointPlacement: .2
 
                 } , {
-                    //name: 'Today',
                     type: 'scatter',
                     color: 'black',
                     data: [currentTemp],
                     marker: {
                         symbol: 'url(http://s22.postimg.org/eavyqgzgt/rsz_2rsz_1line.png)',
-                        //radius: 5
                     }
                 }],
                 credits: { enabled: false }
@@ -171,4 +98,64 @@ yellow = warningtemp - watchtemp
 orange = bleachingTemp - yellow
 red = 34 - orange
 
-*/
+
+
+var invocation = new XMLHttpRequest();
+var url = "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/";
+
+function callOtherDomain() {
+    if (invocation){
+        invocation.open('GET', url, true);
+        invocation.onreadystatechange = handler;
+        invocation.send();
+    }
+}
+$scope.tempArray = callOtherDomain();
+
+ Create the XHR object.
+ function createCORSRequest(method, url) {
+ var xhr = new XMLHttpRequest();
+ if ("withCredentials" in xhr) {
+ // XHR for Chrome/Firefox/Opera/Safari.
+ xhr.open(method, url, true);
+ } else if (typeof XDomainRequest != "undefined") {
+ // XDomainRequest for IE.
+ xhr = new XDomainRequest();
+ xhr.open(method, url);
+ } else {
+ // CORS not supported.
+ xhr = null;
+ }
+ return xhr;
+ }
+
+ // Helper method to parse the title tag from the response.
+ function getTitle(text) {
+ return text.match('<title>(.*)?</title>')[1];
+ }
+
+ // Make the actual CORS request.
+ function makeCorsRequest() {
+ // All HTML5 Rocks properties support CORS.
+ var url = 'http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses';
+
+ var xhr = createCORSRequest('GET', url);
+ if (!xhr) {
+ alert('CORS not supported');
+ return;
+ }
+
+ // Response handlers.
+ xhr.onload = function () {
+ var text = xhr.responseText;
+ var title = getTitle(text);
+ alert('Response from CORS request to ' + url + ': ' + title);
+ };
+
+ xhr.onerror = function () {
+ alert('Woops, there was an error making the request.');
+ };
+
+ xhr.send();
+ }
+ */
