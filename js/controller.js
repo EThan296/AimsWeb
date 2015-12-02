@@ -4,100 +4,18 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute"])
     function($routeProvider) {
         $routeProvider.
             when('/bleaching', {
-                templateUrl: 'load.html',
+                templateUrl: '',
                 controller: 'temperatureCTRL'
-            })
-            .otherwise({
-                redirectTo: '/bleaching'
+            }).
+            when('/bleaching/site/:id', {
+                templateUrl: '.html',
+                controller: 'PhoneDetailCtrl'
+            }).
+            otherwise({
+                redirectTo: '/bleaching2'
             });
         }])
 
-.controller('temperatureCTRL', function($scope, $http)
-{
-    $http({method: 'GET', url: 'js/vanomalyStatuses.json'}).success(function(data)
-    {
-        $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
-    });
-    $http.get('js/vbleachStatuses.json')
-        .then(function(response) {
-            $scope.tempArray = response.data._embedded.vbleachStatuses;
-        });
-
-    $scope.generateChart = function(id, currentTemp, watchTemp, warningTemp, bleachingTemp) {
-        console.log("chart generated");
-        var green = watchTemp;
-        var yellow = warningTemp - watchTemp;
-        var orange = bleachingTemp - warningTemp;
-        var red = 34 - bleachingTemp;
-
-            $('#container-' + id).highcharts({
-                chart: {
-                    type: 'bar'
-                },
-                title: {
-                    text: ''
-                },
-                xAxis: {
-                    categories: ['']
-                },
-                yAxis: {
-                    max:34,
-                    min:20,
-                    minorTickInterval: 0.5,
-                    title: {
-                        text: ''
-                    }
-                },
-                legend: {
-                    reversed: true,
-                    enabled:false
-                },
-                plotOptions: {
-                    column: {
-                        grouping: false
-                    },
-                    series: {
-                        stacking: 'normal'
-                    }
-                },
-                series: [{
-                    color: 'rgba(255, 0, 0, 1)',
-                    data: [red]
-
-                }, {
-                    color: 'rgba(283, 118, 0, 1)',
-                    data: [orange]
-                }, {
-                    //name: '',
-                    color: 'rgba(255, 215, 0, 1)',
-                    data: [yellow]
-                },  {
-                    name: '',
-                    color: 'rgba(0, 238, 0, 1)',
-                    data: [green]
-                } , {
-                    type: 'scatter',
-                    color: 'black',
-                    data: [currentTemp],
-                    marker: {
-                        symbol: 'url(http://s22.postimg.org/eavyqgzgt/rsz_2rsz_1line.png)',
-                    }
-                }],
-                credits: { enabled: false }
-
-            });
-    };
-});
-
-
-
-/*math bleh
-green = watchtemp
-yellow = warningtemp - watchtemp
-orange = bleachingTemp - yellow
-red = 34 - orange
-
-*/
 // Create the XHR object.
 //function createCORSRequest(method, url) {
 //    var xhr = new XMLHttpRequest();
@@ -144,22 +62,113 @@ red = 34 - orange
 //
 //    xhr.send();
 //}
-//.controller('anomalyCTRL', function($scope, $http)
-//{
-//    //$http({method: 'GET', url: 'js/vanomalyStatuses.json'}).success(function(data)
-//    //{
-//    //    $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
-//    //});
-//})
+.controller('anomalyCTRL', function($scope, $http)
+{
+    $http({method: 'GET', url: 'js/vanomalyStatuses.json'}).success(function(data)
+    {
+        $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
+    });
+})
 
-//var invocation = new XMLHttpRequest();
-//var url = "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/";
-//
-//function callOtherDomain() {
-//    if (invocation){
-//        invocation.open('GET', url, true);
-//        invocation.onreadystatechange = handler;
-//        invocation.send();
-//    }
-//}
-//$scope.tempArray = callOtherDomain();
+.controller('temperatureCTRL', function($scope, $http)
+{
+    $http.get('js/vbleachStatuses.json')
+        .then(function(response) {
+            $scope.tempArray = response.data._embedded.vbleachStatuses;
+            //loadChart = generateChart();
+
+        });
+    //var invocation = new XMLHttpRequest();
+    //var url = "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/";
+    //
+    //function callOtherDomain() {
+    //    if (invocation){
+    //        invocation.open('GET', url, true);
+    //        invocation.onreadystatechange = handler;
+    //        invocation.send();
+    //    }
+    //}
+    //$scope.tempArray = callOtherDomain();
+
+    $scope.generateChart = function(id, currentTemp, watchTemp, warningTemp, bleachingTemp) {
+        console.log("chart generated");
+        var green = watchTemp;
+        var yellow = warningTemp - watchTemp;
+        var orange = bleachingTemp - warningTemp;
+        var red = 34 - bleachingTemp;
+
+            $('#container-' + id).highcharts({
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: ['']
+                },
+                yAxis: {
+                    max:34,
+                    min:20,
+                    minorTickInterval: 0.5,
+                    title: {
+                        text: ''
+                    }
+                },
+                legend: {
+                    reversed: true,
+                    enabled:false
+                },
+                plotOptions: {
+                    column: {
+                        grouping: false
+                    },
+                    series: {
+                        stacking: 'normal'
+                    }
+                },
+                series: [{
+                    //name: '',
+                    color: 'rgba(255, 0, 0, 1)',
+                    data: [red]
+                    //pointPlacement: 0
+                }, {
+                    //name: '',
+                    color: 'rgba(283, 118, 0, 1)',
+                    data: [orange]
+                    //pointPlacement: -.2
+                }, {
+                    //name: '',
+                    color: 'rgba(255, 215, 0, 1)',
+                    data: [yellow]
+                },  {
+                    name: '',
+                    color: 'rgba(0, 238, 0, 1)',
+                    data: [green]
+                    //pointPlacement: .2
+
+                } , {
+                    //name: 'Today',
+                    type: 'scatter',
+                    color: 'black',
+                    data: [currentTemp],
+                    marker: {
+                        symbol: 'url(http://s22.postimg.org/eavyqgzgt/rsz_2rsz_1line.png)',
+                        //radius: 5
+                    }
+                }],
+                credits: { enabled: false }
+
+            });
+    };
+});
+
+
+
+/*math bleh
+green = watchtemp
+yellow = warningtemp - watchtemp
+orange = bleachingTemp - yellow
+red = 34 - orange
+
+*/
