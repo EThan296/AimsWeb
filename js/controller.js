@@ -1,20 +1,20 @@
-angular.module('GBR_Bleaching_Watch', [])
+angular.module('GBR_Bleaching_Watch', ["ngRoute"])
 
-//.config(['$routeProvider',
-//    function($routeProvider) {
-//        $routeProvider.
-//            when('/bleaching', {
-//                templateUrl: '',
-//                controller: 'temperatureCTRL'
-//            }).
-//            when('/bleaching/site/:id', {
-//                templateUrl: '.html',
-//                controller: 'PhoneDetailCtrl'
-//            }).
-//            otherwise({
-//                redirectTo: '/bleaching2'
-//            });
-//        }])
+.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/bleaching', {
+                templateUrl: '',
+                controller: 'temperatureCTRL'
+            }).
+            when('/bleaching/site/:id', {
+                templateUrl: '.html',
+                controller: 'PhoneDetailCtrl'
+            }).
+            otherwise({
+                redirectTo: '/bleaching2'
+            });
+        }])
 
 // Create the XHR object.
 //function createCORSRequest(method, url) {
