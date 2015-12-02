@@ -7,7 +7,111 @@ angular.module('site', [])
     {
         $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
     });
+    $scope.generateAnomalyChart = function(id, SDone, SDtwo, SDthree, anomaly) {
 
+        console.log("chart generated");
+
+
+        var blue = -3 + SDthree;
+        var lightBlue = (-SDthree) + (SDtwo);
+        var darkGreen = (-SDtwo) + (SDone);
+        var green = SDone;
+        var green2 = -SDone;
+        var yellow = SDtwo - SDone;
+        var orange = SDthree - SDtwo;
+        var red = 3 - SDthree;
+        console.log(blue,lightBlue,darkGreen,green,yellow,orange,red,anomaly)
+
+        $('#anomaly-' + id).highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['']
+            },
+            yAxis: [{
+                max:3,
+                min:-3,
+                minorTickInterval: 0.5,
+                title: {
+                    text: ''
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                //categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1
+                }
+            }],
+            legend: {
+                reversed: true,
+                enabled:false
+            },
+            plotOptions: {
+                column: {
+                    grouping: false
+                },
+                series: {
+                    stacking: 'normal'
+                }
+            },
+            series: [
+                {
+                    name: '1',
+                    color: 'rgba(0, 0, 255, 1)',
+                    data: [blue]
+                }, {
+                    name: '2',
+                    color: 'rgba(0, 100, 255, 1)',
+                    data: [lightBlue]
+                }, {
+                    name: '3',
+                    color: 'rgba(0, 100, 50, 1)',
+                    data: [darkGreen]
+                }, {
+                    name: '4',
+                    color: 'rgba(0, 238, 0, 1)',
+                    data: [green2]
+
+                },{
+                    name: '7',
+                    color: 'rgba(255, 0, 0, 1)',
+                    data: [red]
+
+                }, {
+                    name: '6',
+                    color: 'rgba(283, 118, 0, 1)',
+                    data: [orange]
+                },{
+                    name: '5',
+                    color: 'rgba(255, 215, 0, 1)',
+                    data: [yellow]
+                },{
+                    name: '4',
+                    color: 'rgba(0, 238, 0, 1)',
+                    data: [green]
+
+                },    {
+                    type: 'scatter',
+                    color: 'black',
+                    data: [anomaly],
+                    marker: {
+                        symbol: 'url(http://s22.postimg.org/eavyqgzgt/rsz_2rsz_1line.png)',
+                    }
+            }],
+            credits: { enabled: false }
+
+        });
+    };
+    
     $http.get('js/json/vbleachStatuses.json')
         .then(function(response) {
             $scope.tempArray = response.data._embedded.vbleachStatuses;
@@ -84,76 +188,8 @@ angular.module('site', [])
     .controller('detailsController', ['$scope', '$routeParams',
         function($scope, $routeParams) {
            $scope.siteId = $routeParams.id;
-            console.log("Stemplate loaded")
+            console.log("template loaded")
                 //$scope.phone = data;
         }]);
 
 ;
-
-/*math bleh
-green = watchtemp
-yellow = warningtemp - watchtemp
-orange = bleachingTemp - yellow
-red = 34 - orange
-
-
-
-var invocation = new XMLHttpRequest();
-var url = "http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses/";
-
-function callOtherDomain() {
-    if (invocation){
-        invocation.open('GET', url, true);
-        invocation.onreadystatechange = handler;
-        invocation.send();
-    }
-}
-$scope.tempArray = callOtherDomain();
-
- Create the XHR object.
- function createCORSRequest(method, url) {
- var xhr = new XMLHttpRequest();
- if ("withCredentials" in xhr) {
- // XHR for Chrome/Firefox/Opera/Safari.
- xhr.open(method, url, true);
- } else if (typeof XDomainRequest != "undefined") {
- // XDomainRequest for IE.
- xhr = new XDomainRequest();
- xhr.open(method, url);
- } else {
- // CORS not supported.
- xhr = null;
- }
- return xhr;
- }
-
- // Helper method to parse the title tag from the response.
- function getTitle(text) {
- return text.match('<title>(.*)?</title>')[1];
- }
-
- // Make the actual CORS request.
- function makeCorsRequest() {
- // All HTML5 Rocks properties support CORS.
- var url = 'http://adctest.aims.gov.au:8080/rtdsrest/api/vbleachStatuses';
-
- var xhr = createCORSRequest('GET', url);
- if (!xhr) {
- alert('CORS not supported');
- return;
- }
-
- // Response handlers.
- xhr.onload = function () {
- var text = xhr.responseText;
- var title = getTitle(text);
- alert('Response from CORS request to ' + url + ': ' + title);
- };
-
- xhr.onerror = function () {
- alert('Woops, there was an error making the request.');
- };
-
- xhr.send();
- }
- */
