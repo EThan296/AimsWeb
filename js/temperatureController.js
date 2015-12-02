@@ -7,14 +7,9 @@ angular.module('site', [])
     {
         $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
     });
+
     $scope.generateAnomalyChart = function(id, SDone, SDtwo, SDthree, anomaly) {
-
-<<<<<<< HEAD
-    $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses')
-=======
-        console.log("chart generated");
-
-
+      console.log("chart generated");
         var blue = -3 + SDthree;
         var lightBlue = (-SDthree) + (SDtwo);
         var darkGreen = (-SDtwo) + (SDone);
@@ -115,16 +110,12 @@ angular.module('site', [])
         });
     };
     
-    $http.get('js/json/vbleachStatuses.json')
->>>>>>> aa7c897c6aaa09ccba641743491c6bfe6bd86143
+    $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses')
+
         .then(function(response) {
             $scope.tempArray = response.data._embedded.vbleachStatuses;
         })
-
-
-
-
-$scope.generateChart = function(id, currentTemp, watchTemp, warningTemp, bleachingTemp) {
+        $scope.generateChart = function(id, currentTemp, watchTemp, warningTemp, bleachingTemp) {
         console.log("chart generated");
         var green = watchTemp;
         var yellow = warningTemp - watchTemp;
@@ -190,17 +181,3 @@ $scope.generateChart = function(id, currentTemp, watchTemp, warningTemp, bleachi
             });
     };
 })
-
-
-<<<<<<< HEAD
-
-=======
-    .controller('detailsController', ['$scope', '$routeParams',
-        function($scope, $routeParams) {
-           $scope.siteId = $routeParams.id;
-            console.log("template loaded")
-                //$scope.phone = data;
-        }]);
->>>>>>> aa7c897c6aaa09ccba641743491c6bfe6bd86143
-
-;
