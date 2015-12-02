@@ -1,6 +1,11 @@
 
+
 body {
-    text-align: center;
+    /*text-align: center;*/
+}
+
+#top {
+    background-color: #1b6d85;
 }
 
 #body-div {
