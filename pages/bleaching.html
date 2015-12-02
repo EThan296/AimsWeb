@@ -24,7 +24,8 @@
                 <button>{{temperature.siteName}}</button>
             </form>
 
-            <button ng-click="generateChart(temperature.siteId, temperature.actualWaterTemp, temperature.watchTemp, temperature.warningTemp, temperature.bleachingTemp);">create chart</button>
+            <button ng-click="generateChart(temperature.siteId, temperature.actualWaterTemp,
+            temperature.watchTemp, temperature.warningTemp, temperature.bleachingTemp);">create chart</button>
             <div id="container-{{temperature.siteId}}" style="min-width: 310px; max-width: 800px; height: 125px; margin: 0 auto; margin-bottom:10px;"></div>
 
         </div>

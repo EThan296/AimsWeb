@@ -1,24 +1,13 @@
-angular.module('GBR_Bleaching_Watch', [])
+angular.module('site', [])
 
-.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider.
-            when('/bleaching', {
-                templateUrl: '',
-                controller: 'siteCTRL'
-            })
-            .otherwise({
-                redirectTo: '/'
-            });
-        }])
-    
+
 .controller('siteCTRL', function($scope, $http)
 {
-    $http({method: 'GET', url: 'js/json/vanomalyStatuses.json'}).success(function(data)
+    $http({method: 'GET', url: 'http://aimsweatherservice.appspot.com/service/vanomolyStatuses'}).success(function(data)
     {
         $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
     });
-    $http.get('js/json/vbleachStatuses.json')
+    $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses')
         .then(function(response) {
             $scope.tempArray = response.data._embedded.vbleachStatuses;
         });
