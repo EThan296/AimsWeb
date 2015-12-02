@@ -8,7 +8,7 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute","site"])
                 controller: 'siteCTRL'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/bleaching'
             });
     }])
 
