@@ -1,19 +1,22 @@
 angular.module('site', [])
 
 
-.controller('siteCTRL', function($scope, $http)
+.controller('siteCTRL', function($scope, $http, $routeParams)
 {
     $http({method: 'GET', url: 'http://aimsweatherservice.appspot.com/service/vanomolyStatuses'}).success(function(data)
     {
         $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
     });
 
-    $http.get('js/json/vbleachStatuses.json')
+    $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses')
         .then(function(response) {
             $scope.tempArray = response.data._embedded.vbleachStatuses;
-        });
+        })
 
-    $scope.generateChart = function(id, currentTemp, watchTemp, warningTemp, bleachingTemp) {
+
+
+
+$scope.generateChart = function(id, currentTemp, watchTemp, warningTemp, bleachingTemp) {
         console.log("chart generated");
         var green = watchTemp;
         var yellow = warningTemp - watchTemp;
@@ -81,12 +84,7 @@ angular.module('site', [])
 })
 
 
-    .controller('detailsController', ['$scope', '$routeParams',
-        function($scope, $routeParams) {
-           $scope.siteId = $routeParams.id;
-            console.log("Stemplate loaded")
-                //$scope.phone = data;
-        }]);
+
 
 ;
 

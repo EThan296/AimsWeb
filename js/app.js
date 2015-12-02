@@ -1,4 +1,4 @@
-angular.module('GBR_Bleaching_Watch', ["ngRoute","site"])
+angular.module('GBR_Bleaching_Watch', ["ngRoute","site","details"])
 
 .config(['$routeProvider',
     function($routeProvider) {
@@ -7,7 +7,7 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute","site"])
                 templateUrl: 'pages/bleaching.html',
                 controller: 'siteCTRL'
             })
-            .when('/site/:id', {
+            .when('/details/:id', {
             templateUrl: 'pages/singleSiteDetails.html',
             controller: 'detailsController'
         })
