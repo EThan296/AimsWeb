@@ -16,6 +16,16 @@ angular.module('details', [])
                     $scope.siteDetails = $scope.results[i];
                     console.log($scope.siteDetails);
                 }
+
+                if ($scope.results.status=="NORMAL"){
+
+                    $scope.results.status.value = "No current Risk of Bleaching";
+                    console.log($scope.results.status);
+
+                }
+
+
+
             }
 
         });
