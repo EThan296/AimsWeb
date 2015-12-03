@@ -2,7 +2,11 @@
 
 body {
     /*text-align: center;*/
+    float: center;
+    color: #333;
 }
+
+
 
 #top {
     background-image: initial;
@@ -19,12 +23,12 @@ body {
     padding-right: 0px;
     padding-bottom: 3px;
     padding-left: 0px;
+
 }
 
 
-
 .brand .pull-right {
-    margin-top: 15px;
+    margin-top: 0px;
     margin-right: 45px;
     color: #fff;
     font-weight: 800;
@@ -37,21 +41,23 @@ body {
     margin-left:5%;
     margin-right:5%;
     background-color: aquamarine;
+    /*max-width:1500px;*/
 }
 #right-side {
     float: right;
     background-color: #B6D0BF;
-    width: 35%;
+    width: 39%;
     word-wrap: break-word;
 }
 #anomaly-box {
-    margin: 20px;
+    margin: 10px;
     background-color: #A4C4AF;
 
 }
 #left-side {
     float: left;
     background-color: #BFC8E4;
-    width: 65%;
+    width: 60%;
     word-wrap: break-word;
 }
+
