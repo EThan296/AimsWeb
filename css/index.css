@@ -4,8 +4,9 @@ body {
     /*text-align: center;*/
     float: center;
     color: #333;
-
 }
+
+
 
 #top {
     background-image: initial;
@@ -24,7 +25,6 @@ body {
     padding-left: 0px;
 
 }
-
 
 
 .brand .pull-right {
