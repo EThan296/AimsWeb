@@ -30,6 +30,8 @@ angular.module('details', [])
                 //var bleachTemp = 30.4;
                 //
 
+                console.log(bleachTemp + " " + warnTemp + " " + watchTemp + "" + currentTemp);
+
                 var red = [bleachTemp, 34];
                 var orange = [warnTemp, bleachTemp];
                 var yellow = [watchTemp, warnTemp];
