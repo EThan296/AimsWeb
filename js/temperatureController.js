@@ -36,7 +36,7 @@ angular.module('site', [])
             yAxis: [{
                 max:3,
                 min:-3,
-                minorTickInterval: 0.5,
+                minorTickInterval: 0.25,
                 title: {
                     text: ''
                 }
