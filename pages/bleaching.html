@@ -23,7 +23,7 @@
                 {{temperature.actualWaterTemp}}
             </div>
             <form style="float:left;">
-                <a href="/site/{{temperature.siteId}}">{{temperature.siteName}}</a>
+                <a href="/#/details/{{temperature.siteId}}">{{temperature.siteName}}</a>
             </form>
 
             <button ng-click="generateChart(temperature.siteId, temperature.actualWaterTemp,
