@@ -34,12 +34,6 @@ angular.module('details', [])
         $scope.generateTempSpeedo = function(watchTemp, warnTemp, bleachTemp, currentTemp) {
             $(function () {
                 // variable = [lowlow, lowhigh, highlow, highhigh]  = all colors except green [low, high]
-                //var currentTemp = 26.81;
-                //var watchTemp = 29.8;
-                //var warnTemp = 30.0;
-                //var bleachTemp = 30.4;
-                //
-
                 console.log(bleachTemp + " " + warnTemp + " " + watchTemp + "" + currentTemp);
 
                 var red = [bleachTemp, 34];
@@ -124,7 +118,7 @@ angular.module('details', [])
                                 rotation: 'auto'
                             },
                             title: {
-                                text: 'km/h'
+                                text: '°C'
                             },
                             plotBands: [{
                                 from: green[0],
@@ -146,10 +140,10 @@ angular.module('details', [])
                         },
 
                         series: [{
-                            name: 'Speed',
+                            name: 'Temperature',
                             data: [currentTemp],
                             tooltip: {
-                                valueSuffix: ' km/h'
+                                valueSuffix: ' °C'
                             }
                         }],
                         credits: {
@@ -262,7 +256,7 @@ angular.module('details', [])
                                 rotation: 'auto'
                             },
                             title: {
-                                text: ''
+                                text: '°C'
                             },
                             plotBands: [{
                                 from: green[0],
