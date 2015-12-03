@@ -1,5 +1,5 @@
 //Temperature speedo
-$scope.generateAnomalySpeedo = function(watchTemp, warnTemp, bleachTemp, currentTemp) {
+$scope.generateTempSpeedo = function(watchTemp, warnTemp, bleachTemp, currentTemp) {
     $(function () {
         // variable = [lowlow, lowhigh, highlow, highhigh]  = all colors except green [low, high]
         var currentTemp = 26.81;
