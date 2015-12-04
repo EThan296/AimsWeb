@@ -47,7 +47,20 @@
     <!--<div class="row">-->
 
         <!--<div class="col-sm-8" style="background: #f0ad4e">-->
-            <!--<div style="background: #f0ad4e"><h3>Reef Status</h3></div>-->
+            <!--<div style="background: #f0ad4e">-->
+                <!--<h3>Reef Status</h3>-->
+                <!--<div ng-repeat="temperature in tempArray">-->
+                    <!--<div id="temp-temperature2" style="float:right;">-->
+                        <!--{{temperature.actualWaterTemp}}-->
+                    <!--</div>-->
+
+                    <!--<div id="container-{{temperature.siteId+1}}">-->
+                        <!--<div class="well well-sm" style="background:  	#FFDEAD"> <a href="/#/details/{{temperature.siteId}}">{{temperature.siteName}}</a> <br>{{temperature.status}}</div>-->
+
+                    <!--</div>-->
+
+                <!--</div>-->
+            <!--</div>-->
         <!--</div>-->
 
         <!--<div  class="col-sm-4" style="text-align: center; ">-->
@@ -77,9 +90,6 @@
                 <!--is considered to be 'normal', data<br>-->
                 <!--between the +/- 2 and 3 SD limits as 'unusual' and temperatures outside the<br>-->
                 <!--+/- 3 SD as 'extreme'.</p>-->
-
-
-
 
              <!--</div>-->
         <!--</div>-->
