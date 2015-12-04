@@ -16,7 +16,7 @@
     <meta http-equiv="refresh" content="600">
     <title>GBR Bleaching Watch</title>
 
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="weather.aims.gov.au/app.min.css">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -39,16 +39,16 @@
 
 </head>
 <body>
+
 <div class="container-fluid brand hidden-xs" id="navigation">
 
-    <link rel="stylesheet" href="http://weather.aims.gov.au/app.min.css">
     <div class="container" id="heading">
 
         <a href="/#/overview">
             <img src="http://weather.aims.gov.au/assets/images/aims-logo-white.png" width="250" height="65" />
             <div class="pull-right">
-                <link rel="stylesheet" href="css/index.css">
-                <img src="assets/images/imos.png"  height="65"/>
+
+                <img src="assets/images/imos.png"  height="45"/>
             </div>
         </a>
 
@@ -57,7 +57,7 @@
 </div>
 
 
-<nav class="navbar navbar-default navbar-static-top"  role="banner">
+<header class="navbar navbar-default navbar-static-top"  role="banner">
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -90,28 +90,32 @@
             </ul>
         </nav>
     </div>
-</nav>
+</header>
 
 
 
-<div id="body-div">
-
-    <div ng-view></div>
-
-</div>
+    <div ng-view autoscroll=""></div>
 
 
-<!--footer>
-    <!--link rel="stylesheet" href="http://weather.aims.gov.au/app.min.css">
+
+
+
+
+<footer>
+    <link rel="stylesheet" href="http://weather.aims.gov.au/app.min.css">
         <div class="container">
-        <p>&copy; 2015 Australian Institute of Marine Science &nbsp;<a href="http://creativecommons.org/licenses/by/3.0/au/deed.en">
-            <img src="assets/images/cc.png" alt="creative commons" /></a></p>
+        <p>&copy; 2015 Australian Institute of Marine Science &nbsp;<a href="http://creativecommons.org/licenses/by/3.0/au/deed.en"><img src="http://weather.aims.gov.au/assets/images/cc.png" alt="creative commons" /></a></p>
         <ul>
             <li><a href="http://www.aims.gov.au/docs/cc-attribution.html">Attributing AIMS</a> |</li>
             <li><a href="http://www.aims.gov.au/docs/cc-copyright.html">Copyright Notice</a> |</li>
             <li><a href="http://www.aims.gov.au/docs/disclaimer.html">Disclaimer</a> |</li>
             <li><a href="http://www.aims.gov.au/docs/privacy-policy.html">Privacy Policy</a></li>
         </ul>
-    </div-->
+    </div>
+</footer>
+
+
+
+
 </body>
 </html>

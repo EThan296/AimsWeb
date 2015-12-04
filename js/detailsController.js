@@ -16,6 +16,16 @@ angular.module('details', ["highcharts-ng"])
                     $scope.siteDetails = $scope.results[i];
                     console.log($scope.siteDetails);
                 }
+
+                if ($scope.results.status=="NORMAL"){
+
+                    $scope.results.status.value = "No current Risk of Bleaching";
+                    console.log($scope.results.status);
+
+                }
+
+
+
             }
             //Temperature speedo
             // variable = [lowlow, lowhigh, highlow, highhigh]  = all colors except green [low, high]
