@@ -61,7 +61,20 @@ body {
     word-wrap: break-word;
 }
 
+#reefStatusDiv{
+    float: left;
+    background-color: #BFC8E4;
+    width: 60%;
+    word-wrap: break-word;
+}
 
+#dataDiv{
+
+    float: right;
+    background-color: #B6D0BF;
+    width: 39%;
+    word-wrap: break-word;
+}
 
 .bg-4 {
     background-color: #2f2f2f; /* Black Gray */
