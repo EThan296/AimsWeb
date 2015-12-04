@@ -1,30 +1,27 @@
-
-
 body {
     /*text-align: center;*/
     float: center;
     color: #333;
 }
 
-
 #body-div {
     text-align:center;
-
     background-color: aquamarine;
-
     /*max-width:1500px;*/
 }
+
 #right-side {
     float: right;
     background-color: #B6D0BF;
     width: 39%;
     word-wrap: break-word;
 }
+
 #anomaly-box {
     margin: 10px;
     background-color: #A4C4AF;
-
 }
+
 #left-side {
     float: left;
     background-color: #BFC8E4;
@@ -32,13 +29,7 @@ body {
     word-wrap: break-word;
 }
 
-
-
 .bg-4 {
     background-color: #2f2f2f; /* Black Gray */
     color: #fff;
 }
-
-
-
-
