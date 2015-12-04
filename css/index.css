@@ -1,30 +1,27 @@
-
-
 body {
     /*text-align: center;*/
     float: center;
     color: #333;
 }
 
-
 #body-div {
     text-align:center;
-
     background-color: aquamarine;
-
     /*max-width:1500px;*/
 }
+
 #right-side {
     float: right;
     background-color: #B6D0BF;
     width: 39%;
     word-wrap: break-word;
 }
+
 #anomaly-box {
     margin: 10px;
     background-color: #A4C4AF;
-
 }
+
 #left-side {
     float: left;
     background-color: #BFC8E4;
@@ -32,13 +29,25 @@ body {
     word-wrap: break-word;
 }
 
+<<<<<<< HEAD
+=======
+#reefStatusDiv{
+    float: left;
+    background-color: #BFC8E4;
+    width: 60%;
+    word-wrap: break-word;
+}
 
+#dataDiv{
 
+    float: right;
+    background-color: #B6D0BF;
+    width: 39%;
+    word-wrap: break-word;
+}
+
+>>>>>>> 0ea28af765a0da8c9c0d2caa389a3d625c4c4873
 .bg-4 {
     background-color: #2f2f2f; /* Black Gray */
     color: #fff;
 }
-
-
-
-

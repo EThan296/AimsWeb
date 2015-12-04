@@ -16,9 +16,9 @@
     <meta http-equiv="refresh" content="600">
     <title>GBR Bleaching Watch</title>
 
-    <link rel="stylesheet" href="weather.aims.gov.au/app.min.css">
+    <link rel="stylesheet" href="http://weather.aims.gov.au/app.min.css">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script src="angular_resources/angular.js"></script>
@@ -58,7 +58,7 @@
 </div>
 
 
-<header class="navbar navbar-default navbar-static-top"  role="banner">
+<header class="navbar navbar-default navbar-static-top" id="top"  role="banner">
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -97,26 +97,22 @@
 
     <div ng-view autoscroll=""></div>
 
+    <footer>
+
+            <div class="container">
+            <p>&copy; 2015 Australian Institute of Marine Science &nbsp;<a href="http://creativecommons.org/licenses/by/3.0/au/deed.en"><img src="http://weather.aims.gov.au/assets/images/cc.png" alt="creative commons" /></a></p>
+            <ul>
+                <li><a href="http://www.aims.gov.au/docs/cc-attribution.html">Attributing AIMS</a> |</li>
+                <li><a href="http://www.aims.gov.au/docs/cc-copyright.html">Copyright Notice</a> |</li>
+                <li><a href="http://www.aims.gov.au/docs/disclaimer.html">Disclaimer</a> |</li>
+                <li><a href="http://www.aims.gov.au/docs/privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </footer>
 
 
 
-
-
-<footer>
-    <link rel="stylesheet" href="http://weather.aims.gov.au/app.min.css">
-        <div class="container">
-        <p>&copy; 2015 Australian Institute of Marine Science &nbsp;<a href="http://creativecommons.org/licenses/by/3.0/au/deed.en"><img src="http://weather.aims.gov.au/assets/images/cc.png" alt="creative commons" /></a></p>
-        <ul>
-            <li><a href="http://www.aims.gov.au/docs/cc-attribution.html">Attributing AIMS</a> |</li>
-            <li><a href="http://www.aims.gov.au/docs/cc-copyright.html">Copyright Notice</a> |</li>
-            <li><a href="http://www.aims.gov.au/docs/disclaimer.html">Disclaimer</a> |</li>
-            <li><a href="http://www.aims.gov.au/docs/privacy-policy.html">Privacy Policy</a></li>
-        </ul>
-    </div>
-</footer>
-
-
-
+<script src="js/bootstrap.min.js"></script>
 
 </body>
 </html>

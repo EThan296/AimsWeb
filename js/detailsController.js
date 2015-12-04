@@ -17,14 +17,12 @@ angular.module('details', ["highcharts-ng"])
                     console.log($scope.siteDetails);
                 }
 
-                if ($scope.results.status=="NORMAL"){
+                if ($scope.results[i].status=="NORMAL"){
 
-                    $scope.results.status.value = "No current Risk of Bleaching";
-                    console.log($scope.results.status);
+                    $scope.results[i].status = "No current Risk of Bleaching";
+                    console.log($scope.results[i].status);
 
                 }
-
-
 
             }
             //Temperature speedo
