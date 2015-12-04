@@ -7,42 +7,11 @@ body {
 }
 
 
-
-/*#top {
-    background-image: initial;
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat-x: initial;
-    background-repeat-y: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: rgb(0, 51, 102);
-    padding-top: 3px;
-    padding-right: 0px;
-    padding-bottom: 3px;
-    padding-left: 0px;
-
-}
-*/
-
-
-/*.brand .pull-right {
-    margin-top: 0px;
-    margin-right: 45px;
-    color: #fff;
-    font-weight: 800;
-    font-size: 22px;
-    text-shadow: 2px 2px rgba(0,0,0,0.61);
-}*/
-
 #body-div {
     text-align:center;
-    margin-left:5%;
-    margin-right:5%;
+
     background-color: aquamarine;
-    position:absolute;
+
     /*max-width:1500px;*/
 }
 #right-side {
