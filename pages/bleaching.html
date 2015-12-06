@@ -2,22 +2,27 @@
 <div class="container">
 
     <div id="body-div">
+
 <h1>GBR Bleaching Watch</h1>
 <h4>[Note: This site presents the results of the experimental data products - use with caution.]</h4>
     </div>
 
     <div id="right-side">
         <h3>Temperature Anomaly</h3>
+        <p>[Click on a Reef Name to get more information about that reef]</p>
+
         <div id="anomaly-box" ng-repeat="anomaly in anomalyArray">
             <!--{{base = anomaly.vanomolyStatuses; ""}}-->
             <span id="anomaly-graph"></span>
-            <button ng-mdoel="path" ng-click="generateAnomalyChart(anomaly.siteId, anomaly.plusOneSd, anomaly.plusTwoSd, anomaly.plusThreeSd, anomaly.anomoly);">create chart</button>
+
             <div id="anomaly-temperature" style="float:right;">
                 {{anomaly.anomoly}}
             </div>
-            <div id="anomaly-{{anomaly.siteId}}" style="min-width: 200px; max-width: 80%; height: 125px; margin: 0 auto; margin-bottom:10px;"></div>
-
+            <div style="min-width: 200px; max-width: 80%; height: 125px; margin: 0 auto; margin-bottom:10px;">
+                <highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart></div>
+            <!--<div id="container-{{anomaly.siteId}}"></div>-->
         </div>
+
     </div>
 
     <div id="left-side">
@@ -30,12 +35,8 @@
             <form style="float:left;">
                 <a href="/#/details/{{temperature.siteId}}">{{temperature.siteName}}</a>
             </form>
-
-            <button ng-click="generateChart(temperature.siteId, temperature.actualWaterTemp,
-            temperature.watchTemp, temperature.warningTemp, temperature.bleachingTemp);">create chart</button>
-            <div id="container-{{temperature.siteId}}"
-                 style="min-width: 310px; max-width: 800px; height: 125px; margin: 0 auto; margin-bottom:10px;">
-
+            <div style="min-width: 310px; max-width: 800px; height: 125px; margin: 0 auto; margin-bottom:10px;">
+                <highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart>
             </div>
 
         </div>

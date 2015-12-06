@@ -14,5 +14,5 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","site","details
             .otherwise({
                 redirectTo: '/bleaching'
             });
-    }])
+    }]);
 
