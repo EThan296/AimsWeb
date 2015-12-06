@@ -29,8 +29,6 @@ body {
     word-wrap: break-word;
 }
 
-<<<<<<< HEAD
-=======
 #reefStatusDiv{
     float: left;
     background-color: #BFC8E4;
@@ -46,8 +44,9 @@ body {
     word-wrap: break-word;
 }
 
->>>>>>> 0ea28af765a0da8c9c0d2caa389a3d625c4c4873
+
 .bg-4 {
     background-color: #2f2f2f; /* Black Gray */
     color: #fff;
 }
+

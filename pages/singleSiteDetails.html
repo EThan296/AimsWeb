@@ -10,7 +10,10 @@
 
         <div class="col-sm-4">
             <div class="panel panel-primary" style="border: slategray">
-                <div class="panel-heading"><h3>Bleaching Risk</h3></div>
+                <div class="panel-heading">
+                    <i class="fa fa-circle fa-4x"style="color:chartreuse;float: left;"></i>
+                    <h3 style="text-align: center;">Bleaching Risk</h3>
+                </div>
                 <div class="panel-body">
                     <!--<button ng-click="generateTempSpeedo(siteDetails.watchTemp, siteDetails.warningTemp, siteDetails.bleachingTemp, siteDetails.actualWaterTemp);">show chart</button>-->
                     <div><highchart id="chart1" config="temperatureConfig" class="span10"></highchart></div>
@@ -27,7 +30,9 @@
 
         <div class="col-sm-4">
             <div class="panel panel-primary" style="border: slategray">
-                <div class="panel-heading"><h3>Thermal Anomaly</h3></div>
+                <div class="panel-heading">
+                    <i class="fa fa-circle fa-4x"style="color:chartreuse;float: left;"></i>
+                    <h3 style="text-align: center;">Thermal Anomaly</h3></div>
                 <div class="panel-body">
                     <!--<button ng-click="generateAnomalySpeedo(siteDetails2.plusOneSd, siteDetails2.plusTwoSd, siteDetails2.plusThreeSd, siteDetails2.anomoly);">show chart</button>-->
                     <div><highchart id="chart2" config="anomalyConfig" class="span10"></highchart></div>
