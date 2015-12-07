@@ -30,7 +30,7 @@ body {
     width: 60%;
     word-wrap: break-word;
 }
-#reefStatusDiv{
+#reefStatusDiv {
     float: left;
     background-color: #BFC8E4;
     width: 60%;
@@ -38,7 +38,6 @@ body {
 }
 
 #dataDiv{
-
     float: right;
     background-color: #B6D0BF;
     width: 39%;
