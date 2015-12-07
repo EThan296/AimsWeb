@@ -12,12 +12,12 @@ body {
 }
 
 #right-side {
-    float: right;
+    /*float: right;*/
     background-color: #B6D0BF;
-    min-width: 412px;
-    max-width: 39%;
-    width: 39%;
-    word-wrap: break-word;
+    /*min-width: 412px;*/
+    /*max-width: 39%;*/
+    /*width: 39%;*/
+    /*word-wrap: break-word;*/
 }
 
 #anomaly-box {
@@ -26,12 +26,12 @@ body {
 }
 
 #left-side {
-    float: left;
+    /*float: left;*/
     background-color: #BFC8E4;
-    min-width:500px;
-    max-width: 60%;
-    width: 60%;
-    word-wrap: break-word;
+    /*min-width:500px;*/
+    /*max-width: 60%;*/
+    /*width: 60%;*/
+    /*word-wrap: break-word;*/
 }
 #left-side h3, p {
     padding-left:10px;
