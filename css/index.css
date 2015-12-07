@@ -9,25 +9,35 @@ body {
     text-align:center;
     background-color: #5288BC;
     /*max-width:1500px;*/
+
 }
 
 #right-side {
     float: right;
     background-color: #B6D0BF;
+    min-width: 412px;
+    max-width: 39%;
     width: 39%;
     word-wrap: break-word;
-}
-
-#anomaly-box {
-    margin: 10px;
-    background-color: #A4C4AF;
 }
 
 #left-side {
     float: left;
     background-color: #BFC8E4;
+    min-width:500px;
+    max-width: 60%;
     width: 60%;
     word-wrap: break-word;
+}
+#left-side h3, p {
+    padding-left:10px;
+}
+#right-side h3, p {
+    padding-left:10px;
+}
+#anomaly-box {
+    margin: 10px;
+    background-color: #A4C4AF;
 }
 .temp-temperature-left {
     height:125px;
@@ -119,4 +129,8 @@ body {
 .bg-4 {
     background-color: #2f2f2f; /* Black Gray */
     color: #fff;
+}
+span.clear {
+    clear:left;
+    display:block;
 }
