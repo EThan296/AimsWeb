@@ -9,7 +9,6 @@ body {
     text-align:center;
     background-color: #5288BC;
     /*max-width:1500px;*/
-
 }
 
 #right-side {
@@ -19,6 +18,11 @@ body {
     max-width: 39%;
     width: 39%;
     word-wrap: break-word;
+}
+
+#anomaly-box {
+    margin: 10px;
+    background-color: #A4C4AF;
 }
 
 #left-side {
