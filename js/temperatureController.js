@@ -74,36 +74,36 @@ angular.module('site', [])
                 series: [
                     {
                         name: '6',
-                        color: 'rgba(255, 0, 0, 1)',
+                        color: 'rgba(255, 93, 93, 1)',
                         data: [red]
                     }, {
                         name: '1',
-                        color: 'rgba(0, 0, 255, 1)',
+                        color: 'rgba(93, 93, 255, 1)',
                         data: [blue]
                     }, {
                         name: '2',
-                        color: 'rgba(0, 100, 255, 1)',
+                        color: 'rgba(77, 137, 202, 1)',
                         data: [lightBlue]
                     }, {
                         name: '3',
-                        color: 'rgba(0, 100, 50, 1)',
+                        color: 'rgba(33, 196, 145, 1)',
                         data: [darkGreen]
                     }, {
                         name: '4',
-                        color: 'rgba(0, 238, 0, 1)',
+                        color: 'rgba(140, 254, 140, 1)',
                         data: [green2]
 
                     },{
                         name: '7',
-                        color: 'rgba(283, 118, 0, 1)',
+                        color: 'rgba(255, 255, 0, 1)',
                         data: [yellow]
                     },{
                         name: '5',
-                        color: 'rgba(255, 215, 0, 1)',
+                        color: 'rgba(254, 170, 85, 1)',
                         data: [orange]
                     }, {
                         name: '4',
-                        color: 'rgba(0, 238, 0, 1)',
+                        color: 'rgba(140, 254, 140, 1)',
                         data: [green]
 
                     },    {
@@ -138,8 +138,7 @@ angular.module('site', [])
                     options: {
                         chart: {
                             type: 'bar',
-                            height: 125,
-                            width: 700
+                            height: 125
                         },
                         title: {
                             text: ''
@@ -169,19 +168,19 @@ angular.module('site', [])
                         }
                     },
                     series: [{
-                        color: 'rgba(255, 0, 0, 1)',
+                        color: 'rgba(255, 93, 93, 1)',
                         data: [red]
 
                     }, {
-                        color: 'rgba(283, 118, 0, 1)',
+                        color: 'rgba(254, 170, 85, 1)',
                         data: [orange]
                     }, {
                         //name: '',
-                        color: 'rgba(255, 215, 0, 1)',
+                        color: 'rgba(255, 255, 0, 1)',
                         data: [yellow]
                     }, {
                         name: '',
-                        color: 'rgba(0, 238, 0, 1)',
+                        color: 'rgba(140, 254, 140, 1)',
                         data: [green]
 
                     }, {

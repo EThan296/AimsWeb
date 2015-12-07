@@ -1,13 +1,13 @@
 body {
     /*text-align: center;*/
-    float: center;
+    /*float: center;*/
     /*color: #333;*/
     background-color: #f2f2f2;
 }
 
 #body-div {
     text-align:center;
-    background-color: aquamarine;
+    background-color: #5288BC;
     /*max-width:1500px;*/
 }
 
@@ -29,6 +29,54 @@ body {
     width: 60%;
     word-wrap: break-word;
 }
+.temp-temperature-left {
+    height:125px;
+    width:25%;
+    float:left;
+    line-height:125px;
+    text-align:center;
+}
+.temp-temperature-left.span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+.temp-temperature-right {
+    height:125px;
+    width: 10%;
+    float:right;
+    line-height:125px;
+    text-align:center;
+}
+.temp-temperature-right.span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+.anomaly-temperature {
+    height:125px;
+    width: 15%;
+    float:right;
+    line-height:125px;
+    text-align:center;
+}
+.temp-temperature-right.span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+.temp-chart {
+    width:65%;
+    height: 125px;
+    align-items: center;
+    float:right;
+    vertical-align: middle;
+    display:inline-block;
+}
+.anomaly-chart {
+    width: 85%;
+}
+
 #reefStatusDiv{
     float: left;
     background-color: #BFC8E4;
