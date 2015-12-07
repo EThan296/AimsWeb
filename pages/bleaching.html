@@ -7,27 +7,25 @@
     <div id="body-div">
 
 <h1>GBR Bleaching Watch</h1>
+        <h4>This site shows current water
+            temperatures for selected reefs along
+            the Great Barrier Reef using real time
+            data from the AIMS and IMOS Remote
+            Monitoring stations. Data is updated everyday.</h4>
 <h4>[Note: This site presents the results of the experimental data products - use with caution.]</h4>
     </div>
 
-    <div id="right-side">
-        <h3>Temperature Anomaly</h3>
-        <p>[Click on a Reef Name to get more information about that reef]</p>
 
-        <div id="anomaly-box" ng-repeat="anomaly in anomalyArray">
-            <div class="anomaly-temperature" style="float:right;">
-                <span>{{anomaly.anomoly.toFixed(1);}}°C</span>
-            </div>
-            <div style="height: 125px; margin: 0 auto; margin-bottom:10px;">
-                <div class="anomaly-chart"><highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart></div>
-            </div>
-        </div>
-
-    </div>
-
+<!--<div class="row">-->
+    <!--<div class="col-sm-8">-->
     <div id="left-side">
         <h3>Ocean Temperatures</h3>
         <p>[Click on a Reef Name to get more information about that reef]</p>
+        <div style="width:33%; float:left; padding-left: 15px; text-decoration: underline;"><h4>Reef Name</h4></div>
+        <div style="width:33%; float:left; text-decoration: underline;"><h4>Current Temperature</h4></div>
+        <div style="width:33%; float:right; text-align:right; padding-right: 15px; text-decoration: underline;"><h4>°C</h4></div>
+        <span class="clear"></span>
+        <!--</br>-->
         <div ng-repeat="temperature in tempArray">
             <div class="temp-temperature-left">
                 <form>
@@ -40,44 +38,62 @@
             <div style="min-width: 310px; max-width: 800px; height: 125px; margin: 0 auto; margin-bottom:10px;">
                 <div class="temp-chart"><highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart></div>
             </div>
-
-
-
         </div>
     </div>
+    <!--</div>-->
+    <!--<div class="col-sm-4">-->
+    <div id="right-side">
 
+        <h3>Temperature Anomaly</h3>
+        <p>[Click on a Reef Name to get more information about that reef]</p>
+        <!--</br>-->
+        <div style="width:50%; float:left; text-decoration: underline; padding-left: 25px;"><h4>Temperature Anomaly</h4></div>
+        <div style="width:50%; float:left; text-align:right; padding-right: 15px; text-decoration: underline;"><h4>°C</h4></div>
+        <span class="clear"></span>
+        <!--</br>-->
 
+        <div id="anomaly-box" ng-repeat="anomaly in anomalyArray" style="position: relative; top:-10px;">
+            <div class="anomaly-temperature" style="float:right;">
+                <span>{{anomaly.anomoly.toFixed(1);}}°C</span>
+            </div>
+            <div style="height: 125px; margin: 0 auto; margin-bottom:10px;">
+                <div class="anomaly-chart"><highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart></div>
+            </div>
+        </div>
 
-<div class="container-fluid">
+    </div>
+    <!--</div>-->
+
     <div class="row">
-        <div class="col-sm-8" style="background-color: #BFC8E4;">
-            <div style="float:left; width:50%;">
+        <div class="col-sm-7" style="background-color: #BFC8E4;">
+            <div style="float:left; width:50%; padding-top: 10px; padding-left: 10px;">
                 <p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>
             </div>
-            <div style="float:right; width:50%; border-style:solid; border-color: black; border-width:1px; height:100%; padding:5px;">
-                <div style="border: 1px solid green; height: 50%; width:50%; float:left;">
+            <div style="float:right; width:50%; height:100%; padding:5px;">
+                <div style="height: 50%; width:50%; float:left;">
                     <div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>
-                    <p style="float: right; text-align:left;">Normal Temperatures</p>
+                    <p>Normal Temperatures</p>
 
                 </div>
-                <div style="border: 1px solid green; height: 50%; width:50%; float:right;">
+                <div style="height: 50%; width:50%; float:right;">
                     <div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>
-                    <p style="float: right; text-align:left;">Bleaching Warning</p>
+                    <p>Bleaching Warning</p>
 
                 </div>
-                <div style="border: 1px solid green; height: 50%; width:50%; float:left;">
+                <div style="height: 50%; width:50%; float:left;">
                     <div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>
-                    <p style="float: right; text-align:left;">Bleaching Watch</p>
+                    <p>Bleaching Watch</p>
 
                 </div>
-                <div style="border: 1px solid green; height: 50%; width:50%; float:right;">
+                <div style="height: 50%; width:50%; float:right;">
                     <div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>
-                    <p style="float: right; text-align:left;">Bleaching Threshold</p>
+                    <p>Bleaching Threshold</p>
 
                 </div>
             </div>
 
         </div>
+        <div class="col-sm-5"></div>
     </div>
     <div class="row">
 
@@ -101,29 +117,25 @@
         <div  class="col-sm-4" style="text-align: center; ">
              <div style="background: salmon "><h3><button>View as map</button></h3>
 
-             <p>This site shows current water<br>
-                temperatures for selected reefs along<br>
-                the Great Barrier Reef using real time<br>
-                data from the AIMS and IMOS Remote<br>
-                Monitoring stations. Data is updated everyday.
+             <p>
              </p>
 
              <br>
 
-             <p>The data is displayed in the context of<br>
-                the historical climatological record (how<br>
-                much warmer or cooler it is than the<br>
-                 historical climatology) and how current<br>
-                 temperatures relate to known empirical<br>
+             <p>The data is displayed in the context of
+                the historical climatological record (how
+                much warmer or cooler it is than the
+                 historical climatology) and how current
+                 temperatures relate to known empirical
                  coral bleaching thresholds.
              </p>
 
              <br>
 
-             <p>Data that is within +/- 2 Standard<br>
-                Deviations (SD) from the long term mean<br>
-                is considered to be 'normal', data<br>
-                between the +/- 2 and 3 SD limits as 'unusual' and temperatures outside the<br>
+             <p>Data that is within +/- 2 Standard
+                Deviations (SD) from the long term mean
+                is considered to be 'normal', data
+                 between the +/- 2 and 3 SD limits as 'unusual' and temperatures outside the
                 +/- 3 SD as 'extreme'.</p>
 
              </div>
@@ -132,6 +144,3 @@
     </div>
 </div>
 
-
-
-</div>

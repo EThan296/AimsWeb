@@ -140,6 +140,9 @@ angular.module('site', [])
                             type: 'bar',
                             height: 125
                         },
+                        tooltip: {
+                            enabled: false
+                        },
                         title: {
                             text: ''
                         },

@@ -14,6 +14,8 @@ body {
 #right-side {
     float: right;
     background-color: #B6D0BF;
+    min-width: 412px;
+    max-width: 39%;
     width: 39%;
     word-wrap: break-word;
 }
@@ -26,13 +28,21 @@ body {
 #left-side {
     float: left;
     background-color: #BFC8E4;
+    min-width:500px;
+    max-width: 60%;
     width: 60%;
     word-wrap: break-word;
-<<<<<<< HEAD
-
-=======
 }
-
+#left-side h3, p {
+    padding-left:10px;
+}
+#right-side h3, p {
+    padding-left:10px;
+}
+#anomaly-box {
+    margin: 10px;
+    background-color: #A4C4AF;
+}
 .temp-temperature-left {
     height:125px;
     width:25%;
@@ -40,13 +50,11 @@ body {
     line-height:125px;
     text-align:center;
 }
-
 .temp-temperature-left.span {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
 }
-
 .temp-temperature-right {
     height:125px;
     width: 10%;
@@ -54,13 +62,11 @@ body {
     line-height:125px;
     text-align:center;
 }
-
 .temp-temperature-right.span {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
 }
-
 .anomaly-temperature {
     height:125px;
     width: 15%;
@@ -68,13 +74,11 @@ body {
     line-height:125px;
     text-align:center;
 }
-
 .temp-temperature-right.span {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
 }
-
 .temp-chart {
     width:65%;
     height: 125px;
@@ -83,11 +87,9 @@ body {
     vertical-align: middle;
     display:inline-block;
 }
-
 .anomaly-chart {
     width: 85%;
 }
-
 .site-button {
     height: 30px;
     width:95%;
@@ -103,43 +105,36 @@ body {
     color: white;
 }
 
->>>>>>> 0d9646e03d45e39a582d8e75c329f2bbd48b705a
 #reefStatusDiv{
     float: left;
     background-color: #BFC8E4;
     width: 60%;
     word-wrap: break-word;
 }
-
 #details1.col-sm-4 {
     width:33%;
     margin-left:0px;
 }
-
 #details2.col-sm-4 {
     width:32%;
     margin-left: 12px;
     margin-right: 12px;
 }
-
 #details3.col-sm-4 {
     width:33%;
     margin-left:0px;
 }
-
 #dataDiv{
     float: right;
     background-color: #B6D0BF;
     width: 39%;
     word-wrap: break-word;
 }
-
 .bg-4 {
     background-color: #2f2f2f; /* Black Gray */
     color: #fff;
-<<<<<<< HEAD
 }
-
-=======
+span.clear {
+    clear:left;
+    display:block;
 }
->>>>>>> 0d9646e03d45e39a582d8e75c329f2bbd48b705a
