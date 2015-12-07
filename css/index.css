@@ -97,7 +97,19 @@ body {
     width: 60%;
     word-wrap: break-word;
 }
-
+#details1.col-sm-4 {
+    width:33%;
+    margin-left:0px;
+}
+#details2.col-sm-4 {
+    width:32%;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+#details3.col-sm-4 {
+    width:33%;
+    margin-left:0px;
+}
 #dataDiv{
     float: right;
     background-color: #B6D0BF;
