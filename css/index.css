@@ -29,9 +29,6 @@ body {
     width: 60%;
     word-wrap: break-word;
 }
-<<<<<<< HEAD
-#reefStatusDiv {
-=======
 .temp-temperature-left {
     height:125px;
     width:25%;
@@ -95,7 +92,6 @@ body {
 }
 
 #reefStatusDiv{
->>>>>>> 1d60c0de509cf7aeaea6288a2d8cd253e0b3546b
     float: left;
     background-color: #BFC8E4;
     width: 60%;
