@@ -28,7 +28,7 @@
         <div ng-repeat="temperature in tempArray">
             <div class="temp-temperature-left">
                 <form>
-                    <span><a href="/#/details/{{temperature.siteId}}">{{temperature.siteName}}</a></span>
+                    <span><a href="/#/details/{{temperature.siteId}}"><button class="site-button">{{temperature.siteName}}</button></a></span>
                 </form>
             </div>
             <div class="temp-temperature-right">
@@ -49,7 +49,7 @@
 
     <div class="row">
 
-        <div class="col-sm-8" style="background: #f0ad4e">
+        <div class="col-sm-8" style="background: #f0ad4e;margin-top:12px;">
             <div style="background: #f0ad4e">
                 <h3>Reef Status</h3>
                 <div ng-repeat="temperature in tempArray">

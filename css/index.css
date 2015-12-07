@@ -76,6 +76,20 @@ body {
 .anomaly-chart {
     width: 85%;
 }
+.site-button {
+    height: 30px;
+    width:95%;
+    line-height: normal;
+    border-radius:10px;
+    border:1px solid #337fed;
+    text-decoration:none;
+    cursor:pointer;
+
+}
+.site-button:hover {
+    background-color:#1e62d0;
+    color: white;
+}
 
 #reefStatusDiv{
     float: left;
