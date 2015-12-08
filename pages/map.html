@@ -46,10 +46,14 @@
                     marker=new google.maps.Marker({
                         position: new google.maps.LatLng(siteMarkers[i][1], siteMarkers[i][2]),
                         map: map,
-                        label: siteMarkers[i][0],
+//                        label: siteMarkers[i][0],
                         title: siteMarkers[i][0],
                         icon: siteIcon,
-                        url: siteMarkers[i][3]
+                        url: siteMarkers[i][3],
+                        labelContent: "siteMarkers[i][0]",
+                        labelAnchor: new google.maps.Point(22, 0),
+                        labelClass: "labels", // the CSS class for the label
+                        labelStyle: {opacity: 0.75}
                     });
                     google.maps.event.addListener(marker, 'click', function() {
                         window.location.href = this.url;
