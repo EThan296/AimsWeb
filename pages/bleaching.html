@@ -1,71 +1,70 @@
 
-<link rel="stylesheet" href="css/index.css">
+<!--link rel="stylesheet" href="css/index.css"-->
 
 
 <div class="container">
-
-    <div id="body-div">
-
-<h1>GBR Bleaching Watch</h1>
-        <h4>This site shows current water
-            temperatures for selected reefs along
-            the Great Barrier Reef using real time
-            data from the AIMS and IMOS Remote
-            Monitoring stations. Data is updated everyday.</h4>
-<h4>[Note: This site presents the results of the experimental data products - use with caution.]</h4>
-    </div>
-
-
-<!--<div class="row">-->
-    <!--<div class="col-sm-8">-->
-    <div id="left-side">
-        <h3>Ocean Temperatures</h3>
-        <p>[Click on a Reef Name to get more information about that reef]</p>
-        <div style="width:33%; float:left; padding-left: 15px; text-decoration: underline;"><h4>Reef Name</h4></div>
-        <div style="width:33%; float:left; text-decoration: underline;"><h4>Current Temperature</h4></div>
-        <div style="width:33%; float:right; text-align:right; padding-right: 15px; text-decoration: underline;"><h4>°C</h4></div>
-        <span class="clear"></span>
-        <!--</br>-->
-        <div ng-repeat="temperature in tempArray">
-            <div class="temp-temperature-left">
-                <form>
-                    <span><a href="/#/details/{{temperature.siteId}}"><button class="site-button">{{temperature.siteName}}</button></a></span>
-                </form>
-            </div>
-            <div class="temp-temperature-right">
-                <span>{{temperature.actualWaterTemp.toFixed(1);}}°C</span>
-            </div>
-            <div style="min-width: 310px; max-width: 800px; height: 125px; margin: 0 auto; margin-bottom:10px;">
-                <div class="temp-chart"><highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart></div>
-            </div>
-        </div>
-    </div>
-    <!--</div>-->
-    <!--<div class="col-sm-4">-->
-    <div id="right-side">
-
-        <h3>Temperature Anomaly</h3>
-        <p>[Click on a Reef Name to get more information about that reef]</p>
-        <!--</br>-->
-        <div style="width:50%; float:left; text-decoration: underline; padding-left: 25px;"><h4>Temperature Anomaly</h4></div>
-        <div style="width:50%; float:left; text-align:right; padding-right: 15px; text-decoration: underline;"><h4>°C</h4></div>
-        <span class="clear"></span>
-        <!--</br>-->
-
-        <div id="anomaly-box" ng-repeat="anomaly in anomalyArray" style="position: relative; top:-10px;">
-            <div class="anomaly-temperature" style="float:right;">
-                <span>{{anomaly.anomoly.toFixed(1);}}°C</span>
-            </div>
-            <div style="height: 125px; margin: 0 auto; margin-bottom:10px;">
-                <div class="anomaly-chart"><highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart></div>
-            </div>
-        </div>
-
-    </div>
-    <!--</div>-->
-
     <div class="row">
-        <div class="col-sm-7" style="background-color: #BFC8E4;">
+        <div class="col-sm-12" id="body-div">
+            <h1>GBR Bleaching Watch</h1>
+            <h4>This site shows current water
+                temperatures for selected reefs along
+                the Great Barrier Reef using real time
+                data from the AIMS and IMOS Remote
+                Monitoring stations. Data is updated everyday.
+            </h4>
+            <h4>[Note: This site presents the results of the experimental data products - use with caution.]</h4>
+        </div>
+    </div>
+
+    <div class="row" id="row2">
+        <div class="col-sm-8" id="left-side">
+        <!--<div id="left-side">-->
+            <h3>Ocean Temperatures</h3>
+            <p>[Click on a Reef Name to get more information about that reef]</p>
+            <div style="width:33%; float:left; padding-left: 15px; text-decoration: underline;"><h4>Reef Name</h4></div>
+            <div style="width:33%; float:left; text-decoration: underline;"><h4>Current Temperature</h4></div>
+            <div style="width:33%; float:right; text-align:right; padding-right: 15px; text-decoration: underline;"><h4>°C</h4></div>
+            <span class="clear"></span>
+            <!--</br>-->
+            <div ng-repeat="temperature in tempArray">
+                <div class="temp-temperature-left">
+                    <form>
+                        <span><a href="/#/details/{{temperature.siteId}}"><button class="site-button">{{temperature.siteName}}</button></a></span>
+                    </form>
+                </div>
+                <div class="temp-temperature-right">
+                    <span>{{temperature.actualWaterTemp.toFixed(1);}}°C</span>
+                </div>
+                <div style="min-width: 310px; max-width: 800px; height: 125px; margin: 0 auto; margin-bottom:10px;">
+                    <div class="temp-chart"><highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4" id="right-side">
+        <!--<div id="right-side">-->
+
+            <h3>Temperature Anomaly</h3>
+            <p>[Click on a Reef Name to get more information about that reef]</p>
+            <!--</br>-->
+            <div style="width:50%; float:left; text-decoration: underline; padding-left: 25px;"><h4>Temperature Anomaly</h4></div>
+            <div style="width:50%; float:left; text-align:right; padding-right: 15px; text-decoration: underline;"><h4>°C</h4></div>
+            <span class="clear"></span>
+            <!--</br>-->
+
+            <div id="anomaly-box" ng-repeat="anomaly in anomalyArray" style="position: relative; top:-10px;">
+                <div class="anomaly-temperature" style="float:right;">
+                    <span>{{anomaly.anomoly.toFixed(1);}}°C</span>
+                </div>
+                <div style="height: 125px; margin: 0 auto; margin-bottom:10px;">
+                    <div class="anomaly-chart"><highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8" style="background-color: #BFC8E4;">
             <div style="float:left; width:50%; padding-top: 10px; padding-left: 10px;">
                 <p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>
             </div>
@@ -93,7 +92,6 @@
             </div>
 
         </div>
-        <div class="col-sm-5"></div>
     </div>
     <div class="row">
 
