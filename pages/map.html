@@ -6,6 +6,7 @@
     <!--<script src="http://maps.googleapis.com/maps/api/js"></script>-->
 
 
+    <!--<script src="http://maps.googleapis.com/maps/api/js"></script>-->
 
     <script>
 
@@ -22,11 +23,9 @@
                 ['Myrmidon Reef',-18.264077, 147.384382, 1]
             ];
 
-            var siteIcon = '/resources/images2.png'
-//            var image = 'pages/resources/images2.png"></i>';
-//            var siteIcon = '<i class="fa fa-circle fa-4x" style="color:chartreuse;"></i>';
+            var siteIcon = '/resources/images2.png';
 
-            function initializeMap()
+            function initialize()
             {
                 var mapProp = {
                     center: new google.maps.LatLng(-24.994167,134.866944),
@@ -53,12 +52,7 @@
 
             }
 
-            google.maps.event.addDomListener(window, 'load', initializeMap);
-
-
-
-
-
+            google.maps.event.addDomListener(window, 'load', initialize());
 
     </script>
 
