@@ -152,6 +152,14 @@ angular.module('details', ["highcharts-ng"])
                     console.log($scope.siteDetails2);
                 }
 
+
+                if ($scope.results2[i].status==0){
+
+                    $scope.results2[i].status = "Normal for this time of year";
+                    console.log($scope.results2[i].status);
+
+                }
+
             }
             //var red = [-3, -1.5, 1.5, 3];
             //var orange = [-1.5, -1, 1, 1.5];
