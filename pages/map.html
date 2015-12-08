@@ -2,16 +2,14 @@
 <html>
 <head>
 
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
-    <!--<script src="http://maps.googleapis.com/maps/api/js"></script>-->
-
-
-    <!--<script src="http://maps.googleapis.com/maps/api/js"></script>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script type="text/javascript"
+            src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js"></script>
 
     <script>
 
 
-            var labels = '';
+//            var labels = '';
             var siteMarkers = [
                 ['Orpheus Island',-18.601034, 146.491199, 8],
                 ['Davies Reef',-18.821809, 147.646998, 7],
@@ -23,7 +21,8 @@
                 ['Myrmidon Reef',-18.264077, 147.384382, 1]
             ];
 
-            var siteIcon = '/resources/images2.png';
+//            var siteIcon = '/resources/images2.png';
+//            var siteIcon = '<i class="fa fa-circle"></i>';
 
             function initialize()
             {
@@ -41,13 +40,17 @@
 
                     marker=new google.maps.Marker({
                         position:new google.maps.LatLng(siteMarkers[i][1], siteMarkers[i][2]),
+                        draggable: true,
+                        raiseOnDrag: true,
                         map: map,
                         label: siteMarkers[i][0],
                         title:siteMarkers[i][0],
-                        icon: siteIcon
+                        icon: ' ',
+                        labelContent: '<i class="fa fa-circle fa-3x" style="color:lawngreen;"></i>'
 
 
                     });
+
                 }
 
             }
