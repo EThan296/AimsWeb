@@ -2,7 +2,6 @@
  * Created by rparmar on 8/12/2015.
  */
 
-
 angular.module('map', [])
 
     .controller('mapController', ['$scope',
