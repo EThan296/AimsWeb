@@ -7,7 +7,7 @@ body {
 
 #body-div {
     text-align:center;
-    background-color: #5288BC;
+    background-color: #337ab7;
     /*max-width:1500px;*/
 }
 
@@ -23,19 +23,16 @@ body {
 
 #anomaly-box {
     margin: 10px;
-    background-color: #A4C4AF;
+    background-color: #6D9FD0;
 }
 
 #left-side {
     /*float: left;*/
-    background-color: #BFC8E4;
+    background-color: #6D9FD0;
     /*min-width:500px;*/
     /*max-width: 60%;*/
     /*width: 60%;*/
     /*word-wrap: break-word;*/
-}
-#row2.row {
-    margin-top:12px;
 }
 #left-side h3, p {
     padding-left:10px;
@@ -95,7 +92,7 @@ body {
     width: 85%;
 }
 .site-button {
-    height: 30px;
+    height: 35px;
     width:95%;
     line-height: normal;
     border-radius:10px;
