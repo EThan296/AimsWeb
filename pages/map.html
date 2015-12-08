@@ -13,17 +13,17 @@
 
             var labels = '';
             var siteMarkers = [
-                ['Orpheus Island',-18.601034, 146.491199, 8],
-                ['Davies Reef',-18.821809, 147.646998, 7],
-                ['Hardy Reef',-19.758991, 149.231237, 6],
-                ['Square Rocks',-23.096227, 150.884617, 5],
-                ['Heron Island',-23.442050,151.914790, 4],
-                ['Thursday Island',-21.138761, 149.181779, 3],
-                ['Agincourt Reef Number 3',-16.018766, 145.850351, 2],
-                ['Myrmidon Reef',-18.264077, 147.384382, 1]
+                ['Orpheus Island',-18.601034, 146.491199, 8, '/#/details/{{temperature.siteId}}'],
+                ['Davies Reef',-18.821809, 147.646998, 7, '/#/details/{{temperature.siteId}}'],
+                ['Hardy Reef',-19.758991, 149.231237, 6, '/#/details/{{temperature.siteId}}'],
+                ['Square Rocks',-23.096227, 150.884617, 5, '/#/details/{{temperature.siteId}}'],
+                ['Heron Island',-23.442050,151.914790, 4, '/#/details/{{temperature.siteId}}'],
+                ['Thursday Island',-21.138761, 149.181779, 3, '/#/details/{{temperature.siteId}}'],
+                ['Agincourt Reef Number 3',-16.018766, 145.850351, 2, 'details/{{temperature.siteId}}'],
+                ['Myrmidon Reef',-18.264077, 147.384382, 1, '/#/details/{{temperature.siteId}}']
             ];
 
-            var siteIcon = '/resources/images2.png';
+            var siteIcon = '/resources/rsz_11images1.png';
 
             function initialize()
             {
@@ -38,15 +38,17 @@
                 <!--Adds a marker to the map.-->
                 var marker, i;
                 for (i = 0; i < siteMarkers.length; i++) {
-
+                    console.log(siteMarkers[i][4]);
                     marker=new google.maps.Marker({
-                        position:new google.maps.LatLng(siteMarkers[i][1], siteMarkers[i][2]),
+                        position: new google.maps.LatLng(siteMarkers[i][1], siteMarkers[i][2]),
                         map: map,
                         label: siteMarkers[i][0],
-                        title:siteMarkers[i][0],
-                        icon: siteIcon
-
-
+                        title: siteMarkers[i][0],
+                        icon: siteIcon,
+                        url: siteMarkers[i][3]
+                    });
+                    google.maps.event.addListener(marker, 'click', function() {
+                        window.location.href = this.url;
                     });
                 }
 
