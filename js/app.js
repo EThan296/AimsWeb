@@ -1,4 +1,4 @@
-angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","site","details"])
+angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","site","details","map"])
 
 .config(['$routeProvider',
     function($routeProvider) {
@@ -7,10 +7,16 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","site","details
                 templateUrl: 'pages/bleaching.html',
                 controller: 'siteCTRL'
             })
+
             .when('/details/:id', {
-            templateUrl: 'pages/singleSiteDetails.html',
-            controller: 'detailsController'
-        })
+                templateUrl: 'pages/singleSiteDetails.html',
+                controller: 'detailsController'
+            })
+
+            .when('/map', {
+                templateUrl: 'pages/map.html',
+                controller: 'mapController'
+            })
             .otherwise({
                 redirectTo: '/bleaching'
             });
