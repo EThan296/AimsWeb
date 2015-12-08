@@ -9,10 +9,35 @@ angular.module('map', [])
             $scope.siteMarkers = [];
             $scope.tempArray = data._embedded.vbleachStatuses;
 
+            console.log($scope.tempArray);
+
+                //second  get method
+            $http({method: 'GET', url: 'js/json/latLngData'}).success(function(data){
+                $scope.siteMarkers2 = [];
+                $scope.tempArray2 = data._embedded.vchannels;
+                $scope.latData = [];
+                $scope.lngData = [];
+
+                console.log($scope.tempArray2);
 
 
             for (var i = 0; i < $scope.tempArray.length; i++) {
-                $scope.siteMarkers[i] = [$scope.tempArray[i].siteName, $scope.tempArray[i].siteId, '#/details/' + $scope.tempArray[i].siteId, -23.44347, 151.94926 ]
+
+                //compares the ID from both service files
+                if ( $scope.tempArray.siteId == $scope.tempArray2.siteId){
+
+                    $scope.siteMarkers[i] = [$scope.tempArray[i].siteName],
+                    $scope.tempArray[i].siteId;
+                    '#/details/' + $scope.tempArray[i].siteId,
+                    $scope.latData[i] = [$scope.tempArray2[i].latitude],
+                    $scope.lngData[i] = [$scope.tempArray2[i].longitude]
+                        //-23.44347, 151.94926 ]
+
+                    console.log("latdata= " + $scope.latData[i]);
+                    console.log("lngdata= " + $scope.lngData[i]);
+
+                }
+
             }
 
             $scope.showdiv = function(){
@@ -21,7 +46,7 @@ angular.module('map', [])
 
             //$scope.siteMarker = $scope.getSiteMarkers();
             console.log($scope.siteMarkers);
-            console.log($scope.siteMarkers[0][4], $scope.siteMarkers[0][3]);
+            //console.log($scope.siteMarkers[0][4], $scope.siteMarkers[0][3]);
 
             $scope.initialize = function() {
                 var siteIcon = '/resources/rsz_11images1.png';
@@ -38,7 +63,8 @@ angular.module('map', [])
                 for (i = 0; i < $scope.siteMarkers.length; i++) {
                     //console.log(siteMarkers[i][4]);
                     marker=new google.maps.Marker({
-                        position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
+                        position: new google.maps.LatLng($scope.latData[i], $scope.lngData[i]),
+                        //position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
                         map: map,
                         label: $scope.siteMarkers[i][0],
                         title: $scope.siteMarkers[i][0],
@@ -52,7 +78,7 @@ angular.module('map', [])
                 }
             }
             google.maps.event.addDomListener(window, 'load', $scope.initialize())
-
+            })//Second get method ends
         })
 
 

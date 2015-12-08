@@ -1,0 +1,501 @@
+{
+  "_links" : {
+    "self" : {
+      "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels{?page,size,sort}",
+      "templated" : true
+    },
+    "next" : {
+      "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels?page=1&size=20{&sort}",
+      "templated" : true
+    }
+  },
+  "_embedded" : {
+    "vchannels" : [ {
+      "key" : 9083,
+      "channelName" : "RV Solander Trip 5460 Salinity @1.9m",
+      "dataFromDate" : "2012-03-14T04:08:22.000+0000",
+      "dataThruDate" : "2012-03-18T10:20:43.000+0000",
+      "qualifier" : "Trip 5460",
+      "deploymentLocationName" : "RV Solander",
+      "depth" : 1.9,
+      "parameterName" : "Salinity",
+      "parameterCategory" : "salinity",
+      "siteId" : 1109,
+      "siteName" : "Ship",
+      "latitude" : null,
+      "longitude" : null,
+      "metadataName" : "RV Solander Trip 5460",
+      "metadataId" : "55fead82-4bcf-4e0a-be44-8d51e35dc965",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9083"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9083/channelData"
+        }
+      }
+    }, {
+      "key" : 9084,
+      "channelName" : "RV Solander Trip 5460 Turbidity @1.9m",
+      "dataFromDate" : "2012-03-14T04:08:22.000+0000",
+      "dataThruDate" : "2012-03-18T10:20:43.000+0000",
+      "qualifier" : "Trip 5460",
+      "deploymentLocationName" : "RV Solander",
+      "depth" : 1.9,
+      "parameterName" : "Turbidity",
+      "parameterCategory" : "turbidity",
+      "siteId" : 1109,
+      "siteName" : "Ship",
+      "latitude" : null,
+      "longitude" : null,
+      "metadataName" : "RV Solander Trip 5460",
+      "metadataId" : "55fead82-4bcf-4e0a-be44-8d51e35dc965",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9084"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9084/channelData"
+        }
+      }
+    }, {
+      "key" : 9085,
+      "channelName" : "RV Solander Trip 5460 Fluorescence @1.9m",
+      "dataFromDate" : "2012-03-14T04:08:22.000+0000",
+      "dataThruDate" : "2012-03-18T10:20:43.000+0000",
+      "qualifier" : "Trip 5460",
+      "deploymentLocationName" : "RV Solander",
+      "depth" : 1.9,
+      "parameterName" : "Fluorescence",
+      "parameterCategory" : "chlorophyll",
+      "siteId" : 1109,
+      "siteName" : "Ship",
+      "latitude" : null,
+      "longitude" : null,
+      "metadataName" : "RV Solander Trip 5460",
+      "metadataId" : "55fead82-4bcf-4e0a-be44-8d51e35dc965",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9085"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9085/channelData"
+        }
+      }
+    }, {
+      "key" : 9274,
+      "channelName" : "Davies Reef Platform Hail Accumulation",
+      "dataFromDate" : "2008-09-17T05:00:00.000+0000",
+      "dataThruDate" : "2012-05-14T06:00:00.000+0000",
+      "qualifier" : null,
+      "deploymentLocationName" : "Davies Reef Platform",
+      "depth" : null,
+      "parameterName" : "Hail Accumulation",
+      "parameterCategory" : "rain",
+      "siteId" : 4,
+      "siteName" : "Davies Reef",
+      "latitude" : -18.83162,
+      "longitude" : 147.6345,
+      "metadataName" : "Davies Reef Platform Hail",
+      "metadataId" : "d13db5ee-8835-45b6-99c3-bd0b87301ecb",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9274"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9274/channelData"
+        }
+      }
+    }, {
+      "key" : 9275,
+      "channelName" : "Davies Reef Platform Hail Duration",
+      "dataFromDate" : "2008-09-17T05:00:00.000+0000",
+      "dataThruDate" : "2012-05-14T06:00:00.000+0000",
+      "qualifier" : null,
+      "deploymentLocationName" : "Davies Reef Platform",
+      "depth" : null,
+      "parameterName" : "Hail Duration",
+      "parameterCategory" : "rain",
+      "siteId" : 4,
+      "siteName" : "Davies Reef",
+      "latitude" : -18.83162,
+      "longitude" : 147.6345,
+      "metadataName" : "Davies Reef Platform Hail",
+      "metadataId" : "d13db5ee-8835-45b6-99c3-bd0b87301ecb",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9275"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9275/channelData"
+        }
+      }
+    }, {
+      "key" : 9276,
+      "channelName" : "Davies Reef Platform Hail Intensity",
+      "dataFromDate" : "2008-09-17T05:00:00.000+0000",
+      "dataThruDate" : "2012-05-14T06:00:00.000+0000",
+      "qualifier" : null,
+      "deploymentLocationName" : "Davies Reef Platform",
+      "depth" : null,
+      "parameterName" : "Hail Intensity",
+      "parameterCategory" : "rain",
+      "siteId" : 4,
+      "siteName" : "Davies Reef",
+      "latitude" : -18.83162,
+      "longitude" : 147.6345,
+      "metadataName" : "Davies Reef Platform Hail",
+      "metadataId" : "d13db5ee-8835-45b6-99c3-bd0b87301ecb",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9276"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9276/channelData"
+        }
+      }
+    }, {
+      "key" : 1817,
+      "channelName" : "FT Water Temperature @8.5m",
+      "dataFromDate" : "2002-02-14T02:00:00.000+0000",
+      "dataThruDate" : "2010-03-26T02:30:00.000+0000",
+      "qualifier" : null,
+      "deploymentLocationName" : "FT",
+      "depth" : 8.5,
+      "parameterName" : "Water Temperature",
+      "parameterCategory" : "water temperature",
+      "siteId" : 967,
+      "siteName" : "Flattop Point",
+      "latitude" : -30.13087,
+      "longitude" : 153.21104,
+      "metadataName" : "Sea Water Temperature Logger Data at Flattop Point, New South Wales",
+      "metadataId" : "ed5be2ba-5577-4ca2-b422-f283cda7ec2b",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/1817"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/1817/channelData"
+        }
+      }
+    }, {
+      "key" : 9522,
+      "channelName" : "THETSL1 Water Temperature @8.9m",
+      "dataFromDate" : null,
+      "dataThruDate" : null,
+      "qualifier" : null,
+      "deploymentLocationName" : "THETSL1",
+      "depth" : 8.9,
+      "parameterName" : "Water Temperature",
+      "parameterCategory" : "water temperature",
+      "siteId" : 2015,
+      "siteName" : "Thetford Reef",
+      "latitude" : -16.79881,
+      "longitude" : 146.19811,
+      "metadataName" : "Sea Water Temperature Logger Data at Thetford Reef, Great Barrier Reef",
+      "metadataId" : "2a75b6f9-823c-4a28-9def-52e639c1a27b",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9522"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9522/channelData"
+        }
+      }
+    }, {
+      "key" : 9523,
+      "channelName" : "THETSL1 Depth @8.9m",
+      "dataFromDate" : null,
+      "dataThruDate" : null,
+      "qualifier" : null,
+      "deploymentLocationName" : "THETSL1",
+      "depth" : 8.9,
+      "parameterName" : "Depth",
+      "parameterCategory" : "depth",
+      "siteId" : 2015,
+      "siteName" : "Thetford Reef",
+      "latitude" : -16.79881,
+      "longitude" : 146.19811,
+      "metadataName" : "Sea Water Temperature Logger Data at Thetford Reef, Great Barrier Reef",
+      "metadataId" : "2a75b6f9-823c-4a28-9def-52e639c1a27b",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9523"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/9523/channelData"
+        }
+      }
+    }, {
+      "key" : 10142,
+      "channelName" : "RV Cape Ferguson Trip 5442 Seawater Intake Temperature @1.9m",
+      "dataFromDate" : null,
+      "dataThruDate" : null,
+      "qualifier" : "Trip 5442",
+      "deploymentLocationName" : "RV Cape Ferguson",
+      "depth" : 1.9,
+      "parameterName" : "Seawater Intake Temperature",
+      "parameterCategory" : "water temperature",
+      "siteId" : 1109,
+      "siteName" : "Ship",
+      "latitude" : null,
+      "longitude" : null,
+      "metadataName" : "RV Cape Ferguson Trip 5442",
+      "metadataId" : "5ad5ab60-66d8-4a52-b3cf-f44f07d62de5",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10142"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10142/channelData"
+        }
+      }
+    }, {
+      "key" : 10422,
+      "channelName" : "CHINAMANSL1 Water Temperature @9.5m Chinaman Reef Slope 1",
+      "dataFromDate" : null,
+      "dataThruDate" : null,
+      "qualifier" : "Chinaman Reef Slope 1",
+      "deploymentLocationName" : "CHINAMANSL1",
+      "depth" : 9.5,
+      "parameterName" : "Water Temperature",
+      "parameterCategory" : "water temperature",
+      "siteId" : 2256,
+      "siteName" : "Chinaman Reef",
+      "latitude" : -22.00833,
+      "longitude" : 152.65833,
+      "metadataName" : "Sea Water Temperature Logger Data at Chinaman Reef, ",
+      "metadataId" : "12409e74-1c2e-42f0-80ec-656565bf005c",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10422"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10422/channelData"
+        }
+      }
+    }, {
+      "key" : 10143,
+      "channelName" : "RV Cape Ferguson Trip 5442 Salinity @1.9m",
+      "dataFromDate" : null,
+      "dataThruDate" : null,
+      "qualifier" : "Trip 5442",
+      "deploymentLocationName" : "RV Cape Ferguson",
+      "depth" : 1.9,
+      "parameterName" : "Salinity",
+      "parameterCategory" : "salinity",
+      "siteId" : 1109,
+      "siteName" : "Ship",
+      "latitude" : null,
+      "longitude" : null,
+      "metadataName" : "RV Cape Ferguson Trip 5442",
+      "metadataId" : "5ad5ab60-66d8-4a52-b3cf-f44f07d62de5",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10143"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10143/channelData"
+        }
+      }
+    }, {
+      "key" : 10144,
+      "channelName" : "RV Cape Ferguson Trip 5442 Turbidity @1.9m",
+      "dataFromDate" : null,
+      "dataThruDate" : null,
+      "qualifier" : "Trip 5442",
+      "deploymentLocationName" : "RV Cape Ferguson",
+      "depth" : 1.9,
+      "parameterName" : "Turbidity",
+      "parameterCategory" : "turbidity",
+      "siteId" : 1109,
+      "siteName" : "Ship",
+      "latitude" : null,
+      "longitude" : null,
+      "metadataName" : "RV Cape Ferguson Trip 5442",
+      "metadataId" : "5ad5ab60-66d8-4a52-b3cf-f44f07d62de5",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10144"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10144/channelData"
+        }
+      }
+    }, {
+      "key" : 1800,
+      "channelName" : "EASDSL1 Water Temperature @21m Deep Reef Slope Site 1",
+      "dataFromDate" : "1997-11-28T01:30:00.000+0000",
+      "dataThruDate" : "2011-11-22T23:36:08.000+0000",
+      "qualifier" : "Deep Reef Slope Site 1",
+      "deploymentLocationName" : "EASDSL1",
+      "depth" : 21.0,
+      "parameterName" : "Water Temperature",
+      "parameterCategory" : "water temperature",
+      "siteId" : 893,
+      "siteName" : "East Cay ",
+      "latitude" : -21.46948,
+      "longitude" : 152.56668,
+      "metadataName" : "Sea Water Temperature Logger Data at East Cay, Great Barrier Reef",
+      "metadataId" : "ec72df5a-b31b-439f-b1ad-186855612240",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/1800"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/1800/channelData"
+        }
+      }
+    }, {
+      "key" : 8668,
+      "channelName" : "EASDSL1 Depth @21m",
+      "dataFromDate" : "2010-03-31T00:41:50.000+0000",
+      "dataThruDate" : "2011-11-22T23:36:08.000+0000",
+      "qualifier" : null,
+      "deploymentLocationName" : "EASDSL1",
+      "depth" : 21.0,
+      "parameterName" : "Depth",
+      "parameterCategory" : "depth",
+      "siteId" : 893,
+      "siteName" : "East Cay ",
+      "latitude" : -21.46948,
+      "longitude" : 152.56668,
+      "metadataName" : "Sea Water Temperature Logger Data at East Cay, Great Barrier Reef",
+      "metadataId" : "ec72df5a-b31b-439f-b1ad-186855612240",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/8668"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/8668/channelData"
+        }
+      }
+    }, {
+      "key" : 1801,
+      "channelName" : "EASFL1 Water Temperature @1.7m Reef Flat Site 1",
+      "dataFromDate" : "1995-11-23T07:30:00.000+0000",
+      "dataThruDate" : "2011-11-23T02:12:52.000+0000",
+      "qualifier" : "Reef Flat Site 1",
+      "deploymentLocationName" : "EASFL1",
+      "depth" : 1.7,
+      "parameterName" : "Water Temperature",
+      "parameterCategory" : "water temperature",
+      "siteId" : 893,
+      "siteName" : "East Cay ",
+      "latitude" : -21.47266,
+      "longitude" : 152.56618,
+      "metadataName" : "Sea Water Temperature Logger Data at East Cay, Great Barrier Reef",
+      "metadataId" : "ec72df5a-b31b-439f-b1ad-186855612240",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/1801"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/1801/channelData"
+        }
+      }
+    }, {
+      "key" : 8925,
+      "channelName" : "EASFL1 Depth @1.7m",
+      "dataFromDate" : "2010-03-31T01:21:27.000+0000",
+      "dataThruDate" : "2011-11-23T02:12:52.000+0000",
+      "qualifier" : null,
+      "deploymentLocationName" : "EASFL1",
+      "depth" : 1.7,
+      "parameterName" : "Depth",
+      "parameterCategory" : "depth",
+      "siteId" : 893,
+      "siteName" : "East Cay ",
+      "latitude" : -21.47266,
+      "longitude" : 152.56618,
+      "metadataName" : "Sea Water Temperature Logger Data at East Cay, Great Barrier Reef",
+      "metadataId" : "ec72df5a-b31b-439f-b1ad-186855612240",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/8925"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/8925/channelData"
+        }
+      }
+    }, {
+      "key" : 10424,
+      "channelName" : "SNAKESL1 Water Temperature @8.5m",
+      "dataFromDate" : null,
+      "dataThruDate" : null,
+      "qualifier" : null,
+      "deploymentLocationName" : "SNAKESL1",
+      "depth" : 8.5,
+      "parameterName" : "Water Temperature",
+      "parameterCategory" : "water temperature",
+      "siteId" : 2257,
+      "siteName" : "Snake Reef",
+      "latitude" : -22.02438,
+      "longitude" : 152.16046,
+      "metadataName" : "Sea Water Temperature Logger Data at Snake Reef, ",
+      "metadataId" : "aac51665-5a9b-4e9b-a22e-0f1724f563ab",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10424"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10424/channelData"
+        }
+      }
+    }, {
+      "key" : 10145,
+      "channelName" : "RV Cape Ferguson Trip 5442 Fluorescence @1.9m",
+      "dataFromDate" : null,
+      "dataThruDate" : null,
+      "qualifier" : "Trip 5442",
+      "deploymentLocationName" : "RV Cape Ferguson",
+      "depth" : 1.9,
+      "parameterName" : "Fluorescence",
+      "parameterCategory" : "chlorophyll",
+      "siteId" : 1109,
+      "siteName" : "Ship",
+      "latitude" : null,
+      "longitude" : null,
+      "metadataName" : "RV Cape Ferguson Trip 5442",
+      "metadataId" : "5ad5ab60-66d8-4a52-b3cf-f44f07d62de5",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10145"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/10145/channelData"
+        }
+      }
+    }, {
+      "key" : 276,
+      "channelName" : "Davies Reef Sensor Float 3 Water Pressure @9.1m",
+      "dataFromDate" : "2009-12-07T04:52:00.000+0000",
+      "dataThruDate" : "2012-05-14T06:02:00.000+0000",
+      "qualifier" : null,
+      "deploymentLocationName" : "Davies Reef Sensor Float 3",
+      "depth" : 9.1,
+      "parameterName" : "Water Pressure",
+      "parameterCategory" : "depth",
+      "siteId" : 4,
+      "siteName" : "Davies Reef",
+      "latitude" : -18.8356,
+      "longitude" : 147.63223,
+      "metadataName" : "Davies Reef Sensor Float 3 Water Pressure @9.1m",
+      "metadataId" : "1664f018-c7e5-4c40-89f7-d595c939d178",
+      "_links" : {
+        "self" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/276"
+        },
+        "channelData" : {
+          "href" : "http://adctest.aims.gov.au:8080/rtdsrest/api/vchannels/276/channelData"
+        }
+      }
+    } ]
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 17946,
+    "totalPages" : 898,
+    "number" : 0
+  }
+}
