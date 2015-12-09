@@ -26,15 +26,20 @@ angular.module('map', [])
                 //compares the ID from both service files
                 if ( $scope.tempArray.siteId == $scope.tempArray2.siteId){
 
-                    $scope.siteMarkers[i] = [$scope.tempArray[i].siteName],
-                    $scope.tempArray[i].siteId;
-                    '#/details/' + $scope.tempArray[i].siteId,
-                    $scope.latData[i] = [$scope.tempArray2[i].latitude],
-                    $scope.lngData[i] = [$scope.tempArray2[i].longitude]
-                        //-23.44347, 151.94926 ]
+                    $scope.latData[i] = $scope.tempArray2[i].latitude;
+                    $scope.lngData[i] = $scope.tempArray2[i].longitude;
+
+                    $scope.siteMarkers[i] = [$scope.tempArray[i].siteName,
+                                            $scope.tempArray[i].siteId,
+                                            '#/details/' + $scope.tempArray[i].siteId,
+                                            $scope.latData[i],
+                                            $scope.lngData[i]]
+                                                //-23.44347, 151.94926 ]
 
                     console.log("latdata= " + $scope.latData[i]);
                     console.log("lngdata= " + $scope.lngData[i]);
+                    console.log('#/details/'+ $scope.tempArray[i].siteId);
+                    console.log('link= ' + $scope.siteMarkers[i][2]);
 
                 }
 

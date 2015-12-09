@@ -107,17 +107,29 @@
                     <!--</div>-->
 
                     <div id="container-{{temperature.siteId+1}}">
-                        <div class="well well-md" style="background:#FFDEAD">
-                            <span>
-                          <a href="/#/details/{{temperature.siteId}}">
-                                {{temperature.siteName}} </a></span>
-                            <span>
-                            &#45;
-                            &#91; Thermal Status<span style="float: right;">
-                            <i class="fa fa-circle fa-4x"style="color:chartreuse;"></i>
+                        <div class="well well-md" style="background:#FFDEAD; height: 65px">
+                            <div style="float:right; position: relative; top: -15px">
+                                <i class="fa fa-circle fa-4x"style="color:chartreuse;"></i>
+                            </div>
+                            <div style="width:60%; height:60px; float:right; position: relative; top: -10px">
+
+                                <span style="font-size: 30px; float:left;">
+                                &#45;
+                                &#91;
                                 </span>
-                                <br>Bleaching Status
-                            {{temperature.status}}</span>
+                                <span style="float:left; padding-left: 10px;">
+                                Thermal Status
+
+                                    <br>Bleaching Status
+                                {{temperature.status}}
+                                </span>
+                            </div>
+                            <div style="height:65px;">
+                                <span>
+                                <a href="/#/details/{{temperature.siteId}}">{{temperature.siteName}}</a>
+                                </span>
+                            </div>
+
 
 
                         </div>
