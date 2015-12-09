@@ -5,7 +5,7 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","site","details
         $routeProvider.
             when('/bleaching', {
                 templateUrl: 'pages/bleaching.html',
-                controller: 'siteCTRL'
+                controller: 'siteCTRL',
             })
 
             .when('/details/:id', {
@@ -13,10 +13,6 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","site","details
                 controller: 'detailsController'
             })
 
-            .when('/map', {
-                templateUrl: 'pages/map.html',
-                controller: 'mapController'
-            })
             .when('/bleaching/historic', {
                 templateUrl: 'pages/historic-bleaching.html',
                 controller: 'historicController'
