@@ -255,7 +255,7 @@ angular.module('site', [])
             $scope.initialize = function() {
                 var siteIcon = '/resources/rsz_11images1.png';
                 var mapProp = {
-                    center: new google.maps.LatLng(23.0000, 143.0000),
+                    center: new google.maps.LatLng(-22.792260, 144.811222),//-22.855457, 143.337692
                     zoom:5,
                     mapTypeId:google.maps.MapTypeId.SATELLITE
                 };
