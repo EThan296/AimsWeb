@@ -46,7 +46,7 @@ angular.module('map', [])
             }
 
             $scope.showdiv = function(){
-                $scope.templateURL = 'pages/map.html';
+                $scope.templateURL = 'pages/bleaching.html';
             }
 
             //$scope.siteMarker = $scope.getSiteMarkers();

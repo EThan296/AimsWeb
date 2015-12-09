@@ -96,79 +96,127 @@
 
         </div>
     </div>
+
+
+
+    <!--map row-->
+    <div class="row" style="padding-top: 10px">
+        <!--<div class="col-md-12">-->
+            <div class="col-md-12" id="googleMap" style="width: 100%;height:750px;>
+            /*margin: auto 1.5em; display: inline-block;"*/
+        <!--style="text-align: center"-->
+
+        <!--</div>-->
+        </div>
+    </div>
+
+
+
     <div class="row">
 
-        <div class="col-md-7" style="background: #f0ad4e;margin-top:12px;">
-            <div style="background: #f0ad4e">
-                <h3>Reef Status</h3>
-                <div ng-repeat="temperature in tempArray">
-                    <!--<div id="temp-temperature2" style="float:right;">-->
-                        <!--{{temperature.actualWaterTemp}}-->
-                    <!--</div>-->
 
-                    <div id="container-{{temperature.siteId+1}}">
-                        <div class="well well-md" style="background:#FFDEAD; height: 65px">
-                            <div style="float:right; position: relative; top: -15px">
-                                <i class="fa fa-circle fa-4x"style="color:chartreuse;"></i>
-                            </div>
-                            <div style="width:60%; height:60px; float:right; position: relative; top: -10px">
-
-                                <span style="font-size: 30px; float:left;">
-                                &#45;
-                                &#91;
-                                </span>
-                                <span style="float:left; padding-left: 10px;">
-                                Thermal Status
-
-                                    <br>Bleaching Status
-                                {{temperature.status}}
-                                </span>
-                            </div>
-                            <div style="height:65px;">
-                                <span>
-                                <a href="/#/details/{{temperature.siteId}}"><button class="site-button" style="width:27%; background-color: #FFDEAD">{{temperature.siteName}}</a>
-                                </span>
-                            </div>
+        <div  class="col-md-12" style="text-align: center; ">
 
 
-
-                        </div>
-
-                    </div>
-
+            <div class="col-md-12">
+                <div style="background: salmon ">
+                    <h3><button type="button" class="btn btn-default btn-lg">Subscribe</button></h3>
                 </div>
             </div>
-        </div>
-
-        <div  class="col-md-5" style="text-align: center; ">
-             <div style="background: salmon ">
-                 <h3><a href="/#/map">  <button type="button" class="btn btn-default btn-lg">View as map</button></a></h3>
 
 
-             <p>
-             </p>
+            <div class="col-md-12">
+                <div style="background: salmon ">
 
              <br>
 
-             <p>The data is displayed in the context of
-                the historical climatological record (how
-                much warmer or cooler it is than the
-                 historical climatology) and how current
-                 temperatures relate to known empirical
+             <p>The data is displayed in the context of<br>
+                the historical climatological record (how<br>
+                much warmer or cooler it is than the<br>
+                 historical climatology) and how current<br>
+                 temperatures relate to known empirical<br>
                  coral bleaching thresholds.
              </p>
 
              <br>
 
-             <p>Data that is within +/- 2 Standard
-                Deviations (SD) from the long term mean
-                is considered to be 'normal', data
-                 between the +/- 2 and 3 SD limits as 'unusual' and temperatures outside the
+             <p>Data that is within +/- 2 Standard<br>
+                Deviations (SD) from the long term mean<br>
+                is considered to be 'normal', data<br>
+                 between the +/- 2 and 3 SD limits as <br>
+                 'unusual' and temperatures outside the<br>
                 +/- 3 SD as 'extreme'.</p>
-
+                </div>
              </div>
         </div>
 
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+<!--reef status div-->
+
+<!--<div class="col-md-7" style="background: #f0ad4e;margin-top:12px;">-->
+<!--<div style="background: #f0ad4e">-->
+<!--<h3>Reef Status</h3>-->
+<!--<div ng-repeat="temperature in tempArray">-->
+<!--&lt;!&ndash;<div id="temp-temperature2" style="float:right;">&ndash;&gt;-->
+<!--&lt;!&ndash;{{temperature.actualWaterTemp}}&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--<div id="container-{{temperature.siteId+1}}">-->
+<!--<div class="well well-md" style="background:#FFDEAD; height: 65px">-->
+<!--<div style="float:right; position: relative; top: -15px">-->
+<!--<i class="fa fa-circle fa-4x"style="color:chartreuse;"></i>-->
+<!--</div>-->
+<!--<div style="width:60%; height:60px; float:right; position: relative; top: -10px">-->
+
+<!--<span style="font-size: 30px; float:left;">-->
+<!--&#45;-->
+<!--&#91;-->
+<!--</span>-->
+<!--<span style="float:left; padding-left: 10px;">-->
+<!--Thermal Status-->
+
+<!--<br>Bleaching Status-->
+<!--{{temperature.status}}-->
+<!--</span>-->
+<!--</div>-->
+<!--<div style="height:65px;">-->
+<!--<span>-->
+<!--<a href="/#/details/{{temperature.siteId}}"><button class="site-button" style="width:27%; background-color: #FFDEAD">{{temperature.siteName}}</a>-->
+<!--</span>-->
+<!--</div>-->
+
+
+
+<!--</div>-->
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>
+
+<!--reef status div ends-->
+
+<!--div for map button-->
+
+<!--<div class="col-md-12">-->
+    <!--<div style="background: salmon ">-->
+        <!--<h3><a href="/#/map">  <button type="button" class="btn btn-default btn-lg">View as map</button></a></h3>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<!--div for map button ends-->
