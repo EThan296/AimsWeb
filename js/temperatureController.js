@@ -23,14 +23,15 @@ angular.module('site', [])
                 options: {
                     chart: {
                         type: 'bar',
-                        width: 400,
                         height: 125
                     },
                     tooltip: {
                         enabled: false
                     },
                     title: {
-                        text: ''//$scope.anomalyArray[i].siteName
+                        //enabled: false
+                        text: ""
+                        //text: $scope.anomalyArray[i].siteName + ' - Temperature Anomaly -  ' + $scope.anomalyArray[i].day//$scope.anomalyArray[i].siteName
                     },
                     credits: {
                         enabled: false
@@ -39,21 +40,33 @@ angular.module('site', [])
                         text: ''
                     },
                     xAxis: {
-                        categories: ['']
+                        categories: [''],
+                        title: {
+                            enabled: false
+                        }
+
+
+
                     },
                     yAxis: [{
                         max:3,
                         min:-3,
                         minorTickInterval: 0.25,
                         title: {
-                            text: ''
+                            text: '',
+                            enabled: false
+                        },
+                        labels: {
+                            enabled: true
                         }
+
                     }, { // mirror axis on right side
                         opposite: true,
                         reversed: false,
                         //categories: categories,
                         linkedTo: 0,
                         labels: {
+                            enabled: false,
                             step: 1
                         }
                     }],
@@ -108,6 +121,14 @@ angular.module('site', [])
 
                     },    {
                         type: 'scatter',
+                        name: 'ha',
+                        dataLabels:{
+                            enabled: true,
+                            format: '{y} °C',
+                            y: -35,
+                            color: 'rgba(0,0,0,1)'
+                        },
+                        //text: "",
                         color: 'black',
                         data: [anomaly],
                         marker: {
@@ -144,7 +165,7 @@ angular.module('site', [])
                             enabled: false
                         },
                         title: {
-                            text: ''
+                            text: $scope.tempArray[i].siteName + ' - Bleaching Risk -  ' + $scope.tempArray[i].day //+ " @ " + $scope.tempArray[i].actualWaterTemp + '°C'
                         },
                         xAxis: {
                             categories: ['']
@@ -188,6 +209,12 @@ angular.module('site', [])
 
                     }, {
                         type: 'scatter',
+                        dataLabels:{
+                            enabled: true,
+                            format: '{y} °C',
+                            y: -35,
+                            color: 'rgba(0,0,0,1)'
+                        },
                         color: 'black',
                         data: [currentTemp],
                         marker: {
