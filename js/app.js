@@ -17,6 +17,10 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","site","details
                 templateUrl: 'pages/map.html',
                 controller: 'mapController'
             })
+            .when('/bleaching/historic', {
+                templateUrl: 'pages/historic-bleaching.html',
+                controller: 'historicController'
+            })
             .otherwise({
                 redirectTo: '/bleaching'
             });
