@@ -44,9 +44,6 @@ angular.module('site', [])
                         title: {
                             enabled: false
                         }
-
-
-
                     },
                     yAxis: [{
                         max:3,
@@ -273,7 +270,7 @@ angular.module('site', [])
 
             $scope.showdiv = function(){
                 $scope.templateURL = 'pages/bleaching.html';
-            }
+            };
 
             //$scope.siteMarker = $scope.getSiteMarkers();
             console.log($scope.siteMarkers);
