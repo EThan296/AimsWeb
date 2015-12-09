@@ -30,8 +30,8 @@ angular.module('site', [])
                     },
                     title: {
                         //enabled: false
-                        text: ""
-                        //text: $scope.anomalyArray[i].siteName + ' - Temperature Anomaly -  ' + $scope.anomalyArray[i].day//$scope.anomalyArray[i].siteName
+                        //text: ""
+                        text: $scope.anomalyArray[i].siteName + ' - Anomaly -  ' + $scope.anomalyArray[i].day//$scope.anomalyArray[i].siteName
                     },
                     credits: {
                         enabled: false
@@ -61,6 +61,10 @@ angular.module('site', [])
                         opposite: true,
                         reversed: false,
                         //categories: categories,
+                        title: {
+                            text: '',
+                            enabled: false
+                        },
                         linkedTo: 0,
                         labels: {
                             enabled: false,
@@ -223,91 +227,82 @@ angular.module('site', [])
                 };
                 $scope.tempArray[i].chartConfig = $scope.configString2;
             }
-        });
+    // start map code
+            $scope.siteMarkers = [];
+            console.log($scope.tempArray);
+
+            //second  get method
+            $http({method: 'GET', url: 'js/json/latLngData'}).success(function(data){
+                $scope.siteMarkers2 = [];
+                $scope.tempArray2 = data._embedded.vchannels;
+                $scope.latData = [];
+                $scope.lngData = [];
+
+                console.log($scope.tempArray2);
 
 
+                for (var i = 0; i < $scope.tempArray.length; i++) {
 
-    //creates map
-    $http({method: 'GET', url: 'http://aimsweatherservice.appspot.com/service/vbleachStatuses'}).success(function(data){
-        $scope.siteMarkers = [];
-        $scope.tempArray = data._embedded.vbleachStatuses;
+                    //compares the ID from both service files
+                    if ( $scope.tempArray.siteId == $scope.tempArray2.siteId){
 
-        console.log($scope.tempArray);
+                        $scope.latData[i] = $scope.tempArray2[i].latitude;
+                        $scope.lngData[i] = $scope.tempArray2[i].longitude;
 
-        //second  get method
-        $http({method: 'GET', url: 'js/json/latLngData'}).success(function(data){
-            $scope.siteMarkers2 = [];
-            $scope.tempArray2 = data._embedded.vchannels;
-            $scope.latData = [];
-            $scope.lngData = [];
+                        $scope.siteMarkers[i] = [$scope.tempArray[i].siteName,
+                            $scope.tempArray[i].siteId,
+                            '#/details/' + $scope.tempArray[i].siteId,
+                            $scope.latData[i],
+                            $scope.lngData[i]]
+                        //-23.44347, 151.94926 ]
 
-            console.log($scope.tempArray2);
+                        console.log("latdata= " + $scope.latData[i]);
+                        console.log("lngdata= " + $scope.lngData[i]);
+                        console.log('#/details/'+ $scope.tempArray[i].siteId);
+                        console.log('link= ' + $scope.siteMarkers[i][2]);
 
-
-            for (var i = 0; i < $scope.tempArray.length; i++) {
-
-                //compares the ID from both service files
-                if ( $scope.tempArray.siteId == $scope.tempArray2.siteId){
-
-                    $scope.latData[i] = $scope.tempArray2[i].latitude;
-                    $scope.lngData[i] = $scope.tempArray2[i].longitude;
-
-                    $scope.siteMarkers[i] = [$scope.tempArray[i].siteName,
-                        $scope.tempArray[i].siteId,
-                        '#/details/' + $scope.tempArray[i].siteId,
-                        $scope.latData[i],
-                        $scope.lngData[i]]
-                    //-23.44347, 151.94926 ]
-
-                    console.log("latdata= " + $scope.latData[i]);
-                    console.log("lngdata= " + $scope.lngData[i]);
-                    console.log('#/details/'+ $scope.tempArray[i].siteId);
-                    console.log('link= ' + $scope.siteMarkers[i][2]);
+                    }
 
                 }
 
-            }
-
-            $scope.showdiv = function(){
-                $scope.templateURL = 'pages/bleaching.html';
-            };
-
-            //$scope.siteMarker = $scope.getSiteMarkers();
-            console.log($scope.siteMarkers);
-            //console.log($scope.siteMarkers[0][4], $scope.siteMarkers[0][3]);
-
-            $scope.initialize = function() {
-                var siteIcon = '/resources/rsz_11images1.png';
-                var mapProp = {
-                    center: new google.maps.LatLng(-22.792260, 144.811222),//-22.855457, 143.337692
-                    zoom:5,
-                    mapTypeId:google.maps.MapTypeId.SATELLITE
+                $scope.showdiv = function(){
+                    $scope.templateURL = 'pages/bleaching.html';
                 };
 
-                var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                //$scope.siteMarker = $scope.getSiteMarkers();
+                console.log($scope.siteMarkers);
+                //console.log($scope.siteMarkers[0][4], $scope.siteMarkers[0][3]);
 
-                <!--Adds a marker to the map.-->
-                var marker, i;
-                for (i = 0; i < $scope.siteMarkers.length; i++) {
-                    //console.log(siteMarkers[i][4]);
-                    marker=new google.maps.Marker({
-                        position: new google.maps.LatLng($scope.latData[i], $scope.lngData[i]),
-                        //position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
-                        map: map,
-                        label: $scope.siteMarkers[i][0],
-                        title: $scope.siteMarkers[i][0],
-                        icon: siteIcon,
-                        url: $scope.siteMarkers[i][2]
-                    });
-                    google.maps.event.addListener(marker, 'click', function() {
-                        console.log(this.url);
-                        window.location.href = this.url;
-                    });
-                }
-            };
-            google.maps.event.addDomListener(window, 'load', $scope.initialize())
-        });//Second get method ends
-    })
+                $scope.initialize = function() {
+                    var siteIcon = '/resources/rsz_11images1.png';
+                    var mapProp = {
+                        center: new google.maps.LatLng(-22.792260, 144.811222),//-22.855457, 143.337692
+                        zoom:5,
+                        mapTypeId:google.maps.MapTypeId.SATELLITE
+                    };
 
+                    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
+                    <!--Adds a marker to the map.-->
+                    var marker, i;
+                    for (i = 0; i < $scope.siteMarkers.length; i++) {
+                        //console.log(siteMarkers[i][4]);
+                        marker=new google.maps.Marker({
+                            position: new google.maps.LatLng($scope.latData[i], $scope.lngData[i]),
+                            //position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
+                            map: map,
+                            label: $scope.siteMarkers[i][0],
+                            title: $scope.siteMarkers[i][0],
+                            icon: siteIcon,
+                            url: $scope.siteMarkers[i][2]
+                        });
+                        google.maps.event.addListener(marker, 'click', function() {
+                            console.log(this.url);
+                            window.location.href = this.url;
+                        });
+                    }
+                };
+                google.maps.event.addDomListener(window, 'load', $scope.initialize())
+            })
+        });
 });
