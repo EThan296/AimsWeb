@@ -2,29 +2,33 @@
 // * Created by rparmar on 3/12/2015.
 // */
 
-angular.module('details', ["highcharts-ng"])
+angular.module('bleaching.site', ["highcharts-ng"])
 
-.controller('detailsController', ['$scope', '$routeParams','$http',
-    function($scope, $routeParams,$http) {
-        var channelId = 0;
-        $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses').success(function (data) {
+.controller('siteController', ['$scope', '$routeParams','siteService', function($scope, $routeParams, siteService) {
+        var siteId = $routeParams.id;
+        $scope.siteDetails = '';
+        $scope.anomomlyStatuses = '';
+        $scope.siteClimatology = '';
 
-            $scope.siteId = $routeParams.id;
-            $scope.results = data._embedded.vbleachStatuses;
+        $scope.loadData = function(){
+            var detailsPromise = siteService.getSiteDetailsById(siteId)
+                .then(function (results) {
+                    $scope.siteDetails = results;
+                    $scope.generateBleachingRisk();
+                    var climatologyPromise = siteService.getClimatologyByChannel(results.channelId)
+                        .then (function (results) {
+                            $scope.siteClimatology = results;                            
+                        })
+                })
 
+            var anomolyPromise = siteService.getAnomolyStatusesById(siteId)
+                .then(function (results) {
+                    $scope.anomomlyStatuses = results;
+                    $scope.generateStatuses();
+                })
+        }
 
-            for (var i = 0; i < $scope.results.length; i++) {
-                if ($scope.results[i].siteId == $scope.siteId) {
-                    $scope.siteDetails = $scope.results[i];
-                    channelId = $scope.results[i].channelId;
-                    console.log('http://aimsweatherservice.appspot.com/service/vclimatologies/search/findByChannelId?channelId='+channelId);
-                }
-
-                if ($scope.results[i].status=="NORMAL"){
-                    $scope.results[i].status = "No current Risk of Bleaching";
-                }
-
-            }
+        $scope.generateBleachingRisk = function() {
             //Temperature speedo
             // variable = [lowlow, lowhigh, highlow, highhigh]  = all colors except green [low, high]
             var red = [$scope.siteDetails.bleachingTemp, 34];
@@ -32,7 +36,6 @@ angular.module('details', ["highcharts-ng"])
             var yellow = [$scope.siteDetails.watchTemp, $scope.siteDetails.warningTemp];
             var green = [24, $scope.siteDetails.watchTemp];
             var currentTemp = $scope.siteDetails.actualWaterTemp;
-
             $scope.temperatureConfig = {
                 options: {
                     chart: {
@@ -151,76 +154,9 @@ angular.module('details', ["highcharts-ng"])
                 loading: false
             };
 
-            $http.get('http://aimsweatherservice.appspot.com/service/vclimatologies/search/findByChannelId?channelId='+channelId).success(function(data) {
-                $scope.climatology1Results = data._embedded.vclimatologies;
+        }
 
-                console.log($scope.climatology1Results);
-
-
-                for (i = 0; i < $scope.climatology1Results.length; i++) {
-                    //console.log($scope.climatology1Results[i].day);
-                }
-
-                $scope.climatologyConfig = {
-                    options: {
-                        chart: {
-                            type: 'line'
-                        },
-                        title: {
-                            text: 'Monthly Average Temperature',
-                            x: -20 //center
-                        },
-                        xAxis: {
-                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'Temperature (°C)'
-                            },
-                            plotLines: [{
-                                //value: 0,
-                                width: 1,
-                                color: '#000'
-                            }]
-                        },
-                        tooltip:{
-                            enabled: false
-                        }
-                    },
-                    series: [{
-                        name: 'test',
-                        data: [1,2,3,4,5]
-                    }],
-
-                    loading: false
-                };
-            })
-        });
-
-
-
-        $scope.hasLoaded = false;
-
-        $http.get('http://aimsweatherservice.appspot.com/service/vanomolyStatuses').success(function(data) {
-            $scope.results2 = data._embedded.vanomolyStatuses;
-
-
-            for (i = 0; i < $scope.results2.length; i++) {
-                if ($scope.results2[i].siteId == $scope.siteId) {
-                    $scope.siteDetails2 = $scope.results2[i];
-                    $scope.hasLoaded = true;
-                    //console.log($scope.siteDetails2);
-                }
-
-
-                if ($scope.results2[i].status==0){
-
-                    $scope.results2[i].status = "Normal for this time of year";
-                    //console.log($scope.results2[i].status);
-
-                }
-
-            }
+        $scope.generateStatuses = function() {
             //var red = [-3, -1.5, 1.5, 3];
             //var orange = [-1.5, -1, 1, 1.5];
             //var yellow = [-1, -0.5, 0.5, 1];
@@ -231,9 +167,7 @@ angular.module('details', ["highcharts-ng"])
             ref.plusTwoSd = 1;
             ref.plusThreeSd = 1.5;
             ref.anomoly = 0;
-
-            if ($scope.hasLoaded) {
-                ref = $scope.siteDetails2;
+                ref = $scope.anomomlyStatuses;
                 console.log(ref.plusOneSd, ref.plusTwoSd, ref.plusThreeSd, ref.anomoly);
                 //Anomaly
                 var red = [ref.plusThreeSd, 3];
@@ -257,7 +191,7 @@ angular.module('details', ["highcharts-ng"])
                         enabled: false
                     },
                     title: {
-                        text: $scope.siteDetails.siteName + ' - Water Temperature Anomaly <br>' + $scope.siteDetails2.day
+                        text: $scope.siteDetails.siteName + ' - Water Temperature Anomaly <br>' + $scope.anomomlyStatuses.day
                     },
                     credits: {
                         enabled: false
@@ -362,15 +296,8 @@ angular.module('details', ["highcharts-ng"])
                 }],
 
                 loading: false
-            };
+            }
         }
-
-        });
-
-
-        //console.log('http://aimsweatherservice.appspot.com/service/vclimatologies/search/findByChannelId?channelId='+channelId);
-
-
+        $scope.loadData();
     }]
-
 );
