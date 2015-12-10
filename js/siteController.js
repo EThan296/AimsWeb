@@ -17,16 +17,25 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     $scope.generateBleachingRisk();
                     var climatologyPromise = siteService.getClimatologyByChannel(results.channelId)
                         .then (function (results) {
-                            $scope.siteClimatology = results;                            
+                            $scope.siteClimatology = results;
+                            $scope.today = $scope.siteClimatology[$scope.siteClimatology.length -1].day;
+                            $scope.startdate = $scope.siteClimatology[0].day;
+                            $scope.temps = [];
+                            $scope.date = [];
+                            for (var i = 0; i < $scope.siteClimatology.length; i++) {
+                                $scope.temps.push($scope.siteClimatology[i].actualWaterTemp);
+                                $scope.date.push($scope.siteClimatology[i].day);
+                            }
+                            $scope.generateClimatology();
                         })
-                })
+                });
 
             var anomolyPromise = siteService.getAnomolyStatusesById(siteId)
                 .then(function (results) {
                     $scope.anomomlyStatuses = results;
                     $scope.generateStatuses();
                 })
-        }
+        };
 
         $scope.generateBleachingRisk = function() {
             //Temperature speedo
@@ -154,7 +163,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                 loading: false
             };
 
-        }
+        };
 
         $scope.generateStatuses = function() {
             //var red = [-3, -1.5, 1.5, 3];
@@ -297,7 +306,60 @@ angular.module('bleaching.site', ["highcharts-ng"])
 
                 loading: false
             }
-        }
+        };
+
+    $scope.generateClimatology = function () {
+
+        $scope.climatologyConfig = {
+            options: {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Daily Average Temperature - Starting: ' + $scope.startdate + ', ending: ' + $scope.today,
+                    x: -20 //center
+                },
+                legend: {
+                    enabled: false
+                },
+
+                xAxis: {
+                    categories: $scope.date,
+                    tickInterval: 15,
+                    minorTickInterval: 15
+                },
+                yAxis: {
+                    title: {
+                        text: 'Temperature (°C)'
+                    },
+                    plotLines: [{
+                        //value: 0,
+                        //width: 1,
+                        color: '#000'
+                    }]
+                },
+                tooltip:{
+                    enabled: false
+                },
+                credits: {
+                    enabled: false
+                }
+            },
+            series: [{
+                name: 'test',
+                data: $scope.temps
+
+            }
+            //    {
+            //    name: 'date',
+            //    data: [date]
+            //}
+            ],
+
+            loading: false
+        };
+    };
         $scope.loadData();
     }]
 );
+
