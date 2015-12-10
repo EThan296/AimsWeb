@@ -22,9 +22,11 @@ angular.module('bleaching.site', ["highcharts-ng"])
                             $scope.startdate = $scope.siteClimatology[0].day;
                             $scope.temps = [];
                             $scope.date = [];
+                            $scope.anomaly = [];
                             for (var i = 0; i < $scope.siteClimatology.length; i++) {
                                 $scope.temps.push($scope.siteClimatology[i].actualWaterTemp);
                                 $scope.date.push($scope.siteClimatology[i].day);
+                                $scope.anomaly.push($scope.siteClimatology[i].anomoly)
                             }
                             $scope.generateClimatology();
                         })
@@ -355,6 +357,41 @@ angular.module('bleaching.site', ["highcharts-ng"])
             //    data: [date]
             //}
             ],
+
+            loading: false
+        };
+        $scope.anomalyConfig2 = {
+            options: {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Temperature Anomaly - Starting: ' + $scope.startdate + ', ending: ' + $scope.today,
+                    x: -20 //center
+                },
+                xAxis: {
+                    categories: $scope.date,
+                    tickInterval: 15
+                },
+                yAxis: {
+                    title: {
+                        text: 'Temperature Anomaly (°C)'
+                    },
+                    plotLines: [{
+                        //value: 0,
+                        width: 1,
+                        color: '#000'
+                    }]
+                },
+                tooltip:{
+                    enabled: true
+                }
+            },
+            series: [{
+                name:"Anomaly",
+                data: $scope.anomaly
+
+            }],
 
             loading: false
         };
