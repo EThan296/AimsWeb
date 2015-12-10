@@ -10,8 +10,7 @@ angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","site","details
 
             .when('/details/:id', {
                 templateUrl: 'pages/singleSiteDetails.html',
-                controller: 'detailsController'
-                //controller: 'siteController'
+                controller: 'siteController'
             })
 
             .when('/bleaching/historic', {
