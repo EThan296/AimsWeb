@@ -46,7 +46,10 @@ angular.module('details', ["highcharts-ng"])
                         enabled: false
                     },
                     title: {
-                        text: 'Current Temperature'
+                        text: $scope.siteDetails.siteName + ' - Current Temperature <br>' + $scope.siteDetails.day
+                    },
+                    subtitle: {
+
                     },
                     credits: {
                         enabled: false
@@ -93,19 +96,25 @@ angular.module('details', ["highcharts-ng"])
                         minorTickWidth: 1,
                         minorTickLength: 10,
                         minorTickPosition: 'inside',
-                        minorTickColor: '#666',
+                        minorTickColor: '#000',
 
                         tickPixelInterval: 30,
                         tickWidth: 2,
                         tickPosition: 'inside',
                         tickLength: 10,
-                        tickColor: '#666',
+                        tickColor: '#000',
                         labels: {
                             step: 2,
-                            rotation: 'auto'
+                            rotation: 'auto',
+                            style: {
+                                "font-size": "15"
+                            }
                         },
                         title: {
-                            text: '°C'
+                            text: '°C',
+                            style: {
+                                "font-size": "20"
+                            }
                         },
                         plotBands: [{
                             from: green[0],
@@ -129,6 +138,12 @@ angular.module('details', ["highcharts-ng"])
                 series: [{
                     name: 'Temperature',
                     data: [currentTemp],
+                    dataLabels: {
+                        style:{
+                            "font-size": "20"
+                        },
+                        format: "{y} °C"
+                    },
                     tooltip: {
                         valueSuffix: ' °C'
                     }
@@ -176,10 +191,11 @@ angular.module('details', ["highcharts-ng"])
                 ref = $scope.siteDetails2;
                 console.log(ref.plusOneSd, ref.plusTwoSd, ref.plusThreeSd, ref.anomoly);
                 //Anomaly
-                var red = [-3, -ref.plusThreeSd, ref.plusThreeSd, 34];
-                var orange = [-ref.plusThreeSd, -ref.plusTwoSd, ref.plusTwoSd, ref.plusThreeSd];
-                var yellow = [-ref.plusTwoSd, -ref.plusOneSd, ref.plusOneSd, ref.plusTwoSd];
-                var green = [-ref.plusOneSd, ref.plusOneSd];
+                var red = [ref.plusThreeSd, 3];
+                var orange = [ref.plusTwoSd, ref.plusThreeSd];
+                var blue = [-3, -ref.plusThreeSd];
+                var lightBlue = [-ref.plusThreeSd, -ref.plusTwoSd];
+                var green = [-ref.plusTwoSd, ref.plusTwoSd];
                 var anomaly = ref.anomoly;
 
 
@@ -196,7 +212,7 @@ angular.module('details', ["highcharts-ng"])
                         enabled: false
                     },
                     title: {
-                        text: 'Water Temperature Anomaly'
+                        text: $scope.siteDetails.siteName + ' - Water Temperature Anomaly <br>' + $scope.siteDetails2.day
                     },
                     credits: {
                         enabled: false
@@ -242,47 +258,46 @@ angular.module('details', ["highcharts-ng"])
                         minorTickWidth: 1,
                         minorTickLength: 10,
                         minorTickPosition: 'inside',
-                        minorTickColor: '#666',
+                        minorTickColor: '#000',
 
                         tickPixelInterval: 30,
                         tickWidth: 2,
                         tickPosition: 'inside',
                         tickLength: 10,
-                        tickColor: '#666',
+                        tickColor: '#000',
                         labels: {
                             step: 2,
-                            rotation: 'auto'
+                            rotation: 'auto',
+                            style: {
+                                "font-size": "15"
+                            }
                         },
                         title: {
-                            text: '°C'
+                            text: '°C',
+                            style: {
+                                "font-size": "20"
+                            }
                         },
                         plotBands: [{
                             from: green[0],
                             to: green[1],
                             color: '#55BF3B' // green
-                        }, {
-                            from: yellow[0], // - lowlow
-                            to: yellow[1], // - lowhigh
-                            color: '#DDDF0D' // yellow - low
-                        }, {
-                            from: yellow[2], // - highlow
-                            to: yellow[3], // - highhigh
-                            color: '#DDDF0D' // yellow
-                        }, {
-                            from: orange[0], // - lowlow
-                            to: orange[1], // - lowhigh
+                        },
+                            {
+                            from: lightBlue[0],
+                            to: lightBlue[1],
+                            color: '#33CCFF' // lightBlue
+                        },  {
+                            from: blue[0],
+                            to: blue[1],
+                            color: '#5D5DFF' // blue
+                        },  {
+                            from: orange[0],
+                            to: orange[1],
                             color: '#ffa500' // orange
-                        }, {
-                            from: orange[2], // - highlow
-                            to: orange[3], // - highhigh
-                            color: '#ffa500' // orange
-                        }, {
-                            from: red[0], // - lowlow
-                            to: red[1], // - lowhigh
-                            color: '#DF5353' // red
-                        }, {
-                            from: red[2], // - highlow
-                            to: red[3], // - highhigh
+                        },  {
+                            from: red[0],
+                            to: red[1],
                             color: '#DF5353' // red
                         }]
                     }
@@ -290,6 +305,12 @@ angular.module('details', ["highcharts-ng"])
                 series: [{
                     name: 'Anomaly',
                     data: [anomaly],
+                    dataLabels: {
+                        style:{
+                            "font-size": "20"
+                        },
+                        format: "{y} °C"
+                    },
                     tooltip: {
                         valueSuffix: '°C'
                     }
