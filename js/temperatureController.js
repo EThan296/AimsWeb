@@ -12,13 +12,19 @@ angular.module('site', [])
 
             var blue = -3 + $scope.anomalyArray[i].plusThreeSd;
             var lightBlue = $scope.anomalyArray[i].minusThreeSd + $scope.anomalyArray[i].plusTwoSd;
+            var greenNegative = $scope.anomalyArray[i].minusTwoSd;
+            var greenPositive = $scope.anomalyArray[i].plusTwoSd;
+            var orange = $scope.anomalyArray[i].plusThreeSd - $scope.anomalyArray[i].plusTwoSd;
+            var red = 3 - $scope.anomalyArray[i].plusThreeSd;
+            var anomaly = $scope.anomalyArray[i].anomoly;
+
             var darkGreen = $scope.anomalyArray[i].minusTwoSd + $scope.anomalyArray[i].plusOneSd;
             var green = $scope.anomalyArray[i].plusOneSd;
             var green2 = $scope.anomalyArray[i].minusOneSd;
             var yellow = $scope.anomalyArray[i].plusTwoSd - $scope.anomalyArray[i].plusOneSd;
-            var orange = $scope.anomalyArray[i].plusThreeSd - $scope.anomalyArray[i].plusTwoSd;
-            var red = 3 - $scope.anomalyArray[i].plusThreeSd;
-            var anomaly = $scope.anomalyArray[i].anomoly;
+
+
+
             $scope.configString = {
                 options: {
                     chart: {
@@ -87,42 +93,34 @@ angular.module('site', [])
                 },
                 series: [
                     {
-                        name: '6',
+                        name: 'Red',
                         color: 'rgba(255, 93, 93, 1)',
                         data: [red]
                     }, {
-                        name: '1',
+                        name: 'Blue',
                         color: 'rgba(93, 93, 255, 1)',
                         data: [blue]
                     }, {
-                        name: '2',
-                        color: 'rgba(77, 137, 202, 1)',
+                        name: 'lightBlue',
+                        color: 'rgba(51, 204, 255, 1)',
                         data: [lightBlue]
                     }, {
-                        name: '3',
-                        color: 'rgba(33, 196, 145, 1)',
-                        data: [darkGreen]
-                    }, {
-                        name: '4',
+                        name: 'greenNegative',
                         color: 'rgba(140, 254, 140, 1)',
-                        data: [green2]
+                        data: [greenNegative]
 
-                    },{
-                        name: '7',
-                        color: 'rgba(255, 255, 0, 1)',
-                        data: [yellow]
-                    },{
-                        name: '5',
+                    }, {
+                        name: 'orange',
                         color: 'rgba(254, 170, 85, 1)',
                         data: [orange]
                     }, {
-                        name: '4',
+                        name: 'greenPositive',
                         color: 'rgba(140, 254, 140, 1)',
-                        data: [green]
+                        data: [greenPositive]
 
-                    },    {
+                    }, {
                         type: 'scatter',
-                        name: 'ha',
+                        name: 'anomalyPoint',
                         dataLabels:{
                             enabled: true,
                             format: '{y} °C',
