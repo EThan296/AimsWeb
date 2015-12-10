@@ -30,6 +30,7 @@ angular.module('site', [])
                     chart: {
                         type: 'bar',
                         height: 125
+
                     },
                     tooltip: {
                         enabled: false
@@ -225,6 +226,7 @@ angular.module('site', [])
                 };
                 $scope.tempArray[i].chartConfig = $scope.configString2;
             }
+
     // start map code
             $scope.siteMarkers = [];
             console.log($scope.tempArray);
@@ -292,7 +294,11 @@ angular.module('site', [])
                             label: $scope.siteMarkers[i][0],
                             title: $scope.siteMarkers[i][0],
                             icon: siteIcon,
-                            url: $scope.siteMarkers[i][2]
+                            url: $scope.siteMarkers[i][2],
+                            labelContent: "$425K",
+                            //labelAnchor: new google.maps.Point(22, 0),
+                            labelClass: "labels", // the CSS class for the label
+                            labelStyle: {opacity: 0.75}
                         });
                         google.maps.event.addListener(marker, 'click', function() {
                             console.log(this.url);
