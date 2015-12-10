@@ -46,7 +46,7 @@ angular.module('details', ["highcharts-ng"])
                         enabled: false
                     },
                     title: {
-                        text: $scope.siteDetails.siteName + ' - Current Temperature <br>' + $scope.siteDetails.day
+                        text: $scope.siteDetails.siteName + ' - Bleaching Risk <br>' + $scope.siteDetails.day
                     },
                     subtitle: {
 
