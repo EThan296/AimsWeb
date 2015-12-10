@@ -153,13 +153,19 @@ angular.module('details', ["highcharts-ng"])
 
             $http.get('http://aimsweatherservice.appspot.com/service/vclimatologies/search/findByChannelId?channelId='+channelId).success(function(data) {
                 $scope.climatology1Results = data._embedded.vclimatologies;
+                //$scope.anomalyData = data._embedded.vclimatologies[0].anomoly;
 
                 console.log($scope.climatology1Results);
+                //console.log($scope.anomalyData);
 
+                var anomaly = [];
 
                 for (i = 0; i < $scope.climatology1Results.length; i++) {
                     //console.log($scope.climatology1Results[i].day);
+                    //console.log($scope.climatology1Results[i].anomoly);
+                   anomaly.push($scope.climatology1Results[i].anomoly);
                 }
+                    console.log(anomaly);
 
                 $scope.climatologyConfig = {
                     options: {
@@ -176,6 +182,7 @@ angular.module('details', ["highcharts-ng"])
                         yAxis: {
                             title: {
                                 text: 'Temperature (°C)'
+
                             },
                             plotLines: [{
                                 //value: 0,
@@ -194,7 +201,49 @@ angular.module('details', ["highcharts-ng"])
 
                     loading: false
                 };
+
+
+
+                //    Second chart
+
+                $scope.anomalyConfig2 = {
+                    options: {
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: 'Temperature Anomaly',
+                            x: -20 //center
+                        },
+                        xAxis: {
+                            categories: " "
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Temperature Anomaly (°C)'
+                            },
+                            plotLines: [{
+                                //value: 0,
+                                width: 1,
+                                color: '#000'
+                            }]
+                        },
+                        tooltip:{
+                            enabled: true
+                        }
+                    },
+                    series: [{
+                        name:"Anomaly",
+                        data: anomaly
+
+                    }],
+
+                    loading: false
+                };
+
             })
+
+
         });
 
 
@@ -364,8 +413,7 @@ angular.module('details', ["highcharts-ng"])
                 loading: false
             };
         }
-
-        });
+   });
 
 
         //console.log('http://aimsweatherservice.appspot.com/service/vclimatologies/search/findByChannelId?channelId='+channelId);
