@@ -227,19 +227,19 @@ angular.module('site', [])
                 $scope.tempArray[i].chartConfig = $scope.configString2;
             }
 
-    // start map code
+            //creates map
             $scope.siteMarkers = [];
-            console.log($scope.tempArray);
 
             //second  get method
             $http({method: 'GET', url: 'js/json/latLngData'}).success(function(data){
+
                 $scope.siteMarkers2 = [];
                 $scope.tempArray2 = data._embedded.vchannels;
                 $scope.latData = [];
                 $scope.lngData = [];
-
-                console.log($scope.tempArray2);
-
+                var marker;
+                var i;
+                var mapLabel;
 
                 for (var i = 0; i < $scope.tempArray.length; i++) {
 
@@ -250,17 +250,10 @@ angular.module('site', [])
                         $scope.lngData[i] = $scope.tempArray2[i].longitude;
 
                         $scope.siteMarkers[i] = [$scope.tempArray[i].siteName,
-                            $scope.tempArray[i].siteId,
-                            '#/details/' + $scope.tempArray[i].siteId,
-                            $scope.latData[i],
-                            $scope.lngData[i]]
-                        //-23.44347, 151.94926 ]
-
-                        console.log("latdata= " + $scope.latData[i]);
-                        console.log("lngdata= " + $scope.lngData[i]);
-                        console.log('#/details/'+ $scope.tempArray[i].siteId);
-                        console.log('link= ' + $scope.siteMarkers[i][2]);
-
+                                                $scope.tempArray[i].siteId,
+                                                '#/details/' + $scope.tempArray[i].siteId,
+                                                $scope.latData[i],
+                                                $scope.lngData[i]]
                     }
 
                 }
@@ -269,39 +262,58 @@ angular.module('site', [])
                     $scope.templateURL = 'pages/bleaching.html';
                 };
 
-                //$scope.siteMarker = $scope.getSiteMarkers();
-                console.log($scope.siteMarkers);
-                //console.log($scope.siteMarkers[0][4], $scope.siteMarkers[0][3]);
-
                 $scope.initialize = function() {
+
                     var siteIcon = '/resources/rsz_11images1.png';
+
                     var mapProp = {
-                        center: new google.maps.LatLng(-22.792260, 144.811222),//-22.855457, 143.337692
+
+                        center: new google.maps.LatLng(-22.792260, 144.811222),
                         zoom:5,
-                        mapTypeId:google.maps.MapTypeId.SATELLITE
+                        mapTypeId:google.maps.MapTypeId.SATELLITE,
+
                     };
 
                     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-                    <!--Adds a marker to the map.-->
-                    var marker, i;
+
+
                     for (i = 0; i < $scope.siteMarkers.length; i++) {
-                        //console.log(siteMarkers[i][4]);
-                        marker=new google.maps.Marker({
-                            position: new google.maps.LatLng($scope.latData[i], $scope.lngData[i]),
-                            //position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
-                            map: map,
-                            label: $scope.siteMarkers[i][0],
-                            title: $scope.siteMarkers[i][0],
+
+                        <!--Adds a marker to the map.-->
+                        marker = new google.maps.Marker({
+
+                            position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
                             icon: siteIcon,
-                            url: $scope.siteMarkers[i][2],
-                            labelContent: "$425K",
-                            //labelAnchor: new google.maps.Point(22, 0),
-                            labelClass: "labels", // the CSS class for the label
-                            labelStyle: {opacity: 0.75}
+                            map: map,
+                            url: $scope.siteMarkers[i][2]
+
                         });
+
+                        //Adds a label to the map
+                        mapLabel = new MapLabel({
+                            text: $scope.siteMarkers[i][0],
+                            position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
+                            map: map,
+                            fontSize: 20,
+                            fontColor: 'green',
+                            align: 'left',
+                            url: $scope.siteMarkers[i][2]
+
+                        });
+
+                    mapLabel.set('position', new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]));
+
+                    //marker.bindTo('map', mapLabel);
+                    //marker.bindTo('position', mapLabel);
+                    //marker.setDraggable(true);
+
+
                         google.maps.event.addListener(marker, 'click', function() {
-                            console.log(this.url);
+                            window.location.href = this.url;
+                        });
+
+                        google.maps.event.addListener(mapLabel, 'click', function() {
                             window.location.href = this.url;
                         });
                     }
