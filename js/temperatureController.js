@@ -41,7 +41,8 @@ angular.module('site', [])
                         text: $scope.anomalyArray[i].siteName + ' - Anomaly -  ' + $scope.anomalyArray[i].day//$scope.anomalyArray[i].siteName
                     },
                     credits: {
-                        enabled: false
+                        text: '© Australian Institute or Marine Science',
+                        href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
                     },
                     subtitle: {
                         text: ''
@@ -221,7 +222,10 @@ angular.module('site', [])
                             symbol: 'url(assets/images/rsz_2rsz_1line.png)'
                         }
                     }],
-                    credits: {enabled: false}
+                    credits: {
+                        text: '© Australian Institute or Marine Science',
+                        href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
+                    },
 
                 };
                 $scope.tempArray[i].chartConfig = $scope.configString2;
