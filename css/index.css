@@ -22,7 +22,7 @@ body {
 }
 
 #anomaly-box {
-    margin: 10px;
+    /*margin: 10px;*/
     background-color: #6D9FD0;
 }
 
@@ -41,8 +41,8 @@ body {
     padding-left:10px;
 }
 #anomaly-box {
-    margin: 10px;
-    background-color: #A4C4AF;
+    /*margin: 10px;*/
+    /*background-color: #A4C4AF;*/
 }
 .temp-temperature-left {
     height:125px;
