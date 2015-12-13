@@ -133,7 +133,14 @@ span.clear {
     clear:left;
     display:block;
 }
-
+#details1.col-md-6 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#details2.col-md-6 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
 .labels {
     color: red;
     background-color: white;
