@@ -13,19 +13,13 @@ body {
 
 #right-side {
     /*float: right;*/
-    background-color: #B6D0BF;
+    background-color: #6D9FD0;
     margin-left: 12px;
     /*min-width: 412px;*/
     /*max-width: 39%;*/
     /*width: 39%;*/
     /*word-wrap: break-word;*/
 }
-
-#anomaly-box {
-      /*margin: 10px;*/
-      background-color: #6D9FD0;
-  }
-
 #left-side {
     /*float: left;*/
     background-color: #6D9FD0;
@@ -81,6 +75,12 @@ body {
     float:right;
     vertical-align: middle;
     display:inline-block;
+    margin-bottom: 15px;
+}
+#anomaly-box {
+    height:125px;
+    background-color: #6D9FD0;
+    margin-bottom: 15px;
 }
 .anomaly-chart {
     width: 100%;
