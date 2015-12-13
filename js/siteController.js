@@ -90,7 +90,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
 
                     },
                     credits: {
-                        text: '© Australian Institute or Marine Science',
+                        text: '© Australian Institute of Marine Science',
                         href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
                     },
                     pane: {
@@ -230,7 +230,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                         text: $scope.siteDetails.siteName + ' - Water Temperature Anomaly <br>' + $scope.anomomlyStatuses.day
                     },
                     credits: {
-                        text: '© Australian Institute or Marine Science',
+                        text: '© Australian Institute of Marine Science',
                         href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
                     },
                     pane: {
@@ -370,7 +370,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     enabled: true
                 },
                 credits: {
-                    text: '© Australian Institute or Marine Science',
+                    text: '© Australian Institute of Marine Science',
                     href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
                 },
                 plotOptions: {
@@ -438,7 +438,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     enabled: true
                 },
                 credits: {
-                    text: '© Australian Institute or Marine Science',
+                    text: '© Australian Institute of Marine Science',
                     href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
                 },
                 plotOptions: {

@@ -22,7 +22,7 @@
                 <p>[Click on a Graph to get more information about that reef]</p>
             </div>
 
-            <div class=" panel-body" ng-repeat="temperature in tempArray">
+            <div class=" panel-body" ng-repeat="temperature in tempArray" style="background-color: #6D9FD0">
 
                     <a href="/#/details/{{temperature.siteId}}">
                     <div class="temp-chart"><highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart></div>
@@ -74,6 +74,16 @@
                 </div>
 
         </div>
+
+            <div  class=" panel-body"  id="anomaly-box" ng-repeat="anomaly in anomalyArray" style="">
+
+                <div style="height: 125px;">
+                    <div class="anomaly-chart"><highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     </div>
 
