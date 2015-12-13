@@ -1,13 +1,3 @@
-
-<!--<div class="row" style="padding-top: 10px">-->
-
-    <!--<div class="panel panel-primary" style="border: solid #337ab7">-->
-        <!--<div class="panel-heading"><h3>Reef Status</h3></div>-->
-        <!--<div class="panel-body"></div>-->
-    <!--</div>-->
-<!--</div>-->
-
-
 <div class="container">
     <div class="row">
         <h1 style="text-align: center;"><strong>Great Barrier Reef - Bleaching Indicators</strong></h1>
@@ -69,62 +59,53 @@
 
 
         <div class="col-md-5 panel panel-primary"  id="right-side"  style="border: solid #337ab7; padding-left:0px; padding-right:0px;">
-        <!--<div id="right-side">-->
 
-            <div class="panel-heading" style="width: 100%">
-
-                <h3>Temperature Anomaly</h3>
-                <p>[Click on a Graph to get more information about that reef]</p>
-
-            </div>
-
-
-            <div  class=" panel-body"  id="anomaly-box" ng-repeat="anomaly in anomalyArray" style="">
-
-                <div style="height: 125px; margin: 0 auto; margin-bottom:10px;">
-                    <div class="anomaly-chart"><highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart></div>
+                <div class="panel-heading" style="width: 100%">
+                    <h3>Temperature Anomaly</h3>
+                    <p>[Click on a Graph to get more information about that reef]</p>
                 </div>
-            </div>
+
+                <div class=" panel-body"  id="anomaly-box" ng-repeat="anomaly in anomalyArray">
+                    <div style="height: 125px; margin: 0 auto; margin-bottom:10px;">
+                        <div class="anomaly-chart"><highchart id="chart1" config="anomaly.chartConfig" class="span10">
+                            </highchart>
+                        </div>
+                    </div>
+                </div>
 
         </div>
+
     </div>
 
-    <!--third raw-->
-    <!--<div class="row">-->
-        <!--<div class="col-md-7" style="background-color: #6D9FD0;">-->
-
-
-        <!--</div>-->
-    <!--</div>-->
 
 
     <!--map row-->
     <div class="row" style="padding-top: 10px">
 
         <div class="panel panel-primary" style="border: solid #337ab7">
-            <div class="panel-heading"><h3>Reef Status</h3></div>
+            <div class="panel-heading">
+                <h3>Reef Status</h3>
+            </div>
                 <div class="panel-body" id="googleMap" style="width: 100%;height:750px;"></div>
         </div>
+
     </div>
 
 
-
+    <!--button row-->
     <div class="row" style="margin-top: 10px">
 
-        <div class="btn-group btn-group-justified">
-            <a href="#" class="btn btn-primary btn-md">Subscribe</a>
-            <a href="#" class="btn btn-primary btn-md"><i class="fa fa-twitter-square fa-2x fa-fw"></i>
-                Twitter</a>
-            <a href="#" class="btn btn-primary btn-md">
-                <i class="fa fa-info-circle fa-2x fa-fw"></i>Subscribe
-            </a>
+            <div class="btn-group btn-group-justified">
+                <a href="#" class="btn btn-primary btn-md">Subscribe</a>
+                <a href="#" class="btn btn-primary btn-md">
+                    <i class="fa fa-twitter-square fa-2x fa-fw"></i>Twitter
+                </a>
+                <a href="#" class="btn btn-primary btn-md">
+                    <i class="fa fa-info-circle fa-2x fa-fw"></i>Subscribe
+                </a>
+            </div>
 
-        </div>
-
-    <!--</div>-->
-
-
-</div>
+    </div>
 
 
 
@@ -238,4 +219,13 @@
 
     <!--<div class="anomaly-temperature" style="float:right;">-->
     <!--<span>{{anomaly.anomoly.toFixed(1);}}°C</span>-->
+    <!--</div>-->
+
+
+    <!--third raw-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-7" style="background-color: #6D9FD0;">-->
+
+
+    <!--</div>-->
     <!--</div>-->
