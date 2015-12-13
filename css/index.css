@@ -40,10 +40,10 @@ body {
 #right-side h3, p {
     padding-left:10px;
 }
-#anomaly-box {
+/*#anomaly-box {*/
     /*margin: 10px;*/
     /*background-color: #A4C4AF;*/
-}
+/*}*/
 .temp-temperature-left {
     height:125px;
     width:25%;
