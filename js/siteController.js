@@ -21,12 +21,36 @@ angular.module('bleaching.site', ["highcharts-ng"])
                             $scope.today = $scope.siteClimatology[$scope.siteClimatology.length -1].day;
                             $scope.startdate = $scope.siteClimatology[0].day;
                             $scope.temps = [];
+                            $scope.modelledTemps = [];
+                            $scope.modTempPlusTwoSd = [];
+                            $scope.modTempPlusThreeSd = [];
+                            $scope.modTempMinusTwoSd = [];
+                            $scope.modTempMinusThreeSd = [];
+
                             $scope.date = [];
+
                             $scope.anomaly = [];
+                            $scope.plusTwoSd = [];
+                            $scope.plusThreeSd = [];
+                            $scope.minusTwoSd = [];
+                            $scope.minusThreeSd = [];
+
                             for (var i = 0; i < $scope.siteClimatology.length; i++) {
                                 $scope.temps.push($scope.siteClimatology[i].actualWaterTemp);
+                                $scope.modelledTemps.push($scope.siteClimatology[i].modelledWaterTemp);
+
+                                $scope.modTempPlusTwoSd.push($scope.siteClimatology[i].modTempPlusTwoSd);
+                                $scope.modTempPlusThreeSd.push($scope.siteClimatology[i].modTempPlusThreeSd);
+                                $scope.modTempMinusTwoSd.push($scope.siteClimatology[i].modTempMinusTwoSd);
+                                $scope.modTempMinusThreeSd.push($scope.siteClimatology[i].modTempMinusThreeSd);
+
                                 $scope.date.push($scope.siteClimatology[i].day);
-                                $scope.anomaly.push($scope.siteClimatology[i].anomoly)
+                                $scope.anomaly.push($scope.siteClimatology[i].anomoly);
+                                $scope.plusTwoSd.push($scope.siteClimatology[i].plusTwoSd);
+                                $scope.plusThreeSd.push($scope.siteClimatology[i].plusThreeSd);
+                                $scope.minusTwoSd.push($scope.siteClimatology[i].minusTwoSd);
+                                $scope.minusThreeSd.push($scope.siteClimatology[i].minusThreeSd);
+
                             }
                             $scope.generateClimatology();
                         })
@@ -66,7 +90,8 @@ angular.module('bleaching.site', ["highcharts-ng"])
 
                     },
                     credits: {
-                        enabled: false
+                        text: '© Australian Institute or Marine Science',
+                        href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
                     },
                     pane: {
                         startAngle: -150,
@@ -205,7 +230,8 @@ angular.module('bleaching.site', ["highcharts-ng"])
                         text: $scope.siteDetails.siteName + ' - Water Temperature Anomaly <br>' + $scope.anomomlyStatuses.day
                     },
                     credits: {
-                        enabled: false
+                        text: '© Australian Institute or Marine Science',
+                        href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
                     },
                     pane: {
                         startAngle: -150,
@@ -322,7 +348,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     x: -20 //center
                 },
                 legend: {
-                    enabled: false
+                    enabled: true
                 },
 
                 xAxis: {
@@ -341,22 +367,47 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     }]
                 },
                 tooltip:{
-                    enabled: false
+                    enabled: true
                 },
                 credits: {
-                    enabled: false
+                    text: '© Australian Institute or Marine Science',
+                    href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
+                },
+                plotOptions: {
+                    line: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
                 }
             },
             series: [{
-                name: 'test',
-                data: $scope.temps
+                name: 'Actual Temp.',
+                data: $scope.temps,
+                color: 'grey'
 
-            }
-            //    {
-            //    name: 'date',
-            //    data: [date]
-            //}
-            ],
+            },{
+                name: 'Modelled Temp.',
+                data: $scope.modelledTemps,
+                color: 'green'
+
+            },{
+                name: 'Second SD.',
+                data: $scope.modTempPlusTwoSd,
+                color: 'orange'
+            },{
+                name: 'Third SD.',
+                data: $scope.modTempPlusThreeSd,
+                color: 'red'
+            },{
+                name: 'Second SD',
+                data: $scope.modTempMinusTwoSd,
+                color: '#33CCFF'
+            },{
+                name: 'Third SD',
+                data: $scope.modTempMinusThreeSd,
+                color: '#5D5DFF'
+            }],
 
             loading: false
         };
@@ -385,13 +436,40 @@ angular.module('bleaching.site', ["highcharts-ng"])
                 },
                 tooltip:{
                     enabled: true
+                },
+                credits: {
+                    text: '© Australian Institute or Marine Science',
+                    href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
+                },
+                plotOptions: {
+                    line: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
                 }
             },
             series: [{
                 name:"Anomaly",
                 data: $scope.anomaly
-
-            }],
+            },{
+                name:"Second SD.",
+                data: $scope.plusTwoSd,
+                color: 'orange'
+            },{
+                name:"Third SD.",
+                data: $scope.plusThreeSd,
+                color: 'red'
+            },{
+                name:"Second SD.",
+                data: $scope.minusTwoSd,
+                color: '#33CCFF'
+            },{
+                name:"Third SD.",
+                data: $scope.minusThreeSd,
+                color: '#5D5DFF'
+            }
+            ],
 
             loading: false
         };
