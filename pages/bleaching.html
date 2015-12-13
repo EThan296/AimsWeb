@@ -23,6 +23,7 @@
         </div>
     </div>
 
+    <!--second raw-->
     <div class="row" id="row2">
 
         <div class="col-md-7 panel panel-primary" style="border: solid #337ab7; padding-left:0px; padding-right:0px;">
@@ -67,21 +68,19 @@
 
 
 
-        <div class="col-md-5" id="right-side">
+        <div class="col-md-5 panel panel-primary"  id="right-side"  style="border: solid #337ab7; padding-left:0px; padding-right:0px;">
         <!--<div id="right-side">-->
 
-            <h3>Temperature Anomaly</h3>
-            <p>[Click on a Graph to get more information about that reef]</p>
-            <!--</br>-->
-            <!--<div style="width:50%; float:left; text-decoration: underline; padding-left: 25px;"><h4>Temperature Anomaly</h4></div>-->
-            <!--<div style="width:50%; float:left; text-align:right; padding-right: 15px; text-decoration: underline;"><h4>°C</h4></div>-->
-            <!--<span class="clear"></span>-->
-            <!--</br>-->
+            <div class="panel-heading" style="width: 100%">
 
-            <div id="anomaly-box" ng-repeat="anomaly in anomalyArray" style="">
-                <!--<div class="anomaly-temperature" style="float:right;">-->
-                    <!--<span>{{anomaly.anomoly.toFixed(1);}}°C</span>-->
-                <!--</div>-->
+                <h3>Temperature Anomaly</h3>
+                <p>[Click on a Graph to get more information about that reef]</p>
+
+            </div>
+
+
+            <div  class=" panel-body"  id="anomaly-box" ng-repeat="anomaly in anomalyArray" style="">
+
                 <div style="height: 125px; margin: 0 auto; margin-bottom:10px;">
                     <div class="anomaly-chart"><highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart></div>
                 </div>
@@ -89,12 +88,14 @@
 
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-7" style="background-color: #6D9FD0;">
+
+    <!--third raw-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-7" style="background-color: #6D9FD0;">-->
 
 
-        </div>
-    </div>
+        <!--</div>-->
+    <!--</div>-->
 
 
     <!--map row-->
@@ -225,3 +226,16 @@
 
 
 <!--div for buttons contaoner ends-->
+
+
+
+    <!--</br>-->
+    <!--<div style="width:50%; float:left; text-decoration: underline; padding-left: 25px;"><h4>Temperature Anomaly</h4></div>-->
+    <!--<div style="width:50%; float:left; text-align:right; padding-right: 15px; text-decoration: underline;"><h4>°C</h4></div>-->
+    <!--<span class="clear"></span>-->
+    <!--</br>-->
+
+
+    <!--<div class="anomaly-temperature" style="float:right;">-->
+    <!--<span>{{anomaly.anomoly.toFixed(1);}}°C</span>-->
+    <!--</div>-->
