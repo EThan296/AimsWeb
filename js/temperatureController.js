@@ -235,7 +235,7 @@ angular.module('site', [])
             $scope.siteMarkers = [];
 
             //second  get method
-            $http({method: 'GET', url: 'js/json/latLngData'}).success(function(data){
+            $http({method: 'GET', url: 'http://aimsweatherservice.appspot.com/service/vchannels'}).success(function(data){
 
                 $scope.siteMarkers2 = [];
                 $scope.tempArray2 = data._embedded.vchannels;
