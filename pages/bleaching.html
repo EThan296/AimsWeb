@@ -1,4 +1,6 @@
 <div class="container">
+
+    <!--heading row-->
     <div class="row">
         <div class="page-header" style="text-align: center; background:#337ab7; color: white;padding: 10px">
         <h1 style="text-align: center;">Great Barrier Reef - Bleaching Indicators</h1>
@@ -15,7 +17,7 @@
 
     </div>
 
-    <!--second raw-->
+    <!--graph raw-->
     <div class="row" id="row2">
 
         <div class="col-md-7 panel panel-primary" style="border: solid #337ab7; padding-left:0px; padding-right:0px;">
@@ -31,31 +33,7 @@
                     </a>
 
             </div>
-            <div style="float:left; width:50%; padding-top: 10px; padding-left: 10px;">
-                <p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>
-            </div>
-            <div style="float:right; width:50%; height:100%; padding:5px;">
-                <div style="height: 50%; width:50%; float:left;">
-                    <div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>
-                    <p>Normal Temperatures</p>
 
-                </div>
-                <div style="height: 50%; width:50%; float:right;">
-                    <div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>
-                    <p>Bleaching Warning</p>
-
-                </div>
-                <div style="height: 50%; width:50%; float:left;">
-                    <div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>
-                    <p>Bleaching Watch</p>
-
-                </div>
-                <div style="height: 50%; width:50%; float:right;">
-                    <div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>
-                    <p>Bleaching Threshold</p>
-
-                </div>
-            </div>
         </div>
 
 
@@ -68,15 +46,103 @@
                 </div>
 
                 <div class=" panel-body"  id="anomaly-box" ng-repeat="anomaly in anomalyArray">
-                    <div style="height: 125px; margin: 0 auto; margin-bottom:10px;">
-                        <div class="anomaly-chart"><highchart id="chart1" config="anomaly.chartConfig" class="span10">
-                            </highchart>
+                    <!--<div style="height: 125px; margin: 0 auto; margin-bottom:10px;">-->
+                        <div class="anomaly-chart">
+                            <highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart>
                         </div>
-                    </div>
+                    <!--</div>-->
                 </div>
 
         </div>
+    </div>
+
+
+    <!--info row-->
+    <div class="row" id="infoRow" style="padding-bottom: 10px">
+
+
+        <div class="col-md-7" style="padding:10px;background-color: #6D9FD0;">
+
+            <div class="row" style="padding: 10px">
+                <p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>
+            </div>
+
+            <div class="row" style="padding: 10px">
+
+                <div class="col-md-6">
+                    <div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>
+                    <p>&nbsp;&nbsp;No current Risk of Bleaching </p>
+                </div>
+
+                <div class="col-md-6">
+                    <div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>
+                    <p>&nbsp;&nbsp;Low risk of Bleaching </p>
+                </div>
+
+            </div>
+
+            <div class="row"style="padding: 10px">
+
+                <div class="col-md-6">
+                    <div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>
+                    <p>&nbsp;&nbsp;Medium Risk of Bleaching</p>
+                </div>
+
+                <div class="col-md-6">
+                    <div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>
+                    <p>&nbsp;&nbsp;High Risk of Bleaching</p>
+                </div>
+
+            </div>
+
         </div>
+
+
+        <div class="col-md-5" style="padding: 10px;margin-left: 10px;background-color: #6D9FD0;">
+
+            <!--first row-->
+            <div class="row" style="padding: 10px">
+
+                <div class="col-md-6">
+                    <div style="background-color:#5d5dff; height:25px; width:25px; float:left;"></div>
+                    <p>&nbsp;&nbsp;Much Cooler</p>
+                </div>
+
+                <div class="col-md-6">
+                    <div style="background-color:#33CCFF; height:25px; width:25px; float:left;"></div>
+                    <p>&nbsp;&nbsp;Cooler</p>
+                </div>
+
+            </div>
+
+        <!--second row-->
+            <div class="row" style="padding: 10px">
+
+                <div class="col-md-6">
+                    <div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>
+                    <p>&nbsp;&nbsp;Normal</p>
+                </div>
+
+                <div class="col-md-6">
+                    <div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>
+                    <p>&nbsp;&nbsp;Warmer</p>
+                </div>
+
+            </div>
+
+            <!--third row-->
+            <div class="row"style="padding: 10px">
+
+                <div class="col-md-6">
+                    <div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>
+                    <p>&nbsp;&nbsp;Much Warmer</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
 
 
     <!--map row-->
@@ -231,3 +297,118 @@
 
     <!--</div>-->
     <!--</div>-->
+
+    <!--<div style="float:left; width:50%; padding-top: 10px; padding-left: 10px;">-->
+    <!--<p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>-->
+    <!--</div>-->
+    <!--<div style="float:right; width:50%; height:100%; padding:5px;">-->
+    <!--<div style="height: 50%; width:50%; float:left;">-->
+    <!--<div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>-->
+    <!--<p>No current Risk of Bleaching </p>-->
+
+    <!--</div>-->
+    <!--<div style="height: 50%; width:50%; float:right;">-->
+    <!--<div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>-->
+    <!--<p>Low risk of Bleaching </p>-->
+
+    <!--</div>-->
+    <!--<div style="height: 50%; width:50%; float:left;">-->
+    <!--<div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>-->
+    <!--<p>Medium Risk of Bleaching</p>-->
+
+    <!--</div>-->
+    <!--<div style="height: 50%; width:50%; float:right;">-->
+    <!--<div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>-->
+    <!--<p>High Risk of Bleaching</p>-->
+
+    <!--</div>-->
+    <!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="col-md-7" style="border: solid #337ab7;padding:10px;background-color: #6D9FD0;">-->
+
+<!--<p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>-->
+
+<!--<div>-->
+<!--<div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>-->
+<!--<p>&nbsp;&nbsp;No current Risk of Bleaching </p>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>-->
+<!--<p>&nbsp;&nbsp;Low risk of Bleaching </p>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>-->
+<!--<p>&nbsp;&nbsp;Medium Risk of Bleaching</p>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>-->
+<!--<p>&nbsp;&nbsp;High Risk of Bleaching</p>-->
+<!--</div>-->
+
+<!--</div>-->
+
+<!--<div>-->
+
+<!--<div>-->
+<!--<div style="background-color:#5d5dff; height:25px; width:25px; float:left;"></div>-->
+<!--<p>&nbsp;&nbsp;Much Cooler</p>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<div style="background-color:#33CCFF; height:25px; width:25px; float:left;"></div>-->
+<!--<p>&nbsp;&nbsp;Cooler</p>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>-->
+<!--<p>&nbsp;&nbsp;Normal</p>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>-->
+<!--<p>&nbsp;&nbsp;Warmer</p>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>-->
+<!--<p>&nbsp;&nbsp;Much Warmer</p>-->
+<!--</div>-->
+
+<!--</div>-->
