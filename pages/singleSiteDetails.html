@@ -38,10 +38,10 @@
             <div class="panel-body">
                 <!--<button ng-click="generateAnomalySpeedo(siteDetails2.plusOneSd, siteDetails2.plusTwoSd, siteDetails2.plusThreeSd, siteDetails2.anomoly);">show chart</button>-->
                 <div><highchart id="chart2" config="anomalyConfig" class="span10"></highchart></div>
-                <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails2.actualWaterTemp+"  "+"&#8451"}}</span></div>
-                <div class="well well-sm">Historical Avg. Water Temp:<span style="float: right;">{{siteDetails2.modelledWaterTemp+"  "+"&#8451"}}</span></div>
-                <div class="well well-sm">Temp Differential:<span style="float: right;">{{siteDetails2.anomoly+"  "+"&#8451"}}</span></div>
-                <div class="well well-sm">Thermal status:<span style="float: right;">{{siteDetails2.status}}</span></div>
+                <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails.actualWaterTemp+"  "+"&#8451"}}</span></div>
+                <div class="well well-sm">Historical Avg. Water Temp:<span style="float: right;">{{modelledAnomaly+"  "+"&#8451"}}</span></div>
+                <div class="well well-sm">Temp Differential:<span style="float: right;">{{tempDifferential+"  "+"&#8451"}}</span></div>
+                <div class="well well-sm">Thermal status:<span style="float: right;">{{anomalyStatus}}</span></div>
 
 
             </div>

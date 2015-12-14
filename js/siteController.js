@@ -7,7 +7,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
 .controller('siteController', ['$scope', '$routeParams','siteService', function($scope, $routeParams, siteService) {
         var siteId = $routeParams.id;
         $scope.siteDetails = '';
-        $scope.anomomlyStatuses = '';
+        $scope.anomalyStatuses = '';
         $scope.siteClimatology = '';
 
         $scope.loadData = function(){
@@ -58,7 +58,10 @@ angular.module('bleaching.site', ["highcharts-ng"])
 
             var anomolyPromise = siteService.getAnomolyStatusesById(siteId)
                 .then(function (results) {
-                    $scope.anomomlyStatuses = results;
+                    $scope.anomalyStatuses = results;
+                    $scope.tempDifferential = $scope.anomalyStatuses.anomoly;
+                    $scope.anomalyStatus = $scope.anomalyStatuses.status;
+                    $scope.modelledAnomaly = $scope.anomalyStatuses.modelledWaterTemp;
                     $scope.generateStatuses();
                 })
         };
@@ -203,7 +206,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
             ref.plusTwoSd = 1;
             ref.plusThreeSd = 1.5;
             ref.anomoly = 0;
-                ref = $scope.anomomlyStatuses;
+                ref = $scope.anomalyStatuses;
                 console.log(ref.plusOneSd, ref.plusTwoSd, ref.plusThreeSd, ref.anomoly);
                 //Anomaly
                 var red = [ref.plusThreeSd, 3];
@@ -227,7 +230,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                         enabled: false
                     },
                     title: {
-                        text: $scope.siteDetails.siteName + ' - Water Temperature Anomaly <br>' + $scope.anomomlyStatuses.day
+                        text: $scope.siteDetails.siteName + ' - Water Temperature Anomaly <br>' + $scope.anomalyStatuses.day
                     },
                     credits: {
                         text: '© Australian Institute of Marine Science',
@@ -451,7 +454,8 @@ angular.module('bleaching.site', ["highcharts-ng"])
             },
             series: [{
                 name:"Anomaly",
-                data: $scope.anomaly
+                data: $scope.anomaly,
+                color: 'grey'
             },{
                 name:"Second SD.",
                 data: $scope.plusTwoSd,
