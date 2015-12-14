@@ -32,8 +32,8 @@ angular.module('bleaching.siteService', [])
 				})
 		}
 
-		self.getClimatologyByChannel = function(id) {
-			return $http.get('http://aimsweatherservice.appspot.com/service/vclimatologies/search/findByChannelId?channelId=' + id)
+			self.getClimatologyByChannel = function(id) {
+				return $http.get('http://aimsweatherservice.appspot.com/service/vclimatologies/search/findByChannelId?channelId=' + id)
 				.then(function(response) {
 					return response.data._embedded.vclimatologies;
 				})
