@@ -36,12 +36,12 @@
 function MapLabel(opt_options) {
 
     this.set('fontFamily', 'sans-serif');
-    this.set('fontSize', 12);
+    this.set('fontSize', 20);
     this.set('fontColor', 'green');
-    //this.set('strokeWeight', 4);
-    //this.set('strokeColor', '#ffffff');
+    this.set('strokeWeight', 4);
+    this.set('strokeColor', '#ffffff');
     this.set('align', 'center');
-
+    this.set('fontWeight', "bold");
     this.set('zIndex', 1e3);
 
     this.setValues(opt_options);
@@ -57,9 +57,10 @@ MapLabel.prototype.changed = function(prop) {
         case 'fontFamily':
         case 'fontSize':
         case 'fontColor':
-        //case 'strokeWeight':
-        //case 'strokeColor':
+        case 'strokeWeight':
+        case 'strokeColor':
         case 'align':
+        case 'fontWeight':
         case 'text':
             return this.drawCanvas_();
         case 'maxZoom':
@@ -82,7 +83,7 @@ MapLabel.prototype.drawCanvas_ = function() {
 
     var ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = this.get('strokeColor');
+    //ctx.strokeStyle = this.get('strokeColor');
     ctx.fillStyle = this.get('fontColor');
     ctx.font = this.get('fontSize') + 'px ' + this.get('fontFamily');
 

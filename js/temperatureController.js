@@ -300,9 +300,11 @@ angular.module('site', [])
                             text: $scope.siteMarkers[i][0],
                             position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
                             map: map,
-                            fontSize: 20,
-                            fontColor: 'green',
-                            align: 'left',
+                            fontSize: 25,
+                            fontColor: 'chartreuse',
+                            align: 'right',
+                            strokeWeight:0,
+                            fontWeight:"bold",
                             url: $scope.siteMarkers[i][2]
 
                         });
