@@ -25,7 +25,7 @@ angular.module('bleaching.siteService', [])
 		                if (data[i].siteId == id) {
 		                	if (data[i].status==0){
 			                    data[i].status = "Normal for this time of year";
-			                }
+						}
 		                    return data[i];
 		                }
 		            }
