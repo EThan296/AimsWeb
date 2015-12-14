@@ -244,7 +244,7 @@ angular.module('site', [])
             //second  get method
             $http({method: 'GET', url: 'http://aimsweatherservice.appspot.com/service/vchannels'}).success(function(data){
 
-                $scope.siteMarkers2 = [];
+                //$scope.siteMarkers2 = [];
                 $scope.tempArray2 = data._embedded.vchannels;
                 $scope.latData = [];
                 $scope.lngData = [];
@@ -255,7 +255,7 @@ angular.module('site', [])
                 for (var i = 0; i < $scope.tempArray.length; i++) {
 
                     //compares the ID from both service files
-                    if ( $scope.tempArray.siteId == $scope.tempArray2.siteId){
+                    if ( $scope.tempArray.channelId == $scope.tempArray2.channelId){
 
                         $scope.latData[i] = $scope.tempArray2[i].latitude;
                         $scope.lngData[i] = $scope.tempArray2[i].longitude;
@@ -275,8 +275,8 @@ angular.module('site', [])
 
                 $scope.initialize = function() {
 
-                    var siteIcon = '/resources/circle_green.png';
-                    //var siteIcon = '/resources/circle_red.ico';
+                    //var siteIcon = '/resources/circle_green.png';
+                    var siteIcon = '/resources/rc4.png';
 
                     var mapProp = {
 
