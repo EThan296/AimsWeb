@@ -225,7 +225,7 @@ angular.module('site', [])
                     credits: {
                         text: '© Australian Institute or Marine Science',
                         href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
-                    }
+                    },
 
                 };
                 $scope.tempArray[i].chartConfig = $scope.configString2;
@@ -242,6 +242,7 @@ angular.module('site', [])
                 $scope.latData = [];
                 $scope.lngData = [];
                 var marker;
+                var i;
                 var mapLabel;
 
                 for (var i = 0; i < $scope.tempArray.length; i++) {
