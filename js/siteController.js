@@ -5,6 +5,7 @@
 angular.module('bleaching.site', ["highcharts-ng"])
 
 .controller('siteController', ['$scope', '$routeParams','siteService', function($scope, $routeParams, siteService) {
+
         var siteId = $routeParams.id;
         $scope.siteDetails = '';
         $scope.anomalyStatuses = '';
@@ -36,6 +37,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                             $scope.minusThreeSd = [];
 
                             for (var i = 0; i < $scope.siteClimatology.length; i++) {
+
                                 $scope.temps.push($scope.siteClimatology[i].actualWaterTemp);
                                 $scope.modelledTemps.push($scope.siteClimatology[i].modelledWaterTemp);
 
@@ -54,6 +56,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                             }
                             $scope.generateClimatology();
                         })
+
                 });
 
             var anomolyPromise = siteService.getAnomolyStatusesById(siteId)
@@ -64,7 +67,9 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     $scope.modelledAnomaly = $scope.anomalyStatuses.modelledWaterTemp;
                     $scope.generateStatuses();
                 })
-        };
+
+        }
+
 
         $scope.generateBleachingRisk = function() {
             //Temperature speedo
@@ -76,6 +81,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
             var currentTemp = $scope.siteDetails.actualWaterTemp;
             $scope.temperatureConfig = {
                 options: {
+
                     chart: {
                         type: 'gauge',
                         plotBackgroundColor: null,
@@ -175,7 +181,10 @@ angular.module('bleaching.site', ["highcharts-ng"])
                             to: red[1], // - lowhigh
                             color: '#DF5353' // red
                         }]
-                    }
+                    },
+                    exporting: {
+                        enabled: false
+                    },
                 },
                 series: [{
                     name: 'Temperature',
@@ -190,6 +199,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                         valueSuffix: ' °C'
                     }
                 }],
+
                 loading: false
             };
 
@@ -319,8 +329,12 @@ angular.module('bleaching.site', ["highcharts-ng"])
                             to: red[1],
                             color: '#DF5353' // red
                         }]
-                    }
+                    },
+                    exporting: {
+                        enabled: false
+                    },
                 },
+
                 series: [{
                     name: 'Anomaly',
                     data: [anomaly],
@@ -382,6 +396,9 @@ angular.module('bleaching.site', ["highcharts-ng"])
                             enabled: false
                         }
                     }
+                },
+                exporting: {
+                    enabled: false
                 }
             },
             series: [{
@@ -450,6 +467,9 @@ angular.module('bleaching.site', ["highcharts-ng"])
                             enabled: false
                         }
                     }
+                },
+                exporting: {
+                    enabled: false
                 }
             },
             series: [{

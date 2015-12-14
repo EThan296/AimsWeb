@@ -91,6 +91,10 @@ angular.module('site', [])
                             stacking: 'normal',
                             borderWidth: 0
                         }
+
+                    },
+                    exporting: {
+                        enabled: false
                     }
                 },
                 series: [
@@ -190,6 +194,9 @@ angular.module('site', [])
                             series: {
                                 stacking: 'normal'
                             }
+                        },
+                        exporting: {
+                            enabled: false
                         }
                     },
                     series: [{
