@@ -17,48 +17,67 @@
 
     </div>
 
+
     <!--graph raw-->
-    <div class="row" id="row2">
+    <div class="row" style="padding-bottom: 10px">
 
-        <div class="col-md-7 panel panel-primary" style="border: solid #337ab7; padding-left:0px; padding-right:0px;">
 
-            <div class="panel-heading" style="width: 100%"><h2>Bleaching Risk</h2>
-                <p>[Click on a Graph to get more information about that reef]</p>
+        <!--left column-->
+        <div class="col-md-7">
+            <div>
+
+            <div class="panel-primary" style="border: #337ab7 solid;">
+
+                <div class="panel-heading">
+                    <h2>Bleaching Risk</h2>
+                    <p>[Click on a Graph to get more information about that reef]</p>
+                </div>
+
+                <div class="panel-body">
+
+                        <div class="col-md-12"  ng-repeat="temperature in tempArray" style="padding: 10px;background-color: #6D9FD0;">
+                            <a href="/#/details/{{temperature.siteId}}"><highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart> </a>
+                        </div>
+
+                </div>
             </div>
-
-            <div class=" panel-body" ng-repeat="temperature in tempArray" style="background-color: #6D9FD0">
-
-                    <a href="/#/details/{{temperature.siteId}}">
-                    <div class="temp-chart"><highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart></div>
-                    </a>
-
             </div>
 
         </div>
 
 
 
-        <div class="col-md-5 panel panel-primary"  id="right-side"  style="border: solid #337ab7; padding-left:0px; padding-right:0px;">
+        <!--right column-->
+        <div class="col-md-5" style="margin-left: 10px">
 
-                <div class="panel-heading" style="width: 100%">
+            <div>
+
+            <div class="panel-primary" style="border: #337ab7 solid;">
+
+                <div class="panel-heading">
                     <h2>Temperature Anomaly</h2>
                     <p>[Click on a Graph to get more information about that reef]</p>
                 </div>
 
-                <div class=" panel-body"  id="anomaly-box" ng-repeat="anomaly in anomalyArray">
-                    <!--<div style="height: 125px; margin: 0 auto; margin-bottom:10px;">-->
-                        <div class="anomaly-chart">
-                            <highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart>
-                        </div>
-                    <!--</div>-->
+                <div class="panel-body">
+                    <div class="col-md-12" ng-repeat="anomaly in anomalyArray" style="padding: 10px;background-color: #6D9FD0;">
+                        <highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart>
+                    </div>
                 </div>
 
+            </div>
+            </div>
+
         </div>
+
     </div>
 
 
+
+
+
     <!--info row-->
-    <div class="row" id="infoRow" style="padding-bottom: 10px">
+    <div class="row" id="infoRow">
 
 
         <div class="col-md-7" style="background-color: #6D9FD0;">
@@ -182,10 +201,6 @@
 
 
 
-
-
-
-
 <!--reef status div-->
 
 <!--<div class="col-md-7" style="background: #f0ad4e;margin-top:12px;">-->
@@ -232,57 +247,6 @@
 
 <!--reef status div ends-->
 
-<!--div for map button-->
-
-<!--<div class="col-md-12">-->
-    <!--<div style="background: salmon ">-->
-        <!--<h3><a href="/#/map">  <button type="button" class="btn btn-default btn-lg">View as map</button></a></h3>-->
-    <!--</div>-->
-<!--</div>-->
-
-
-<!--div for map button ends-->
-
-
-<!--div for buttons contaoner-->
-
-<!--margin: auto 1.5em; display: inline-block;-->
-<!--style="text-align: center"-->
-
-
-<!--<div class="col-md-12">-->
-<!--<div style="background: salmon ">-->
-
-
-<!--<p>The data is displayed in the context of<br>-->
-<!--the historical climatological record (how<br>-->
-<!--much warmer or cooler it is than the<br>-->
-<!--historical climatology) and how current<br>-->
-<!--temperatures relate to known empirical<br>-->
-<!--coral bleaching thresholds.-->
-<!--</p>-->
-
-<!--<br>-->
-
-<!--<p>Data that is within +/- 2 Standard<br>-->
-<!--Deviations (SD) from the long term mean<br>-->
-<!--is considered to be 'normal', data<br>-->
-<!--between the +/- 2 and 3 SD limits as <br>-->
-<!--'unusual' and temperatures outside the<br>-->
-<!--+/- 3 SD as 'extreme'.</p>-->
-<!--</div>-->
-<!--</div>-->
-
-
-<!--div for buttons contaoner ends-->
-
-
-
-    <!--</br>-->
-    <!--<div style="width:50%; float:left; text-decoration: underline; padding-left: 25px;"><h4>Temperature Anomaly</h4></div>-->
-    <!--<div style="width:50%; float:left; text-align:right; padding-right: 15px; text-decoration: underline;"><h4>°C</h4></div>-->
-    <!--<span class="clear"></span>-->
-    <!--</br>-->
 
 
     <!--<div class="anomaly-temperature" style="float:right;">-->
@@ -323,39 +287,6 @@
 
     <!--</div>-->
     <!--</div>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!--<div class="col-md-7" style="border: solid #337ab7;padding:10px;background-color: #6D9FD0;">-->
@@ -412,3 +343,52 @@
 <!--</div>-->
 
 <!--</div>-->
+
+
+
+
+<!--actual code for graph div starts from here-->
+
+
+<!--&lt;!&ndash;graph raw&ndash;&gt;-->
+<!--<div class="row" id="row2">-->
+
+<!--<div class="col-md-7 panel panel-primary" style="border: solid #337ab7; padding-left:0px; padding-right:0px;">-->
+
+<!--<div class="panel-heading" style="width: 100%"><h2>Bleaching Risk</h2>-->
+<!--<p>[Click on a Graph to get more information about that reef]</p>-->
+<!--</div>-->
+
+<!--<div class=" panel-body" ng-repeat="temperature in tempArray" style="background-color: #6D9FD0">-->
+
+<!--<a href="/#/details/{{temperature.siteId}}">-->
+<!--<div class="temp-chart"><highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart></div>-->
+<!--</a>-->
+
+<!--</div>-->
+
+<!--</div>-->
+
+
+
+<!--<div class="col-md-5 panel panel-primary"  id="right-side"  style="border: solid #337ab7; padding-left:0px; padding-right:0px;">-->
+
+<!--<div class="panel-heading" style="width: 100%">-->
+<!--<h2>Temperature Anomaly</h2>-->
+<!--<p>[Click on a Graph to get more information about that reef]</p>-->
+<!--</div>-->
+
+<!--<div class=" panel-body"  id="anomaly-box" ng-repeat="anomaly in anomalyArray">-->
+<!--&lt;!&ndash;<div style="height: 125px; margin: 0 auto; margin-bottom:10px;">&ndash;&gt;-->
+<!--<div class="anomaly-chart">-->
+<!--<highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart>-->
+<!--</div>-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+
+
+
+<!--code for graph div ends here-->
