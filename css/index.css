@@ -12,24 +12,21 @@ body {
 }
 
 #right-side {
-    /*float: right;*/
-    background-color: #6D9FD0;
+    /*!*float: right;*!*/
+    /*background-color: #6D9FD0;*/
     margin-left: 12px;
-    /*min-width: 412px;*/
-    /*max-width: 39%;*/
-    /*width: 39%;*/
-    /*word-wrap: break-word;*/
+    /*!*min-width: 412px;*!*/
+    /*!*max-width: 39%;*!*/
+    /*!*width: 39%;*!*/
+    /*!*word-wrap: break-word;*!*/
 }
 #left-side {
-    /*float: left;*/
-    background-color: #6D9FD0;
-    /*min-width:500px;*/
-    /*max-width: 60%;*/
-    /*width: 60%;*/
-    /*word-wrap: break-word;*/
-}
-#left-side h3, p {
-    padding-left:10px;
+    /*!*float: left;*!*/
+    /*background-color: #6D9FD0;*/
+    /*!*min-width:500px;*!*/
+    /*!*max-width: 60%;*!*/
+    /*!*width: 60%;*!*/
+    /*!*word-wrap: break-word;*!*/
 }
 #right-side h3, p {
     padding-left:10px;
