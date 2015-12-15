@@ -1,188 +1,85 @@
-angular.module('site', [])
+angular.module('bleaching.overview', [])
 
 
-.controller('siteCTRL', function($scope, $http, $routeParams)
+.controller('overviewController', ['$scope', '$http', '$routeParams', 'siteService', function($scope, $http, $routeParams, siteService)
 {
-    $http({method: 'GET', url: 'http://aimsweatherservice.appspot.com/service/vanomolyStatuses'}).success(function(data)
-    {
-        $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
+        $http({
+                method: 'GET',
+                url: 'http://aimsweatherservice.appspot.com/service/vanomolyStatuses'
+        }).success(function (data) {
+            $scope.anomalyArray = data._embedded.vanomolyStatuses; // response data
 
-        for (var i = 0; i<$scope.anomalyArray.length; i++) {
-            $scope.anomalyArray[i].chartConfig = '';
+            for (var i = 0; i < $scope.anomalyArray.length; i++) {
+                $scope.anomalyArray[i].chartConfig = '';
 
-            var blue = -3 + $scope.anomalyArray[i].plusThreeSd;
-            var lightBlue = $scope.anomalyArray[i].minusThreeSd + $scope.anomalyArray[i].plusTwoSd;
-            var greenNegative = $scope.anomalyArray[i].minusTwoSd;
-            var greenPositive = $scope.anomalyArray[i].plusTwoSd;
-            var orange = $scope.anomalyArray[i].plusThreeSd - $scope.anomalyArray[i].plusTwoSd;
-            var red = 3 - $scope.anomalyArray[i].plusThreeSd;
-            var anomaly = $scope.anomalyArray[i].anomoly;
+                var blue = -3 + $scope.anomalyArray[i].plusThreeSd;
+                var lightBlue = $scope.anomalyArray[i].minusThreeSd + $scope.anomalyArray[i].plusTwoSd;
+                var greenNegative = $scope.anomalyArray[i].minusTwoSd;
+                var greenPositive = $scope.anomalyArray[i].plusTwoSd;
+                var orange = $scope.anomalyArray[i].plusThreeSd - $scope.anomalyArray[i].plusTwoSd;
+                var red = 3 - $scope.anomalyArray[i].plusThreeSd;
+                var anomaly = $scope.anomalyArray[i].anomoly;
 
-            var darkGreen = $scope.anomalyArray[i].minusTwoSd + $scope.anomalyArray[i].plusOneSd;
-            var green = $scope.anomalyArray[i].plusOneSd;
-            var green2 = $scope.anomalyArray[i].minusOneSd;
-            var yellow = $scope.anomalyArray[i].plusTwoSd - $scope.anomalyArray[i].plusOneSd;
+                var darkGreen = $scope.anomalyArray[i].minusTwoSd + $scope.anomalyArray[i].plusOneSd;
+                var green = $scope.anomalyArray[i].plusOneSd;
+                var green2 = $scope.anomalyArray[i].minusOneSd;
+                var yellow = $scope.anomalyArray[i].plusTwoSd - $scope.anomalyArray[i].plusOneSd;
 
 
-
-            $scope.configString = {
-                options: {
-                    chart: {
-                        type: 'bar',
-                        height: 125
-
-                    },
-                    tooltip: {
-                        enabled: false
-                    },
-                    title: {
-                        //enabled: false
-                        //text: ""
-                        text: $scope.anomalyArray[i].siteName + ' - Anomaly -  ' + $scope.anomalyArray[i].day//$scope.anomalyArray[i].siteName
-                    },
-                    credits: {
-                        text: '© Australian Institute or Marine Science',
-                        href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
-                    },
-                    subtitle: {
-                        text: ''
-                    },
-                    xAxis: {
-                        categories: [''],
-                        title: {
-                            enabled: false
-                        }
-                    },
-                    yAxis: [{
-                        max:3,
-                        min:-3,
-                        minorTickInterval: 0.25,
-                        title: {
-                            text: '',
-                            enabled: false
-                        },
-                        labels: {
-                            enabled: true
-                        }
-
-                    }, { // mirror axis on right side
-                        opposite: true,
-                        reversed: false,
-                        //categories: categories,
-                        title: {
-                            text: '',
-                            enabled: false
-                        },
-                        linkedTo: 0,
-                        labels: {
-                            enabled: false,
-                            step: 1
-                        }
-                    }],
-                    legend: {
-                        reversed: true,
-                        enabled: false
-                    },
-                    plotOptions: {
-                        column: {
-                            grouping: false
-                        },
-                        series: {
-                            stacking: 'normal',
-                            borderWidth: 0
-                        }
-
-                    },
-                    exporting: {
-                        enabled: false
-                    }
-                },
-                series: [
-                    {
-                        name: 'Red',
-                        color: 'rgba(255, 93, 93, 1)',
-                        data: [red]
-                    }, {
-                        name: 'Blue',
-                        color: 'rgba(93, 93, 255, 1)',
-                        data: [blue]
-                    }, {
-                        name: 'lightBlue',
-                        color: 'rgba(51, 204, 255, 1)',
-                        data: [lightBlue]
-                    }, {
-                        name: 'greenNegative',
-                        color: 'rgba(140, 254, 140, 1)',
-                        data: [greenNegative]
-
-                    }, {
-                        name: 'orange',
-                        color: 'rgba(254, 170, 85, 1)',
-                        data: [orange]
-                    }, {
-                        name: 'greenPositive',
-                        color: 'rgba(140, 254, 140, 1)',
-                        data: [greenPositive]
-
-                    }, {
-                        type: 'scatter',
-                        name: 'anomalyPoint',
-                        dataLabels:{
-                            enabled: true,
-                            format: '{y} °C',
-                            y: -35,
-                            color: 'rgba(0,0,0,1)'
-                        },
-                        //text: "",
-                        color: 'black',
-                        data: [anomaly],
-                        marker: {
-                            symbol: 'url(assets/images/rsz_2rsz_1line.png)'
-}
-                    }],
-                loading: false
-            };
-            $scope.anomalyArray[i].chartConfig = $scope.configString;
-        }
-    });
-
-    //Temperature Graphs
-    $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses')
-        .then(function(response) {
-            $scope.tempArray = response.data._embedded.vbleachStatuses;
-
-            for (var i = 0; i < $scope.tempArray.length; i++) {
-                $scope.tempArray[i].chartConfig = '';
-                //console.log($scope.tempArray);
-                var green = $scope.tempArray[i].watchTemp;
-                var yellow = $scope.tempArray[i].warningTemp - $scope.tempArray[i].watchTemp;
-                var orange = $scope.tempArray[i].bleachingTemp - $scope.tempArray[i].warningTemp;
-                var red = 34 - $scope.tempArray[i].bleachingTemp;
-                var currentTemp = $scope.tempArray[i].actualWaterTemp;
-                //console.log(green, yellow, orange, red, currentTemp)
-                $scope.configString2 = {
+                $scope.configString = {
                     options: {
                         chart: {
                             type: 'bar',
                             height: 125
+
                         },
                         tooltip: {
                             enabled: false
                         },
                         title: {
-                            text: $scope.tempArray[i].siteName + ' - Bleaching Risk -  ' + $scope.tempArray[i].day //+ " @ " + $scope.tempArray[i].actualWaterTemp + '°C'
+                            //enabled: false
+                            //text: ""
+                            text: $scope.anomalyArray[i].siteName + ' - Anomaly -  ' + $scope.anomalyArray[i].day//$scope.anomalyArray[i].siteName
+                        },
+                        credits: {
+                            text: '© Australian Institute or Marine Science',
+                            href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
+                        },
+                        subtitle: {
+                            text: ''
                         },
                         xAxis: {
-                            categories: ['']
-                        },
-                        yAxis: {
-                            max: 34,
-                            min: 24,
-                            minorTickInterval: 0.5,
+                            categories: [''],
                             title: {
-                                text: ''
+                                enabled: false
                             }
                         },
+                        yAxis: [{
+                            max: 3,
+                            min: -3,
+                            minorTickInterval: 0.25,
+                            title: {
+                                text: '',
+                                enabled: false
+                            },
+                            labels: {
+                                enabled: true
+                            }
+
+                        }, { // mirror axis on right side
+                            opposite: true,
+                            reversed: false,
+                            //categories: categories,
+                            title: {
+                                text: '',
+                                enabled: false
+                            },
+                            linkedTo: 0,
+                            labels: {
+                                enabled: false,
+                                step: 1
+                            }
+                        }],
                         legend: {
                             reversed: true,
                             enabled: false
@@ -192,88 +89,201 @@ angular.module('site', [])
                                 grouping: false
                             },
                             series: {
-                                stacking: 'normal'
+                                stacking: 'normal',
+                                borderWidth: 0
                             }
+
                         },
                         exporting: {
                             enabled: false
                         }
                     },
-                    series: [{
-                        color: 'rgba(255, 93, 93, 1)',
-                        data: [red]
+                    series: [
+                        {
+                            name: 'Red',
+                            color: 'rgba(255, 93, 93, 1)',
+                            data: [red]
+                        }, {
+                            name: 'Blue',
+                            color: 'rgba(93, 93, 255, 1)',
+                            data: [blue]
+                        }, {
+                            name: 'lightBlue',
+                            color: 'rgba(51, 204, 255, 1)',
+                            data: [lightBlue]
+                        }, {
+                            name: 'greenNegative',
+                            color: 'rgba(140, 254, 140, 1)',
+                            data: [greenNegative]
 
-                    }, {
-                        color: 'rgba(254, 170, 85, 1)',
-                        data: [orange]
-                    }, {
-                        //name: '',
-                        color: 'rgba(255, 255, 0, 1)',
-                        data: [yellow]
-                    }, {
-                        name: '',
-                        color: 'rgba(140, 254, 140, 1)',
-                        data: [green]
+                        }, {
+                            name: 'orange',
+                            color: 'rgba(254, 170, 85, 1)',
+                            data: [orange]
+                        }, {
+                            name: 'greenPositive',
+                            color: 'rgba(140, 254, 140, 1)',
+                            data: [greenPositive]
 
-                    }, {
-                        type: 'scatter',
-                        dataLabels:{
-                            enabled: true,
-                            format: '{y} °C',
-                            y: -35,
-                            color: 'rgba(0,0,0,1)'
-                        },
-                        color: 'black',
-                        data: [currentTemp],
-                        marker: {
-                            symbol: 'url(assets/images/rsz_2rsz_1line.png)'
-                        }
-                    }],
-                    credits: {
-                        text: '© Australian Institute or Marine Science',
-                        href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
-                    },
-
+                        }, {
+                            type: 'scatter',
+                            name: 'anomalyPoint',
+                            dataLabels: {
+                                enabled: true,
+                                format: '{y} °C',
+                                y: -35,
+                                color: 'rgba(0,0,0,1)'
+                            },
+                            //text: "",
+                            color: 'black',
+                            data: [anomaly],
+                            marker: {
+                                symbol: 'url(assets/images/rsz_2rsz_1line.png)'
+                            }
+                        }],
+                    loading: false
                 };
-                $scope.tempArray[i].chartConfig = $scope.configString2;
+                $scope.anomalyArray[i].chartConfig = $scope.configString;
             }
+        });
 
-            //creates map
-            $scope.siteMarkers = [];
-
-            //second  get method
-            $http({method: 'GET', url: 'http://aimsweatherservice.appspot.com/service/vchannels'}).success(function(data){
-
-                //$scope.siteMarkers2 = [];
-                $scope.tempArray2 = data._embedded.vchannels;
-                $scope.latData = [];
-                $scope.lngData = [];
-                var marker;
-                var i;
-                var mapLabel;
+        //Temperature Graphs
+        $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses')
+            .then(function (response) {
+                $scope.tempArray = response.data._embedded.vbleachStatuses;
 
                 for (var i = 0; i < $scope.tempArray.length; i++) {
+                    $scope.tempArray[i].chartConfig = '';
+                    //console.log($scope.tempArray);
+                    var green = $scope.tempArray[i].watchTemp;
+                    var yellow = $scope.tempArray[i].warningTemp - $scope.tempArray[i].watchTemp;
+                    var orange = $scope.tempArray[i].bleachingTemp - $scope.tempArray[i].warningTemp;
+                    var red = 34 - $scope.tempArray[i].bleachingTemp;
+                    var currentTemp = $scope.tempArray[i].actualWaterTemp;
+                    //console.log(green, yellow, orange, red, currentTemp)
+                    $scope.configString2 = {
+                        options: {
+                            chart: {
+                                type: 'bar',
+                                height: 125
+                            },
+                            tooltip: {
+                                enabled: false
+                            },
+                            title: {
+                                text: $scope.tempArray[i].siteName + ' - Bleaching Risk -  ' + $scope.tempArray[i].day //+ " @ " + $scope.tempArray[i].actualWaterTemp + '°C'
+                            },
+                            xAxis: {
+                                categories: ['']
+                            },
+                            yAxis: {
+                                max: 34,
+                                min: 24,
+                                minorTickInterval: 0.5,
+                                title: {
+                                    text: ''
+                                }
+                            },
+                            legend: {
+                                reversed: true,
+                                enabled: false
+                            },
+                            plotOptions: {
+                                column: {
+                                    grouping: false
+                                },
+                                series: {
+                                    stacking: 'normal'
+                                }
+                            },
+                            exporting: {
+                                enabled: false
+                            }
+                        },
+                        series: [{
+                            color: 'rgba(255, 93, 93, 1)',
+                            data: [red]
 
-                    //compares the ID from both service files
-                    if ( $scope.tempArray.channelId == $scope.tempArray2.channelId){
+                        }, {
+                            color: 'rgba(254, 170, 85, 1)',
+                            data: [orange]
+                        }, {
+                            //name: '',
+                            color: 'rgba(255, 255, 0, 1)',
+                            data: [yellow]
+                        }, {
+                            name: '',
+                            color: 'rgba(140, 254, 140, 1)',
+                            data: [green]
 
-                        $scope.latData[i] = $scope.tempArray2[i].latitude;
-                        $scope.lngData[i] = $scope.tempArray2[i].longitude;
+                        }, {
+                            type: 'scatter',
+                            dataLabels: {
+                                enabled: true,
+                                format: '{y} °C',
+                                y: -35,
+                                color: 'rgba(0,0,0,1)'
+                            },
+                            color: 'black',
+                            data: [currentTemp],
+                            marker: {
+                                symbol: 'url(assets/images/rsz_2rsz_1line.png)'
+                            }
+                        }],
+                        credits: {
+                            text: '© Australian Institute or Marine Science',
+                            href: 'http://www.aims.gov.au/docs/cc-citation.html#webdata'
+                        }
 
-                        $scope.siteMarkers[i] = [$scope.tempArray[i].siteName,
-                                                $scope.tempArray[i].siteId,
-                                                '#/details/' + $scope.tempArray[i].siteId,
-                                                $scope.latData[i],
-                                                $scope.lngData[i]]
-                    }
-
+                    };
+                    $scope.tempArray[i].chartConfig = $scope.configString2;
                 }
 
-                $scope.showdiv = function(){
+                //creates map
+                $scope.siteMarkers = [];
+                $scope.latData = [];
+                $scope.lngData = [];
+                $scope.siteDetails = "";
+                $scope.channelId = [];
+                var detailsPromise = siteService.getAllSiteDetails()
+                    .then(function (results) {
+                        console.log(results);
+                        $scope.siteDetails = results;
+                        console.log($scope.siteDetails);
+                        for (var i=0; i < $scope.siteDetails.length; i++) {
+                            $scope.channelId.push($scope.siteDetails[i].channelId);
+                        }
+                        //console.log($scope.channelId);
+
+
+
+                console.log($scope.channelId);
+
+                for (var i = 0; i < $scope.channelId.length; i++) {
+                //for (var i = 0; i < $scope.tempArray.length; i++) {
+                    var vChannelPromise = siteService.getvChannel($scope.channelId[i])
+                    .then(function (results) {
+                        //console.log(result);
+                        $scope.channelDetails = results;
+                        $scope.latData.push($scope.channelDetails.latitude);
+                        $scope.lngData.push($scope.channelDetails.longitude);
+
+
+                        //console.log($scope.lngData);
+                        //console.log($scope.latData);
+                        $scope.siteMarkers[i] = [$scope.channelDetails.siteName, $scope.channelDetails.siteId, '#/details/' + $scope.channelDetails.siteId,
+                            $scope.latData[i], $scope.lngData[i]];
+                        console.log($scope.siteMarkers[i]);
+                    });
+                }
+                //console.log("past")
+                console.log($scope.lngData);
+                console.log($scope.latData);
+                $scope.showdiv = function () {
                     $scope.templateURL = 'pages/bleaching.html';
                 };
 
-                $scope.initialize = function() {
+                $scope.initialize = function () {
 
                     var siteIcon = '/resources/circle_green.png';
                     //var siteIcon = '/resources/rc4.png';
@@ -281,19 +291,18 @@ angular.module('site', [])
                     var mapProp = {
 
                         center: new google.maps.LatLng(-22.792260, 144.811222),
-                        zoom:5,
-                        mapTypeId:google.maps.MapTypeId.SATELLITE,
+                        zoom: 5,
+                        mapTypeId: google.maps.MapTypeId.SATELLITE,
 
                     };
 
-                    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
+                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
 
                     for (i = 0; i < $scope.siteMarkers.length; i++) {
 
                         <!--Adds a marker to the map.-->
-                        marker = new google.maps.Marker({
+                        var marker = new google.maps.Marker({
 
                             position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
                             icon: siteIcon,
@@ -303,36 +312,64 @@ angular.module('site', [])
                         });
 
                         //Adds a label to the map
-                        mapLabel = new MapLabel({
+                        var mapLabel = new MapLabel({
                             text: $scope.siteMarkers[i][0],
                             position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
                             map: map,
                             fontSize: 25,
                             fontColor: 'chartreuse',
                             align: 'right',
-                            strokeWeight:0,
-                            fontWeight:"bold",
+                            strokeWeight: 0,
+                            fontWeight: "bold",
                             url: $scope.siteMarkers[i][2]
 
                         });
 
-                    mapLabel.set('position', new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]));
+                        mapLabel.set('position', new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]));
 
-                    //marker.bindTo('map', mapLabel);
-                    //marker.bindTo('position', mapLabel);
-                    //marker.setDraggable(true);
+                        //marker.bindTo('map', mapLabel);
+                        //marker.bindTo('position', mapLabel);
+                        //marker.setDraggable(true);
 
 
-                        google.maps.event.addListener(marker, 'click', function() {
+                        google.maps.event.addListener(marker, 'click', function () {
                             window.location.href = this.url;
                         });
 
-                        google.maps.event.addListener(mapLabel, 'click', function() {
+                        google.maps.event.addListener(mapLabel, 'click', function () {
                             window.location.href = this.url;
                         });
                     }
                 };
                 google.maps.event.addDomListener(window, 'load', $scope.initialize())
             })
-        });
-});
+            });
+}]);
+
+
+//second  get method
+//$http({method: 'GET', url: 'http://aimsweatherservice.appspot.com/service/vchannels'}).success(function(data){
+
+//$scope.siteMarkers2 = [];
+//$scope.tempArray2 = data._embedded.vchannels;
+//$scope.latData = [];
+//$scope.lngData = [];
+//var marker;
+//var mapLabel;
+
+//for (var i = 0; i < $scope.tempArray.length; i++) {
+//
+//    //compares the ID from both service files
+//    if ( $scope.tempArray.channelId == $scope.tempArray2.channelId){
+//
+//        $scope.latData[i] = $scope.tempArray2[i].latitude;
+//        $scope.lngData[i] = $scope.tempArray2[i].longitude;
+//
+//        $scope.siteMarkers[i] = [$scope.tempArray[i].siteName,
+//                                $scope.tempArray[i].siteId,
+//                                '#/details/' + $scope.tempArray[i].siteId,
+//                                $scope.latData[i],
+//                                $scope.lngData[i]]
+//    }
+//
+//}

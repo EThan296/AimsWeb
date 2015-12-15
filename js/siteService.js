@@ -18,11 +18,20 @@ angular.module('bleaching.siteService', [])
 							}else {
 								data[i].color = "color: #ff1a1a;"; //High Risk of Bleaching
 							}
-							return data[i];
+
 		                }
+						return data[i];
 		            }
+
 				})
-		}
+		};
+		self.getAllSiteDetails = function() {
+			return $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses')
+					.then(function(response) {
+						var data = response.data._embedded.vbleachStatuses;
+						return data;
+					})
+		};
 
 		self.getAnomolyStatusesById = function(id) {
 			return $http.get('http://aimsweatherservice.appspot.com/service/vanomolyStatuses')
@@ -50,12 +59,18 @@ angular.module('bleaching.siteService', [])
 		                }
 		            }
 				})
-		}
+		};
 
 			self.getClimatologyByChannel = function(id) {
 				return $http.get('http://aimsweatherservice.appspot.com/service/vclimatologies/search/findByChannelId?channelId=' + id)
 				.then(function(response) {
 					return response.data._embedded.vclimatologies;
 				})
+		};
+		self.getvChannel = function(id) {
+			return $http.get('http://aimsweatherservice.appspot.com/service/vchannels/' + id)
+					.then(function(response) {
+						return response.data;
+					})
 		}
-	}])
+	}]);

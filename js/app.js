@@ -1,11 +1,11 @@
-angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","site","bleaching.site","bleaching.siteService"])
+angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","bleaching.site","bleaching.siteService","bleaching.overview"])
 
 .config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/bleaching', {
                 templateUrl: 'pages/bleaching.html',
-                controller: 'siteCTRL'
+                controller: 'overviewController'
             })
 
             .when('/details/:id', {

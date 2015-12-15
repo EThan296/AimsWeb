@@ -10,11 +10,13 @@ angular.module('bleaching.site', ["highcharts-ng"])
         $scope.siteDetails = '';
         $scope.anomalyStatuses = '';
         $scope.siteClimatology = '';
+        $scope.channelId = '';
 
         $scope.loadData = function(){
             var detailsPromise = siteService.getSiteDetailsById(siteId)
                 .then(function (results) {
                     $scope.siteDetails = results;
+                    $scope.channelId = $scope.siteDetails.channelId;
                     $scope.generateBleachingRisk();
                     var climatologyPromise = siteService.getClimatologyByChannel(results.channelId)
                         .then (function (results) {
@@ -55,8 +57,12 @@ angular.module('bleaching.site', ["highcharts-ng"])
 
                             }
                             $scope.generateClimatology();
+                        });
+                    var vChannelPromise = siteService.getvChannel($scope.channelId)
+                        .then(function (results) {
+                            $scope.channelDetails = results;
+                            console.log($scope.channelDetails)
                         })
-
                 });
 
             var anomolyPromise = siteService.getAnomolyStatusesById(siteId)
@@ -66,9 +72,9 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     $scope.anomalyStatus = $scope.anomalyStatuses.status;
                     $scope.modelledAnomaly = $scope.anomalyStatuses.modelledWaterTemp;
                     $scope.generateStatuses();
-                })
+                });
 
-        }
+        };
 
 
         $scope.generateBleachingRisk = function() {
