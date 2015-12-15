@@ -139,9 +139,22 @@ span.clear {
     padding-right: 15px;
 }
 
+.noBleaching {
 
-.labels {
+    color: #8cff8a;
+}
 
-    font-weight: bold;
+.lowBleaching {
 
+    color: #feaa54;
+}
+
+.mediumBleaching {
+
+    color: #ffff00;
+}
+
+.highBleaching {
+
+    color: #ff5d5d;
 }

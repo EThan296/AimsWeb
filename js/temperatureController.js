@@ -275,8 +275,8 @@ angular.module('site', [])
 
                 $scope.initialize = function() {
 
-                    //var siteIcon = '/resources/circle_green.png';
-                    var siteIcon = '/resources/rc4.png';
+                    var siteIcon = '/resources/circle_green.png';
+                    //var siteIcon = '/resources/rc4.png';
 
                     var mapProp = {
 

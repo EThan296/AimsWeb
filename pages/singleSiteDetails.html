@@ -13,7 +13,7 @@
         <div class="col-md-6" id="details1">
             <div class="panel panel-primary" style="border: solid #337ab7">
                 <div class="panel-heading">
-                    <i class="fa fa-circle fa-4x"style="color:chartreuse;float: left;"></i>
+                    <i class="fa fa-circle fa-4x"style="float: left;color:{{siteDetails.color}}"></i>
                     <h3 style="text-align: center;">Bleaching Risk</h3>
                 </div>
                 <div class="panel-body">
@@ -22,7 +22,7 @@
                     <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails.actualWaterTemp+"  "+"&#8451"}}</span></div>
                     <div class="well well-sm">Bleaching Warning Temp:<span style="float: right;">{{siteDetails.warningTemp+"  "+"&#8451"}}</span></div>
                     <div class="well well-sm">Bleaching Warning Temp:<span style="float: right;">{{siteDetails.bleachingTemp+"  "+"&#8451"}}</span></div>
-                    <div class="well well-sm">Bleaching status:<span style="float: right;">{{siteDetails.status}}</span></div>
+                    <div class="well well-sm">Bleaching status:<span style="float: right;border: 1px solid {{siteDetails.color}}; background-color:{{siteDetails.color}}; border-radius: 2px;">{{siteDetails.status}}</span></div>
 
 
 
@@ -33,7 +33,7 @@
     <div class="col-md-6" id="details2">
         <div class="panel panel-primary" style="border: solid #337ab7">
             <div class="panel-heading">
-                <i class="fa fa-circle fa-4x"style="color:chartreuse;float: left;"></i>
+                <i class="fa fa-circle fa-4x"style="float: left;color:{{anomalyStatuses.color}}"></i>
                 <h3 style="text-align: center;">Thermal Anomaly</h3></div>
             <div class="panel-body">
                 <!--<button ng-click="generateAnomalySpeedo(siteDetails2.plusOneSd, siteDetails2.plusTwoSd, siteDetails2.plusThreeSd, siteDetails2.anomoly);">show chart</button>-->
@@ -41,7 +41,7 @@
                 <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails.actualWaterTemp+"  "+"&#8451"}}</span></div>
                 <div class="well well-sm">Historical Avg. Water Temp:<span style="float: right;">{{modelledAnomaly+"  "+"&#8451"}}</span></div>
                 <div class="well well-sm">Temp Differential:<span style="float: right;">{{tempDifferential+"  "+"&#8451"}}</span></div>
-                <div class="well well-sm">Thermal status:<span style="float: right;">{{anomalyStatus}}</span></div>
+                <div class="well well-sm">Thermal status:<span style="float: right;border: 1px solid {{anomalyStatuses.color}}; background-color:{{anomalyStatuses.color}}; border-radius: 2px;">{{anomalyStatus}}</span></div>
 
 
             </div>
