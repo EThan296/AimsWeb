@@ -4,6 +4,16 @@ angular.module('bleaching.overview', ["highcharts-ng"])
 {
 
     $scope.anomalyArray = '';
+    $scope.mapMarkers = [];
+
+    var mapProp = {
+        center: new google.maps.LatLng(-22.792260, 144.811222),
+        zoom: 5,
+        mapTypeId: google.maps.MapTypeId.SATELLITE
+
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
     $scope.loadData = function(){
         var anomalyPromise = overviewService.getAnomalyData()
             .then(function (results) {
@@ -29,43 +39,33 @@ angular.module('bleaching.overview', ["highcharts-ng"])
 
         var bleachingPromise = overviewService.getBleachingData()
             .then(function (results) {
+                //var mapMarkers = '';
                 $scope.bleachingArray = results;
                 $scope.bleachingChartConfig = [];
                 $scope.channelIds = [];
                 for (var i = 0; i < $scope.bleachingArray.length; i++) {
                     $scope.bleachingChartConfig.push({
-                    siteName: $scope.bleachingArray[i].siteName,
-                    day: $scope.bleachingArray[i].day,
-                    green: $scope.bleachingArray[i].watchTemp,
-                    yellow: $scope.bleachingArray[i].warningTemp - $scope.bleachingArray[i].watchTemp,
-                    orange: $scope.bleachingArray[i].bleachingTemp - $scope.bleachingArray[i].warningTemp,
-                    red: 34 - $scope.bleachingArray[i].bleachingTemp,
-                    currentTemp: $scope.bleachingArray[i].actualWaterTemp
-                });
-                    $scope.bleachingArray[i].chartConfig = $scope.generateBleachingCharts($scope.bleachingChartConfig[i])
+                        siteName: $scope.bleachingArray[i].siteName,
+                        day: $scope.bleachingArray[i].day,
+                        green: $scope.bleachingArray[i].watchTemp,
+                        yellow: $scope.bleachingArray[i].warningTemp - $scope.bleachingArray[i].watchTemp,
+                        orange: $scope.bleachingArray[i].bleachingTemp - $scope.bleachingArray[i].warningTemp,
+                        red: 34 - $scope.bleachingArray[i].bleachingTemp,
+                        currentTemp: $scope.bleachingArray[i].actualWaterTemp
+                    });
+                    $scope.bleachingArray[i].chartConfig = $scope.generateBleachingCharts($scope.bleachingChartConfig[i]);
                     $scope.channelIds[i] = $scope.bleachingArray[i].channelId;
                 }
-
-                //$scope.channelIds = $scope.bleachingArray[].channelId;
-                console.log($scope.channelIds);
-                $scope.siteMarkers = [];
                 for (var j = 0; j < $scope.channelIds.length; j++) {
-                    var mapPromise = overviewService.getMapData($scope.channelIds[i])
+                    var mapPromise = overviewService.getMapData($scope.channelIds[j])
                         .then(function (results) {
-
-                            $scope.generateMapMarkersArray(results);
-
-                            $scope.showdiv = function () {
-                                $scope.templateURL = 'pages/bleaching.html';
-                            };
-
-                            $scope.createMap($scope.siteMarkers)
-                        })
+                            $scope.createMarker(generateMapMarkersArray(results));
+                        });
                 }
+                $scope.showdiv = function () {
+                    $scope.templateURL = 'pages/bleaching.html';
+                };
             });
-
-        //var mapPromise = overviewService.getMapData()
-
     };
 
     $scope.generateAnomalyCharts = function (values) {
@@ -81,9 +81,7 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                     enabled: false
                 },
                 title: {
-                    //enabled: false
-                    //text: ""
-                    text: $scope.anomalyArray.chartConfig.siteName + ' - Anomaly -  ' + $scope.anomalyArray.chartConfig.day//$scope.anomalyArray[i].siteName
+                    text: $scope.anomalyArray.chartConfig.siteName + ' - Anomaly -  ' + $scope.anomalyArray.chartConfig.day
                 },
                 credits: {
                     text: '© Australian Institute or Marine Science',
@@ -113,7 +111,6 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                 }, { // mirror axis on right side
                     opposite: true,
                     reversed: false,
-                    //categories: categories,
                     title: {
                         text: '',
                         enabled: false
@@ -187,7 +184,6 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                 }],
             loading: false
         };
-        //$scope.anomalyArray[i].chartConfig = $scope.configString;
         return configString;
     };
     $scope.generateBleachingCharts = function (values) {
@@ -202,7 +198,7 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                     enabled: false
                 },
                 title: {
-                    text: $scope.values.siteName + ' - Bleaching Risk -  ' + $scope.values.day //+ " @ " + $scope.tempArray[i].actualWaterTemp + '°C'
+                    text: $scope.values.siteName + ' - Bleaching Risk -  ' + $scope.values.day
                 },
                 xAxis: {
                     categories: ['']
@@ -239,14 +235,11 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                 color: 'rgba(254, 170, 85, 1)',
                 data: [$scope.values.orange]
             }, {
-                //name: '',
                 color: 'rgba(255, 255, 0, 1)',
                 data: [$scope.values.yellow]
             }, {
-                name: '',
                 color: 'rgba(140, 254, 140, 1)',
                 data: [$scope.values.green]
-
             }, {
                 type: 'scatter',
                 dataLabels: {
@@ -269,70 +262,44 @@ angular.module('bleaching.overview', ["highcharts-ng"])
         };
         return configString;
     };
-    $scope.generateMapMarkersArray = function (values) {
-        $scope.siteMarkers.push([values.siteName,values.siteId, '#/details/' + values.siteId,values.latitude, values.longitude]);
+    var generateMapMarkersArray = function (values) {
+        return [values.siteName,values.siteId, '#/details/' + values.siteId,values.latitude, values.longitude]
     };
 
-    $scope.createMap = function (values) {
-        $scope.initialize = function () {
-
+    $scope.createMarker = function (values) {
             var siteIcon = '/resources/circle_green.png';
-            //var siteIcon = '/resources/rc4.png';
+            //adds circle marker to map
+            var marker = new google.maps.Marker({
 
-            var mapProp = {
+                position: new google.maps.LatLng(values[3], values[4]),
+                icon: siteIcon,
+                map: map,
+                url: values[2]
+            });
 
-                center: new google.maps.LatLng(-22.792260, 144.811222),
-                zoom: 5,
-                mapTypeId: google.maps.MapTypeId.SATELLITE
+            //Adds a label to the map
+            var mapLabel = new MapLabel({
+                text: values[0],
+                position: new google.maps.LatLng(values[3], values[4]),
+                map: map,
+                fontSize: 25,
+                fontColor: 'chartreuse',
+                align: 'right',
+                strokeWeight: 0,
+                fontWeight: "bold",
+                url: values[2]
 
-            };
+            });
 
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            mapLabel.set('position', new google.maps.LatLng(values[3], values[4]));
 
+            google.maps.event.addListener(marker, 'click', function () {
+                window.location.href = this.url;
+            });
 
-            for (i = 0; i < $scope.siteMarkers.length; i++) {
-
-                <!--Adds a marker to the map.-->
-                var marker = new google.maps.Marker({
-
-                    position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
-                    icon: siteIcon,
-                    map: map,
-                    url: $scope.siteMarkers[i][2]
-
-                });
-
-                //Adds a label to the map
-                var mapLabel = new MapLabel({
-                    text: $scope.siteMarkers[i][0],
-                    position: new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]),
-                    map: map,
-                    fontSize: 25,
-                    fontColor: 'chartreuse',
-                    align: 'right',
-                    strokeWeight: 0,
-                    fontWeight: "bold",
-                    url: $scope.siteMarkers[i][2]
-
-                });
-
-                mapLabel.set('position', new google.maps.LatLng($scope.siteMarkers[i][3], $scope.siteMarkers[i][4]));
-
-                //marker.bindTo('map', mapLabel);
-                //marker.bindTo('position', mapLabel);
-                //marker.setDraggable(true);
-
-
-                google.maps.event.addListener(marker, 'click', function () {
-                    window.location.href = this.url;
-                });
-
-                google.maps.event.addListener(mapLabel, 'click', function () {
-                    window.location.href = this.url;
-                });
-            }
-        };
-        google.maps.event.addDomListener(window, 'load', $scope.initialize())
+            google.maps.event.addListener(mapLabel, 'click', function () {
+                window.location.href = this.url;
+            });
     };
     $scope.loadData()
 }]);
