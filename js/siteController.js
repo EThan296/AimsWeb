@@ -11,7 +11,8 @@ angular.module('bleaching.site', ["highcharts-ng"])
         $scope.anomalyStatuses = '';
         $scope.siteClimatology = '';
         $scope.channelId = '';
-
+        $scope.bleachingLoaded = false;
+        $scope.anomalyLoaded = false;
         $scope.loadData = function(){
             var detailsPromise = siteService.getSiteDetailsById(siteId)
                 .then(function (results) {
@@ -62,7 +63,8 @@ angular.module('bleaching.site', ["highcharts-ng"])
                         .then(function (results) {
                             $scope.channelDetails = results;
                             console.log($scope.channelDetails)
-                        })
+                        });
+                    $scope.bleachingLoaded = true;
                 });
 
             var anomolyPromise = siteService.getAnomolyStatusesById(siteId)
@@ -71,7 +73,10 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     $scope.tempDifferential = $scope.anomalyStatuses.anomoly;
                     $scope.anomalyStatus = $scope.anomalyStatuses.status;
                     $scope.modelledAnomaly = $scope.anomalyStatuses.modelledWaterTemp;
+
                     $scope.generateStatuses();
+
+                    $scope.anomalyLoaded = true;
                 });
 
         };
@@ -190,7 +195,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     },
                     exporting: {
                         enabled: false
-                    },
+                    }
                 },
                 series: [{
                     name: 'Temperature',

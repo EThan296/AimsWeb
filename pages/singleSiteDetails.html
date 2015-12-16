@@ -3,7 +3,9 @@
         <h1>Great Barrier Reef - Bleaching Indicators</h1>
     </div>
 </div>
-<h1 style="text-align: center;"><b>{{siteDetails.siteName}} - Up to date: {{siteDetails.day}}</b></h1>
+<h1 style="text-align: center;" ng-hide="bleachingLoaded">Loading...</h1>
+<h1 style="text-align: center;" ng-show="bleachingLoaded"><b>{{siteDetails.siteName}} - Up to date: {{siteDetails.day}}</b></h1>
+
 
 
 <!--Second Container-->
@@ -13,7 +15,7 @@
         <div class="col-md-6" id="details1">
             <div class="panel panel-primary" style="border: solid #337ab7">
                 <div class="panel-heading">
-                    <i class="fa fa-circle fa-4x"style="float: left;color:{{siteDetails.color}}"></i>
+                    <i ng-if="bleachingLoaded" class="fa fa-circle fa-4x"style="float: left;color:{{siteDetails.color}}"></i>
                     <h3 style="text-align: center;">Bleaching Risk</h3>
                 </div>
                 <div class="panel-body">
@@ -33,7 +35,7 @@
     <div class="col-md-6" id="details2">
         <div class="panel panel-primary" style="border: solid #337ab7">
             <div class="panel-heading">
-                <i class="fa fa-circle fa-4x"style="float: left;color:{{anomalyStatuses.color}}"></i>
+                <i ng-if="anomalyLoaded" class="fa fa-circle fa-4x"style="float: left;color:{{anomalyStatuses.color}}"></i>
                 <h3 style="text-align: center;">Thermal Anomaly</h3></div>
             <div class="panel-body">
                 <!--<button ng-click="generateAnomalySpeedo(siteDetails2.plusOneSd, siteDetails2.plusTwoSd, siteDetails2.plusThreeSd, siteDetails2.anomoly);">show chart</button>-->

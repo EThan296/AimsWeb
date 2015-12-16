@@ -19,10 +19,10 @@ angular.module('bleaching.overviewService', [])
                 })
         };
 
-        self.getMapData = function (id) {
+        self.getMapData = function (id, status) {
             return $http.get('http://aimsweatherservice.appspot.com/service/vchannels/' + id)
                 .then(function(response){
-                    var data = response.data;
+                    var data = [response.data,status];
                     return data;
                 })
 

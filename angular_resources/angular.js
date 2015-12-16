@@ -155,7 +155,7 @@ function minErr(module, ErrorConstructor) {
   getter: true,
   getBlockNodes: true,
   hasOwnProperty: true,
-  createMap: true,
+  createMarker: true,
 
   NODE_TYPE_ELEMENT: true,
   NODE_TYPE_ATTRIBUTE: true,
@@ -343,7 +343,7 @@ function forEach(obj, iterator, context) {
     } else if (obj.forEach && obj.forEach !== forEach) {
         obj.forEach(iterator, context, obj);
     } else if (isBlankObject(obj)) {
-      // createMap() fast path --- Safe to avoid hasOwnProperty check because prototype chain is empty
+      // createMarker() fast path --- Safe to avoid hasOwnProperty check because prototype chain is empty
       for (key in obj) {
         iterator.call(context, obj[key], key, obj);
       }
@@ -909,7 +909,7 @@ function copy(source, destination) {
         destination.push(copyElement(source[i]));
       }
     } else if (isBlankObject(source)) {
-      // createMap() fast path --- Safe to avoid hasOwnProperty check because prototype chain is empty
+      // createMarker() fast path --- Safe to avoid hasOwnProperty check because prototype chain is empty
       for (key in source) {
         destination[key] = copyElement(source[key]);
       }
@@ -1056,7 +1056,7 @@ function equals(o1, o2) {
       } else {
         if (isScope(o1) || isScope(o2) || isWindow(o1) || isWindow(o2) ||
           isArray(o2) || isDate(o2) || isRegExp(o2)) return false;
-        keySet = createMap();
+        keySet = createMarker();
         for (key in o1) {
           if (key.charAt(0) === '$' || isFunction(o1[key])) continue;
           if (!equals(o1[key], o2[key])) return false;
@@ -1900,7 +1900,7 @@ function getBlockNodes(nodes) {
  *
  * @returns {Object}
  */
-function createMap() {
+function createMarker() {
   return Object.create(null);
 }
 
@@ -4845,9 +4845,9 @@ function splitClasses(classes) {
     classes = classes.split(' ');
   }
 
-  // Use createMap() to prevent class assumptions involving property names in
+  // Use createMarker() to prevent class assumptions involving property names in
   // Object.prototype
-  var obj = createMap();
+  var obj = createMarker();
   forEach(classes, function(klass) {
     // sometimes the split leaves empty string values
     // incase extra spaces were applied to the options
@@ -5955,9 +5955,9 @@ function $CacheFactoryProvider() {
 
       var size = 0,
           stats = extend({}, options, {id: cacheId}),
-          data = createMap(),
+          data = createMarker(),
           capacity = (options && options.capacity) || Number.MAX_VALUE,
-          lruHash = createMap(),
+          lruHash = createMarker(),
           freshEnd = null,
           staleEnd = null;
 
@@ -6101,9 +6101,9 @@ function $CacheFactoryProvider() {
          * Clears the cache object of any entries.
          */
         removeAll: function() {
-          data = createMap();
+          data = createMarker();
           size = 0;
-          lruHash = createMap();
+          lruHash = createMarker();
           freshEnd = staleEnd = null;
         },
 
@@ -7468,7 +7468,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
        */
       $observe: function(key, fn) {
         var attrs = this,
-            $$observers = (attrs.$$observers || (attrs.$$observers = createMap())),
+            $$observers = (attrs.$$observers || (attrs.$$observers = createMarker())),
             listeners = ($$observers[key] || ($$observers[key] = []));
 
         listeners.push(fn);
@@ -7999,7 +7999,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
         if (!directive.templateUrl && directive.controller) {
           directiveValue = directive.controller;
-          controllerDirectives = controllerDirectives || createMap();
+          controllerDirectives = controllerDirectives || createMarker();
           assertNoDuplicate("'" + directiveName + "' controller",
               controllerDirectives[directiveName], directive, $compileNode);
           controllerDirectives[directiveName] = directive;
@@ -8210,7 +8210,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       }
 
       function setupControllers($element, attrs, transcludeFn, controllerDirectives, isolateScope, scope) {
-        var elementControllers = createMap();
+        var elementControllers = createMarker();
         for (var controllerKey in controllerDirectives) {
           var directive = controllerDirectives[controllerKey];
           var locals = {
@@ -8696,7 +8696,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         compile: function() {
             return {
               pre: function attrInterpolatePreLinkFn(scope, element, attr) {
-                var $$observers = (attr.$$observers || (attr.$$observers = createMap()));
+                var $$observers = (attr.$$observers || (attr.$$observers = createMarker()));
 
                 if (EVENT_HANDLER_ATTR_REGEXP.test(name)) {
                   throw $compileMinErr('nodomevents',
@@ -9477,7 +9477,7 @@ function isJsonLike(str) {
  * @returns {Object} Parsed headers as key value object
  */
 function parseHeaders(headers) {
-  var parsed = createMap(), i;
+  var parsed = createMarker(), i;
 
   function fillInParsed(key, val) {
     if (key) {
@@ -12652,7 +12652,7 @@ function ensureSafeAssignContext(obj, fullExpression) {
   }
 }
 
-var OPERATORS = createMap();
+var OPERATORS = createMarker();
 forEach('+ - * / % === !== == != < > <= >= && || ! = |'.split(' '), function(operator) { OPERATORS[operator] = true; });
 var ESCAPE = {"n":"\n", "f":"\f", "r":"\r", "t":"\t", "v":"\v", "'":"'", '"':'"'};
 
@@ -14190,8 +14190,8 @@ Parser.prototype = {
   }
 };
 
-var getterFnCacheDefault = createMap();
-var getterFnCacheExpensive = createMap();
+var getterFnCacheDefault = createMarker();
+var getterFnCacheExpensive = createMarker();
 
 function isPossiblyDangerousMemberName(name) {
   return name == 'constructor';
@@ -14255,8 +14255,8 @@ function getValueOf(value) {
  *  service.
  */
 function $ParseProvider() {
-  var cacheDefault = createMap();
-  var cacheExpensive = createMap();
+  var cacheDefault = createMarker();
+  var cacheExpensive = createMarker();
 
   this.$get = ['$filter', function($filter) {
     var noUnsafeEval = csp().noUnsafeEval;
@@ -22697,9 +22697,9 @@ function classDirective(name, selector) {
         }
 
         function digestClassCounts(classes, count) {
-          // Use createMap() to prevent class assumptions involving property
+          // Use createMarker() to prevent class assumptions involving property
           // names in Object.prototype
-          var classCounts = element.data('$classCounts') || createMap();
+          var classCounts = element.data('$classCounts') || createMarker();
           var classesToUpdate = [];
           forEach(classes, function(className) {
             if (count > 0 || classCounts[className]) {
@@ -27458,7 +27458,7 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
         //
         // We are using no-proto object so that we don't need to guard against inherited props via
         // hasOwnProperty.
-        var lastBlockMap = createMap();
+        var lastBlockMap = createMarker();
 
         //watch props
         $scope.$watchCollection(rhs, function ngRepeatAction(collection) {
@@ -27468,7 +27468,7 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
               nextNode,
               // Same as lastBlockMap but it has the current state. It will become the
               // lastBlockMap on the next iteration.
-              nextBlockMap = createMap(),
+              nextBlockMap = createMarker(),
               collectionLength,
               key, value, // key/value of iteration
               trackById,
