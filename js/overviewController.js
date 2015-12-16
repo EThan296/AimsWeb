@@ -14,6 +14,8 @@ angular.module('bleaching.overview', ["highcharts-ng"])
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
+    //var siteIcon = '/resources/circle_green.png';
+
     $scope.loadData = function(){
         var anomalyPromise = overviewService.getAnomalyData()
             .then(function (results) {
@@ -35,6 +37,7 @@ angular.module('bleaching.overview', ["highcharts-ng"])
 
                     $scope.anomalyArray[i].chartConfig = $scope.generateAnomalyCharts($scope.anomalyChartConfig[i]);
                 }
+                $scope.anomalyLoaded = true;
             });
 
         var bleachingPromise = overviewService.getBleachingData()
@@ -56,10 +59,14 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                     $scope.bleachingArray[i].chartConfig = $scope.generateBleachingCharts($scope.bleachingChartConfig[i]);
                     $scope.channelIds[i] = $scope.bleachingArray[i].channelId;
                 }
+                $scope.bleachingLoaded = true;
+
+
                 for (var j = 0; j < $scope.channelIds.length; j++) {
-                    var mapPromise = overviewService.getMapData($scope.channelIds[j])
+                    var mapPromise = overviewService.getMapData($scope.channelIds[j],$scope.bleachingArray[j].status)
                         .then(function (results) {
-                            $scope.createMarker(generateMapMarkersArray(results));
+
+                            $scope.createMarker(generateMapMarkersArray(results[0],results[1]));
                         });
                 }
                 $scope.showdiv = function () {
@@ -81,7 +88,7 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                     enabled: false
                 },
                 title: {
-                    text: $scope.anomalyArray.chartConfig.siteName + ' - Anomaly -  ' + $scope.anomalyArray.chartConfig.day
+                    text: $scope.anomalyArray.chartConfig.siteName + ' - ' + $scope.anomalyArray.chartConfig.day
                 },
                 credits: {
                     text: '© Australian Institute or Marine Science',
@@ -101,7 +108,7 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                     min: -3,
                     minorTickInterval: 0.25,
                     title: {
-                        text: '',
+                        //text: 'Anomaly',
                         enabled: false
                     },
                     labels: {
@@ -262,12 +269,24 @@ angular.module('bleaching.overview', ["highcharts-ng"])
         };
         return configString;
     };
-    var generateMapMarkersArray = function (values) {
-        return [values.siteName,values.siteId, '#/details/' + values.siteId,values.latitude, values.longitude]
+    var generateMapMarkersArray = function (values,bleachStatus) {
+        //var siteIcon = '/resources/circle_green.png';
+        //console.log(bleachStatus);
+        return [values.siteName,values.siteId, '#/details/' + values.siteId,values.latitude, values.longitude,bleachStatus];
     };
 
     $scope.createMarker = function (values) {
-            var siteIcon = '/resources/circle_green.png';
+        console.log(values);
+        console.log(values[5]);
+            if (values[5] == "No current Risk of Bleaching"){
+                siteIcon = "/resources/green_circle.png";
+            } else if (values[5] == "Low risk of Bleaching") {
+                siteIcon = "/resources/yellow_circle.png";
+            } else if (values[5] == "Medium Risk of Bleaching"){
+                siteIcon = "/resources/orange_circle.png";
+            }else {
+                siteIcon = "/resources/red_circle.png"; //High Risk of Bleaching
+            }
             //adds circle marker to map
             var marker = new google.maps.Marker({
 
@@ -282,11 +301,10 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                 text: values[0],
                 position: new google.maps.LatLng(values[3], values[4]),
                 map: map,
-                fontSize: 25,
-                fontColor: 'chartreuse',
-                align: 'right',
+                fontSize: 20,
+                fontColor: 'white',
+                align: 'center',
                 strokeWeight: 0,
-                fontWeight: "bold",
                 url: values[2]
 
             });
