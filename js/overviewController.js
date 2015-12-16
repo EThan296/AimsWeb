@@ -269,6 +269,8 @@ angular.module('bleaching.overview', ["highcharts-ng"])
         };
         return configString;
     };
+
+
     var generateMapMarkersArray = function (values,bleachStatus) {
         return [values.siteName,values.siteId, '#/details/' + values.siteId,values.latitude, values.longitude,bleachStatus];
     };
@@ -293,27 +295,41 @@ angular.module('bleaching.overview', ["highcharts-ng"])
             });
 
             //Adds a label to the map
-            var mapLabel = new MapLabel({
-                text: values[0],
-                position: new google.maps.LatLng(values[3], values[4]),
-                map: map,
-                fontSize: 20,
-                fontColor: 'white',
-                align: 'center',
-                strokeWeight: 0,
-                url: values[2]
+            //var mapLabel = new MapLabel({
+            //    text: values[0],
+            //    position: new google.maps.LatLng(values[3], values[4]),
+            //    map: map,
+            //    fontSize: 20,
+            //    fontColor: 'white',
+            //    align: 'center',
+            //    strokeWeight: 0,
+            //    url: values[2]
+            //
+            //});
 
-            });
+        var infowindow = new google.maps.InfoWindow({
+            content:values[0],
 
-            mapLabel.set('position', new google.maps.LatLng(values[3], values[4]));
+        })
+
+            //mapLabel.set('position', new google.maps.LatLng(values[3], values[4]));
 
             google.maps.event.addListener(marker, 'click', function () {
                 window.location.href = this.url;
             });
 
-            google.maps.event.addListener(mapLabel, 'click', function () {
-                window.location.href = this.url;
+            google.maps.event.addListener(marker, 'mouseover', function () {
+                infowindow.open(map,marker);
+                $(".gm-style-iw").next("div").hide();
             });
+
+            google.maps.event.addListener(marker, 'mouseout', function () {
+                infowindow.close();
+            });
+
+
+
+
     };
     $scope.loadData()
 }]);
