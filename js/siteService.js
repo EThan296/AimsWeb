@@ -20,6 +20,9 @@ angular.module('bleaching.siteService', [])
 							}
 						return data[i];
 		                }
+						//else if (data.siteId.indexOf(id) == -1) {
+						//	return data[0];
+						//}
 
 		            }
 
