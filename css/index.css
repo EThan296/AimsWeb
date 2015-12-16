@@ -6,162 +6,23 @@
     border-radius: 0;
 }
 
-/*.col-md-6 {*/
-    /*padding-left: 15px;*/
-    /*padding-right: 15px;*/
-/*}*/
 
+.noBleaching {
 
+    color: #8cff8a;
+}
 
+.lowBleaching {
 
+    color: #feaa54;
+}
 
-/*body {*/
-    /*!*text-align: center;*!*/
-    /*!*float: center;*!*/
-    /*!*color: #333;*!*/
-    /*background-color: #f2f2f2;*/
-/*}*/
+.mediumBleaching {
 
-/*#body-div {*/
-    /*text-align:center;*/
-    /*background-color: #337ab7;*/
-    /*!*max-width:1500px;*!*/
-/*}*/
+    color: #ffff00;
+}
 
-/*#right-side {*/
-    /*!*!*float: right;*!*!*/
-    /*background-color: #6D9FD0;*/
-    /*margin-left: 12px;*/
-    /*!*!*min-width: 412px;*!*!*/
-    /*!*!*max-width: 39%;*!*!*/
-    /*!*!*width: 39%;*!*!*/
-    /*!*!*word-wrap: break-word;*!*!*/
-/*}*/
-/*#left-side {*/
-    /*!*!*float: left;*!*!*/
-    /*!*background-color: #6D9FD0;*!*/
-    /*!*!*min-width:500px;*!*!*/
-    /*!*!*max-width: 60%;*!*!*/
-    /*!*!*width: 60%;*!*!*/
-    /*!*!*word-wrap: break-word;*!*!*/
-/*}*/
-/*#right-side h3, p { */
-    /*padding-left:10px;*/
-/*}*/
-/*#anomaly-box {*/
-    /*margin: 10px;*/
-    /*background-color: #A4C4AF;*/
-/*}*/
-/*.temp-temperature-left {*/
-    /*height:125px;*/
-    /*width:25%;*/
-    /*float:left;*/
-    /*line-height:125px;*/
-    /*text-align:center;*/
-/*}*/
-/*.temp-temperature-left.span {*/
-    /*display: inline-block;*/
-    /*vertical-align: middle;*/
-    /*line-height: normal;*/
-/*}*/
-/*.temp-temperature-right {*/
-    /*height:125px;*/
-    /*width: 10%;*/
-    /*float:right;*/
-    /*line-height:125px;*/
-    /*text-align:center;*/
-/*}*/
-/*.temp-temperature-right.span {*/
-    /*display: inline-block;*/
-    /*vertical-align: middle;*/
-    /*line-height: normal;*/
-/*}*/
+.highBleaching {
 
-/*.temp-temperature-right.span {*/
-    /*display: inline-block;*/
-    /*vertical-align: middle;*/
-    /*line-height: normal;*/
-/*}*/
-/*.temp-chart {*/
-    /*width:100%;*/
-    /*height: 125px;*/
-    /*align-items: center;*/
-    /*float:right;*/
-    /*vertical-align: middle;*/
-    /*display:inline-block;*/
-    /*margin-bottom: 15px;*/
-/*}*/
-/*#anomaly-box {*/
-    /*height:125px;*/
-    /*background-color: #6D9FD0;*/
-    /*margin-bottom: 15px;*/
-/*}*/
-/*.anomaly-chart {*/
-    /*width: 100%;*/
-/*}*/
-/*.site-button {*/
-    /*height: 35px;*/
-    /*width:95%;*/
-    /*line-height: normal;*/
-    /*border-radius:10px;*/
-    /*border:1px solid #337fed;*/
-    /*text-decoration:none;*/
-    /*cursor:pointer;*/
-
-/*}*/
-/*.site-button:hover {*/
-    /*background-color:#1e62d0;*/
-    /*color: white;*/
-/*}*/
-
-/*#reefStatusDiv{*/
-    /*float: left;*/
-    /*background-color: #BFC8E4;*/
-    /*width: 60%;*/
-    /*word-wrap: break-word;*/
-/*}*/
-/*#details1.col-sm-4 {*/
-    /*width:33%;*/
-    /*margin-left:0px;*/
-/*}*/
-/*#details2.col-sm-4 {*/
-    /*width:32%;*/
-    /*margin-left: 12px;*/
-    /*margin-right: 12px;*/
-/*}*/
-/*#details3.col-sm-4 {*/
-    /*width:33%;*/
-    /*margin-left:0px;*/
-/*}*/
-/*#dataDiv{*/
-    /*float: right;*/
-    /*background-color: #B6D0BF;*/
-    /*width: 39%;*/
-    /*word-wrap: break-word;*/
-/*}*/
-
-/*span.clear {*/
-    /*clear:left;*/
-    /*display:block;*/
-/*}*/
-
-
-/*.noBleaching {*/
-
-    /*color: #8cff8a;*/
-/*}*/
-
-/*.lowBleaching {*/
-
-    /*color: #feaa54;*/
-/*}*/
-
-/*.mediumBleaching {*/
-
-    /*color: #ffff00;*/
-/*}*/
-
-/*.highBleaching {*/
-
-    /*color: #ff5d5d;*/
-/*}*/
+    color: #ff5d5d;
+}
