@@ -1,4 +1,4 @@
-angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","bleaching.site","bleaching.siteService","bleaching.overview"])
+angular.module('GBR_Bleaching_Watch', ["ngRoute","highcharts-ng","bleaching.site","bleaching.siteService","bleaching.overviewService","bleaching.overview"])
 
 .config(['$routeProvider',
     function($routeProvider) {

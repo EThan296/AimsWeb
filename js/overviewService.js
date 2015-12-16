@@ -1,4 +1,4 @@
-angular.module('overview.Service', [])
+angular.module('bleaching.overviewService', [])
 
     .service('overviewService', ['$http', function($http) {
         var self = this;
@@ -14,7 +14,7 @@ angular.module('overview.Service', [])
         self.getBleachingData = function() {
             return $http.get('http://aimsweatherservice.appspot.com/service/vbleachStatuses')
                 .then(function(response) {
-                    var data = response.data._embedded.vbleachingStatuses;
+                    var data = response.data._embedded.vbleachStatuses;
                     return data;
                 })
         };
@@ -22,7 +22,8 @@ angular.module('overview.Service', [])
         self.getMapData = function (id) {
             return $http.get('http://aimsweatherservice.appspot.com/service/vchannels/' + id)
                 .then(function(response){
-                    var data = response.data
+                    var data = response.data;
+                    return data;
                 })
 
 
