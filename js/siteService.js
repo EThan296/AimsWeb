@@ -18,9 +18,9 @@ angular.module('bleaching.siteService', [])
 							}else {
 								data[i].color = "color: #ff1a1a;"; //High Risk of Bleaching
 							}
-
-		                }
 						return data[i];
+		                }
+
 		            }
 
 				})

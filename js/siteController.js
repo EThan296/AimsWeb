@@ -343,7 +343,7 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     },
                     exporting: {
                         enabled: false
-                    },
+                    }
                 },
 
                 series: [{

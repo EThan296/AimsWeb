@@ -270,14 +270,10 @@ angular.module('bleaching.overview', ["highcharts-ng"])
         return configString;
     };
     var generateMapMarkersArray = function (values,bleachStatus) {
-        //var siteIcon = '/resources/circle_green.png';
-        //console.log(bleachStatus);
         return [values.siteName,values.siteId, '#/details/' + values.siteId,values.latitude, values.longitude,bleachStatus];
     };
 
     $scope.createMarker = function (values) {
-        console.log(values);
-        console.log(values[5]);
             if (values[5] == "No current Risk of Bleaching"){
                 siteIcon = "/resources/green_circle.png";
             } else if (values[5] == "Low risk of Bleaching") {
