@@ -3,8 +3,8 @@
         <h1>Great Barrier Reef - Bleaching Indicators</h1>
     </div>
 </div>
-<!--<h1 style="text-align: center;" ng-hide="bleachingLoaded">Loading...</h1>-->
-<h1 style="text-align: center;"><b>{{siteDetails.siteName}} - Up to date: {{siteDetails.day}}</b></h1>
+<h1 style="text-align: center;" ng-hide="bleachingLoaded">Loading...</h1>
+<h1 style="text-align: center;" ng-show="bleachingLoaded"><b>{{siteDetails.siteName}} - Up to date: {{siteDetails.day}}</b></h1>
 
 
 
@@ -13,13 +13,13 @@
     <div class="row">
 
         <div class="col-md-6">
-            <div class="panel panel-primary" style="border: solid #337ab7">
+            <div  class="panel panel-primary" style="border: solid #337ab7">
                 <div class="panel-heading">
-                    <div style="float: left;border-radius: 50%;background:{{siteDetails.color}};width: 50px;height: 50px;"></div>
+                    <div ng-if="bleachingLoaded" style="float: left;border-radius: 50%;background:{{siteDetails.color}};width: 50px;height: 50px;"></div>
                     <h3 style="text-align: center;">Bleaching Risk</h3>
                 </div>
-                <div class="panel-body">
-                    <div><highchart id="chart1" config="temperatureConfig" class="span10"></highchart></div>
+                <div class="panel-body" ng-show="bleachingLoaded">
+                    <div ><highchart id="chart1" config="temperatureConfig" class="span10"></highchart></div>
                     <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails.actualWaterTemp+"  "+"&#8451"}}</span></div>
                     <div class="well well-sm">Bleaching Warning Temp:<span style="float: right;">{{siteDetails.warningTemp+"  "+"&#8451"}}</span></div>
                     <div class="well well-sm">Bleaching Warning Temp:<span style="float: right;">{{siteDetails.bleachingTemp+"  "+"&#8451"}}</span></div>
@@ -33,7 +33,7 @@
             <div class="panel-heading">
                 <div ng-if="anomalyLoaded" style="float: left;border-radius: 50%;background: {{anomalyStatuses.color}};width: 50px;height: 50px;"></div>
                 <h3 style="text-align: center;">Thermal Anomaly</h3></div>
-            <div class="panel-body">
+            <div class="panel-body" ng-show="anomalyLoaded">
                 <div><highchart id="chart2" config="anomalyConfig" class="span10"></highchart></div>
                 <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails.actualWaterTemp+"  "+"&#8451"}}</span></div>
                 <div class="well well-sm">Historical Avg. Water Temp:<span style="float: right;">{{modelledAnomaly+"  "+"&#8451"}}</span></div>

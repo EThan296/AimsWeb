@@ -5,11 +5,11 @@
 
         <div class="col-md-12">
             <div class="page-header" style="background:#337ab7; color: white;padding: 10px">
-                <h1>Great Barrier Reef - Bleaching Indicators</h1>
+                <a href="/"><h1 style="color:white;">Great Barrier Reef - Bleaching Indicators</h1></a>
             </div>
         </div>
         <div>
-            <p>This site shows current watertemperatures for selected reefs along
+            <p>This site shows current water temperatures for selected reefs along
             the Great Barrier Reef using real time data from the AIMS and IMOS Remote
             Monitoring stations. Data is updated everyday.
             </p>
@@ -26,7 +26,7 @@
         <div class="col-md-7">
             <div class="panel-primary" style="border: #337ab7 solid;">
                 <div class="panel-heading">
-                    <h2>Bleaching Risk</h2>
+                    <h2>Bleaching Risk (BR)</h2>
                     <p>[Click on a Graph to get more information about that reef]</p>
                 </div>
 
@@ -45,13 +45,15 @@
         <div class="col-md-5" >
             <div class="panel-primary" style="border: #337ab7 solid;">
                 <div class="panel-heading">
-                    <h2>Temperature Anomaly</h2>
-                    <p> dfwefrwe</p>
+                    <h2>Temperature Anomaly (A)</h2>
+                    <p>[Find the colour legend featured below the graph blocks]</p>
                 </div>
 
                 <div class="panel-body" style="background-color: #6D9FD0;">
                     <div class="col-md-12" ng-repeat="anomaly in anomalyArray" style="padding: 10px;">
-                        <highchart id="chart1" config="anomaly.chartConfig"></highchart>
+                        <a href="/#/details/{{anomaly.siteId}}">
+                            <highchart id="chart1" config="anomaly.chartConfig"></highchart>
+                        </a>
                     </div>
                 </div>
             </div>

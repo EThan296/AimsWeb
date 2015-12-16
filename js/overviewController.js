@@ -7,8 +7,8 @@ angular.module('bleaching.overview', ["highcharts-ng"])
     $scope.mapMarkers = [];
 
     var mapProp = {
-        center: new google.maps.LatLng(-22.792260, 144.811222),
-        zoom: 5,
+        center: new google.maps.LatLng(-17, 144),
+        zoom: 6,
         mapTypeId: google.maps.MapTypeId.SATELLITE
 
     };
@@ -88,7 +88,7 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                     enabled: false
                 },
                 title: {
-                    text: $scope.anomalyArray.chartConfig.siteName + ' - ' + $scope.anomalyArray.chartConfig.day
+                    text: $scope.anomalyArray.chartConfig.siteName + ' (A) - ' + $scope.anomalyArray.chartConfig.day
                 },
                 credits: {
                     text: '© Australian Institute or Marine Science',
@@ -205,7 +205,7 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                     enabled: false
                 },
                 title: {
-                    text: $scope.values.siteName + ' - Bleaching Risk -  ' + $scope.values.day
+                    text: $scope.values.siteName + ' (BR) -  ' + $scope.values.day
                 },
                 xAxis: {
                     categories: ['']
