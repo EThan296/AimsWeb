@@ -1,19 +1,20 @@
-<div class="container">
+<div class="container text-center">
 
     <!--heading row-->
-    <div class="row" id="headingRow">
-        <div class="page-header" style="text-align: center; background:#337ab7; color: white;padding: 10px">
-        <h1 style="text-align: center;">Great Barrier Reef - Bleaching Indicators</h1>
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="page-header" style="background:#337ab7; color: white;padding: 10px">
+                <h1>Great Barrier Reef - Bleaching Indicators</h1>
+            </div>
         </div>
-    <div style="text-align: center;">
-            <p>This site shows current water
-                temperatures for selected reefs along
-                the Great Barrier Reef using real time
-                data from the AIMS and IMOS Remote
-                Monitoring stations. Data is updated everyday.
+        <div>
+            <p>This site shows current watertemperatures for selected reefs along
+            the Great Barrier Reef using real time data from the AIMS and IMOS Remote
+            Monitoring stations. Data is updated everyday.
             </p>
             <p>[Note: This site presents the results of the experimental data products - use with caution.]</p>
-    </div>
+        </div>
 
     </div>
 
@@ -21,166 +22,133 @@
     <!--graph raw-->
     <div class="row" style="padding-bottom: 10px">
 
-
         <!--left column-->
         <div class="col-md-7">
-            <div>
-
             <div class="panel-primary" style="border: #337ab7 solid;">
-
                 <div class="panel-heading">
                     <h2>Bleaching Risk</h2>
                     <p>[Click on a Graph to get more information about that reef]</p>
                 </div>
 
-                <div class="panel-body">
 
-                        <div class="col-md-12"  ng-repeat="temperature in bleachingArray" style="padding: 10px;background-color: #6D9FD0;">
-                            <a href="/#/details/{{temperature.siteId}}"><highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart> </a>
-                        </div>
-
-                </div>
+                <div class="panel-body" style="background-color: #6D9FD0;">
+                    <div class="col-md-12"  ng-repeat="temperature in bleachingArray" style="padding: 10px;">
+                        <a href="/#/details/{{temperature.siteId}}">
+                            <highchart id="chart1" config="temperature.chartConfig"></highchart>
+                        </a>
+                    </div>
+               </div>
             </div>
-            </div>
-
         </div>
 
-
-
         <!--right column-->
-        <div class="col-md-5" style="margin-left: 10px">
-
-            <div>
-
+        <div class="col-md-5" >
             <div class="panel-primary" style="border: #337ab7 solid;">
-
                 <div class="panel-heading">
                     <h2>Temperature Anomaly</h2>
-                    <p>[Click on a Graph to get more information about that reef]</p>
+                    <p> dfwefrwe</p>
                 </div>
 
-                <div class="panel-body">
-                    <div class="col-md-12" ng-repeat="anomaly in anomalyArray" style="padding: 10px;background-color: #6D9FD0;">
-                        <highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart>
+                <div class="panel-body" style="background-color: #6D9FD0;">
+                    <div class="col-md-12" ng-repeat="anomaly in anomalyArray" style="padding: 10px;">
+                        <highchart id="chart1" config="anomaly.chartConfig"></highchart>
                     </div>
                 </div>
-
             </div>
-            </div>
-
         </div>
 
     </div>
 
-
-
-
-
     <!--info row-->
-    <div class="row" id="infoRow">
+    <div class="row">
 
+        <!--left column-->
+        <div class="col-md-7">
 
-        <div class="col-md-7" style="background-color: #6D9FD0;padding-top: 10px;padding-bottom: 10px; border: #337ab7 solid;">
-
-            <div class="row" style="margin-left:10px; margin-top:10px;" >
-                <p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>
-            </div>
-
-            <div class="row" style="margin-left:10px;"  >
-
-                <div class="col-md-6">
-                    <div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>
-                    <p>&nbsp;&nbsp;No current Risk of Bleaching </p>
+            <div style="background-color: #6D9FD0;padding-top: 10px;padding-bottom: 10px; border: #337ab7 solid;">
+                <div class="row" style="margin-left:10px; margin-top:10px;" >
+                    <p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>
                 </div>
 
-                <div class="col-md-6">
-                    <div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>
-                    <p>&nbsp;&nbsp;Low risk of Bleaching </p>
+                <div class="row" style="margin-left:10px;"  >
+                    <div class="col-md-6">
+                        <div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>
+                        <p>&nbsp;&nbsp;No current Risk of Bleaching </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>
+                        <p>&nbsp;&nbsp;Low risk of Bleaching </p>
+                    </div>
                 </div>
 
-            </div>
-
-            <div class="row" style="margin-left:10px;" >
-
-                <div class="col-md-6">
-                    <div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>
-                    <p>&nbsp;&nbsp;Medium Risk of Bleaching</p>
+                <div class="row" style="margin-left:10px;" >
+                    <div class="col-md-6">
+                        <div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>
+                        <p>&nbsp;&nbsp;Medium Risk of Bleaching</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>
+                        <p>&nbsp;&nbsp;High Risk of Bleaching</p>
+                    </div>
                 </div>
-
-                <div class="col-md-6">
-                    <div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>
-                    <p>&nbsp;&nbsp;High Risk of Bleaching</p>
-                </div>
-
             </div>
 
         </div>
 
+        <!--right column-->
+        <div class="col-md-5">
 
-        <div class="col-md-5" style="margin-left: 10px;background-color: #6D9FD0;padding-top: 10px;padding-bottom: 10px; border: #337ab7 solid;">
-
-            <!--first row-->
+            <div style="background-color: #6D9FD0;padding-top: 10px;padding-bottom: 10px; border: #337ab7 solid;">
             <div class="row" style="margin-left:10px; margin-top:10px;" >
-
                 <div class="col-md-6">
                     <div style="background-color:#5d5dff; height:25px; width:25px; float:left;"></div>
                     <p>&nbsp;&nbsp;Much Cooler</p>
                 </div>
-
                 <div class="col-md-6">
                     <div style="background-color:#33CCFF; height:25px; width:25px; float:left;"></div>
                     <p>&nbsp;&nbsp;Cooler</p>
                 </div>
-
             </div>
 
-        <!--second row-->
             <div class="row"  style="margin-left:10px;" >
-
                 <div class="col-md-6">
                     <div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>
                     <p>&nbsp;&nbsp;Normal</p>
                 </div>
-
                 <div class="col-md-6">
                     <div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>
                     <p>&nbsp;&nbsp;Warmer</p>
                 </div>
-
             </div>
 
-            <!--third row-->
             <div class="row" style="margin-left:10px;" >
-
                 <div class="col-md-6">
                     <div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>
                     <p>&nbsp;&nbsp;Much Warmer</p>
                 </div>
-
             </div>
-
+            </div>
         </div>
+
     </div>
-
-
 
     <!--map row-->
     <div class="row" style="padding-top: 10px">
-
-        <div class="col-md-12 panel panel-primary" style="border: solid #337ab7">
-            <div class="panel-heading">
-                <h3>Reef Status</h3>
+        <div class="col-md-12">
+            <div class="panel panel-primary" style="border: solid #337ab7">
+                <div class="panel-heading">
+                    <h3>Reef Status</h3>
+                </div>
+                    <div class="panel-body" id="googleMap" style="height:750px; width:100%;" ></div>
             </div>
-                <div class="panel-body" id="googleMap" style="height:750px; width:100%;" ></div>
         </div>
-
     </div>
 
 
-
     <!--button row-->
-    <div class="row" style="margin-top: 10px">
+    <div class="row">
 
+        <div class="col-md-12">
             <div class="btn-group btn-group-justified">
                 <a href="#" class="btn btn-primary btn-md">Subscribe</a>
                 <a href="#" class="btn btn-primary btn-md">
@@ -190,205 +158,7 @@
                     <i class="fa fa-info-circle fa-2x fa-fw"></i>Subscribe
                 </a>
             </div>
-
+        </div>
     </div>
 
 </div>
-
-
-
-
-
-
-
-<!--reef status div-->
-
-<!--<div class="col-md-7" style="background: #f0ad4e;margin-top:12px;">-->
-<!--<div style="background: #f0ad4e">-->
-<!--<h3>Reef Status</h3>-->
-<!--<div ng-repeat="temperature in tempArray">-->
-<!--&lt;!&ndash;<div id="temp-temperature2" style="float:right;">&ndash;&gt;-->
-<!--&lt;!&ndash;{{temperature.actualWaterTemp}}&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-<!--<div id="container-{{temperature.siteId+1}}">-->
-<!--<div class="well well-md" style="background:#FFDEAD; height: 65px">-->
-<!--<div style="float:right; position: relative; top: -15px">-->
-<!--<i class="fa fa-circle fa-4x"style="color:chartreuse;"></i>-->
-<!--</div>-->
-<!--<div style="width:60%; height:60px; float:right; position: relative; top: -10px">-->
-
-<!--<span style="font-size: 30px; float:left;">-->
-<!--&#45;-->
-<!--&#91;-->
-<!--</span>-->
-<!--<span style="float:left; padding-left: 10px;">-->
-<!--Thermal Status-->
-
-<!--<br>Bleaching Status-->
-<!--{{temperature.status}}-->
-<!--</span>-->
-<!--</div>-->
-<!--<div style="height:65px;">-->
-<!--<span>-->
-<!--<a href="/#/details/{{temperature.siteId}}"><button class="site-button" style="width:27%; background-color: #FFDEAD">{{temperature.siteName}}</a>-->
-<!--</span>-->
-<!--</div>-->
-
-
-
-<!--</div>-->
-
-<!--</div>-->
-
-<!--</div>-->
-<!--</div>-->
-<!--</div>
-
-<!--reef status div ends-->
-
-
-
-    <!--<div class="anomaly-temperature" style="float:right;">-->
-    <!--<span>{{anomaly.anomoly.toFixed(1);}}°C</span>-->
-    <!--</div>-->
-
-
-    <!--third raw-->
-    <!--<div class="row">-->
-    <!--<div class="col-md-7" style="background-color: #6D9FD0;">-->
-
-
-    <!--</div>-->
-    <!--</div>-->
-
-    <!--<div style="float:left; width:50%; padding-top: 10px; padding-left: 10px;">-->
-    <!--<p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>-->
-    <!--</div>-->
-    <!--<div style="float:right; width:50%; height:100%; padding:5px;">-->
-    <!--<div style="height: 50%; width:50%; float:left;">-->
-    <!--<div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>-->
-    <!--<p>No current Risk of Bleaching </p>-->
-
-    <!--</div>-->
-    <!--<div style="height: 50%; width:50%; float:right;">-->
-    <!--<div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>-->
-    <!--<p>Low risk of Bleaching </p>-->
-
-    <!--</div>-->
-    <!--<div style="height: 50%; width:50%; float:left;">-->
-    <!--<div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>-->
-    <!--<p>Medium Risk of Bleaching</p>-->
-
-    <!--</div>-->
-    <!--<div style="height: 50%; width:50%; float:right;">-->
-    <!--<div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>-->
-    <!--<p>High Risk of Bleaching</p>-->
-
-    <!--</div>-->
-    <!--</div>-->
-
-
-<!--<div class="col-md-7" style="border: solid #337ab7;padding:10px;background-color: #6D9FD0;">-->
-
-<!--<p>Daily average ocean temperatures contrasted with known bleaching thresholds.  Sites ordered North to South.</p>-->
-
-<!--<div>-->
-<!--<div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>-->
-<!--<p>&nbsp;&nbsp;No current Risk of Bleaching </p>-->
-<!--</div>-->
-
-<!--<div>-->
-<!--<div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>-->
-<!--<p>&nbsp;&nbsp;Low risk of Bleaching </p>-->
-<!--</div>-->
-
-<!--<div>-->
-<!--<div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>-->
-<!--<p>&nbsp;&nbsp;Medium Risk of Bleaching</p>-->
-<!--</div>-->
-
-<!--<div>-->
-<!--<div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>-->
-<!--<p>&nbsp;&nbsp;High Risk of Bleaching</p>-->
-<!--</div>-->
-
-<!--</div>-->
-
-<!--<div>-->
-
-<!--<div>-->
-<!--<div style="background-color:#5d5dff; height:25px; width:25px; float:left;"></div>-->
-<!--<p>&nbsp;&nbsp;Much Cooler</p>-->
-<!--</div>-->
-
-<!--<div>-->
-<!--<div style="background-color:#33CCFF; height:25px; width:25px; float:left;"></div>-->
-<!--<p>&nbsp;&nbsp;Cooler</p>-->
-<!--</div>-->
-
-<!--<div>-->
-<!--<div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>-->
-<!--<p>&nbsp;&nbsp;Normal</p>-->
-<!--</div>-->
-
-<!--<div>-->
-<!--<div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>-->
-<!--<p>&nbsp;&nbsp;Warmer</p>-->
-<!--</div>-->
-
-<!--<div>-->
-<!--<div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>-->
-<!--<p>&nbsp;&nbsp;Much Warmer</p>-->
-<!--</div>-->
-
-<!--</div>-->
-
-
-
-
-<!--actual code for graph div starts from here-->
-
-
-<!--&lt;!&ndash;graph raw&ndash;&gt;-->
-<!--<div class="row" id="row2">-->
-
-<!--<div class="col-md-7 panel panel-primary" style="border: solid #337ab7; padding-left:0px; padding-right:0px;">-->
-
-<!--<div class="panel-heading" style="width: 100%"><h2>Bleaching Risk</h2>-->
-<!--<p>[Click on a Graph to get more information about that reef]</p>-->
-<!--</div>-->
-
-<!--<div class=" panel-body" ng-repeat="temperature in tempArray" style="background-color: #6D9FD0">-->
-
-<!--<a href="/#/details/{{temperature.siteId}}">-->
-<!--<div class="temp-chart"><highchart id="chart1" config="temperature.chartConfig" class="span10"></highchart></div>-->
-<!--</a>-->
-
-<!--</div>-->
-
-<!--</div>-->
-
-
-
-<!--<div class="col-md-5 panel panel-primary"  id="right-side"  style="border: solid #337ab7; padding-left:0px; padding-right:0px;">-->
-
-<!--<div class="panel-heading" style="width: 100%">-->
-<!--<h2>Temperature Anomaly</h2>-->
-<!--<p>[Click on a Graph to get more information about that reef]</p>-->
-<!--</div>-->
-
-<!--<div class=" panel-body"  id="anomaly-box" ng-repeat="anomaly in anomalyArray">-->
-<!--&lt;!&ndash;<div style="height: 125px; margin: 0 auto; margin-bottom:10px;">&ndash;&gt;-->
-<!--<div class="anomaly-chart">-->
-<!--<highchart id="chart1" config="anomaly.chartConfig" class="span10"></highchart>-->
-<!--</div>-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--</div>-->
-
-<!--</div>-->
-<!--</div>-->
-
-
-
-<!--code for graph div ends here-->
