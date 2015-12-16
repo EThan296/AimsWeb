@@ -29,8 +29,6 @@
                     <h2>Bleaching Risk (BR)</h2>
                     <p>[Click on a Graph to get more information about that reef]</p>
                 </div>
-
-
                 <div class="panel-body" style="background-color: #6D9FD0;">
                     <div class="col-md-12"  ng-repeat="temperature in bleachingArray" style="padding: 10px;">
                         <a href="/#/details/{{temperature.siteId}}">
@@ -68,28 +66,28 @@
         <div class="col-md-7">
 
             <div style="background-color: #6D9FD0;padding-top: 10px;padding-bottom: 10px; border: #337ab7 solid;">
-                <div class="row text-center" style=" margin-top:10px;" >
+                <div class="row " style=" margin-top:10px;text-align: center" >
                     <p>Daily average ocean temperatures contrasted with known bleaching thresholds. Sites ordered North to South.</p>
                 </div>
 
                 <div class="row" style="margin-left:10px;"  >
                     <div class="col-md-6">
-                        <div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>
+                        <div class="colorDiv" style="background-color:#8cff8a;"></div>
                         <p>&nbsp;&nbsp;No current Risk of Bleaching </p>
                     </div>
                     <div class="col-md-6">
-                        <div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>
+                        <div  class="colorDiv" style="background-color:#feaa54;"></div>
                         <p>&nbsp;&nbsp;Low risk of Bleaching </p>
                     </div>
                 </div>
 
                 <div class="row" style="margin-left:10px;" >
                     <div class="col-md-6">
-                        <div style="background-color:#ffff00; height:25px; width:25px; float:left;"></div>
+                        <div  class="colorDiv" style="background-color:#ffff00;"></div>
                         <p>&nbsp;&nbsp;Medium Risk of Bleaching</p>
                     </div>
                     <div class="col-md-6">
-                        <div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>
+                        <div  class="colorDiv" style="background-color:#ff5d5d;"></div>
                         <p>&nbsp;&nbsp;High Risk of Bleaching</p>
                     </div>
                 </div>
@@ -103,29 +101,29 @@
             <div style="background-color: #6D9FD0;padding-top: 10px;padding-bottom: 10px; border: #337ab7 solid;">
             <div class="row" style="margin-left:10px; margin-top:10px;" >
                 <div class="col-md-6">
-                    <div style="background-color:#5d5dff; height:25px; width:25px; float:left;"></div>
+                    <div class="colorDiv" style="background-color:#5d5dff;"></div>
                     <p>&nbsp;&nbsp;Much Cooler</p>
                 </div>
                 <div class="col-md-6">
-                    <div style="background-color:#33CCFF; height:25px; width:25px; float:left;"></div>
+                    <div class="colorDiv" style="background-color:#33CCFF;"></div>
                     <p>&nbsp;&nbsp;Cooler</p>
                 </div>
             </div>
 
             <div class="row"  style="margin-left:10px;" >
                 <div class="col-md-6">
-                    <div style="background-color:#8cff8a; height:25px; width:25px; float:left;"></div>
+                    <div class="colorDiv" style="background-color:#8cff8a;"></div>
                     <p>&nbsp;&nbsp;Normal</p>
                 </div>
                 <div class="col-md-6">
-                    <div style="background-color:#feaa54; height:25px; width:25px; float:left;"></div>
+                    <div class="colorDiv" style="background-color:#feaa54;"></div>
                     <p>&nbsp;&nbsp;Warmer</p>
                 </div>
             </div>
 
             <div class="row" style="margin-left:10px;" >
                 <div class="col-md-6">
-                    <div style="background-color:#ff5d5d; height:25px; width:25px; float:left;"></div>
+                    <div class="colorDiv" style="background-color:#ff5d5d;"></div>
                     <p>&nbsp;&nbsp;Much Warmer</p>
                 </div>
             </div>
@@ -149,7 +147,6 @@
 
     <!--button row-->
     <div class="row">
-
         <div class="col-md-12">
             <div class="btn-group btn-group-justified">
                 <a href="#" class="btn btn-primary btn-md">Subscribe</a>
