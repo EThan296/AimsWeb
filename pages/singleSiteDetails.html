@@ -1,23 +1,21 @@
 <div class="container">
-    <div class="page-header" style="text-align: center; background:#337ab7; color: white;padding: 10px">
-        <h1>Great Barrier Reef - Bleaching Indicators</h1>
-    </div>
-</div>
-<h1 style="text-align: center;"><b>{{siteDetails.siteName}} - Up to date: {{siteDetails.day}}</b></h1>
 
 
-<!--Second Container-->
-<div class="container">
+        <div class="col-md-12 page-header" style="text-align: center; background:#337ab7; color: white;padding: 10px;">
+            <h1>Great Barrier Reef - Bleaching Indicators</h1>
+            <h3 style="text-align: center;"><b>{{siteDetails.siteName}} - Up to date: {{siteDetails.day}}</b></h3>
+        </div>
+
+<!--Gauge row-->
     <div class="row">
 
-        <div class="col-md-6" id="details1">
+        <div class="col-md-6">
             <div class="panel panel-primary" style="border: solid #337ab7">
                 <div class="panel-heading">
                     <i class="fa fa-circle fa-4x"style="float: left;color:{{siteDetails.color}}"></i>
                     <h3 style="text-align: center;">Bleaching Risk</h3>
                 </div>
                 <div class="panel-body">
-                    <!--<button ng-click="generateTempSpeedo(siteDetails.watchTemp, siteDetails.warningTemp, siteDetails.bleachingTemp, siteDetails.actualWaterTemp);">show chart</button>-->
                     <div><highchart id="chart1" config="temperatureConfig" class="span10"></highchart></div>
                     <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails.actualWaterTemp+"  "+"&#8451"}}</span></div>
                     <div class="well well-sm">Bleaching Warning Temp:<span style="float: right;">{{siteDetails.warningTemp+"  "+"&#8451"}}</span></div>
@@ -28,36 +26,32 @@
 
             </div>
         </div>
+
     </div>
 
-    <div class="col-md-6" id="details2">
+    <div class="col-md-6">
         <div class="panel panel-primary" style="border: solid #337ab7">
             <div class="panel-heading">
                 <i class="fa fa-circle fa-4x"style="float: left;color:{{anomalyStatuses.color}}"></i>
                 <h3 style="text-align: center;">Thermal Anomaly</h3></div>
             <div class="panel-body">
-                <!--<button ng-click="generateAnomalySpeedo(siteDetails2.plusOneSd, siteDetails2.plusTwoSd, siteDetails2.plusThreeSd, siteDetails2.anomoly);">show chart</button>-->
                 <div><highchart id="chart2" config="anomalyConfig" class="span10"></highchart></div>
                 <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails.actualWaterTemp+"  "+"&#8451"}}</span></div>
                 <div class="well well-sm">Historical Avg. Water Temp:<span style="float: right;">{{modelledAnomaly+"  "+"&#8451"}}</span></div>
                 <div class="well well-sm">Temp Differential:<span style="float: right;">{{tempDifferential+"  "+"&#8451"}}</span></div>
                 <div class="well well-sm">Thermal status:<span style="float: right;border: 1px solid {{anomalyStatuses.color}}; background-color:{{anomalyStatuses.color}}; border-radius: 2px;">{{anomalyStatus}}</span></div>
-
-
             </div>
             </div>
+
+
         </div>
 
 
     </div>
 
-</div>
 
 
-<!--button container-->
-
-
-<div class="container">
+<!--button row-->
     <div class="row">
         <div class="col-md-12">
 
@@ -70,11 +64,8 @@
 
     </div>
 
-</div>
 
-
-<!--Third Container-->
-<div class="container">
+<!--current water temperature chart row-->
     <div class="row">
         <div class="col-md-12">
 
@@ -92,10 +83,8 @@
 
     </div>
 
-</div>
 
-    <!--Fourth Container-->
-<div class="container">
+    <!--day and night water temperature row-->
     <div class="row">
         <div class="col-md-12">
 
@@ -125,21 +114,6 @@
                         </ul>
                     </div>
 
-
-                <!--<p style="text-align:center;">Temperature anomaly - the difference between the measured water temperature and the long term average.-->
-                    <!--The grey line is the anomaly value, orange and light blue are two Standard Deviations (SD)-->
-                    <!--from the long term mean and red and blue are three SD from the long term mean.<br> </br>-->
-                    <!--These groupings can be classed by the following terminology:-->
-                <!--</p>-->
-                <!--<div style="text-align:center">-->
-                <!--<ul style="width: 100%;list-style-type:none;">-->
-                        <!--<li>Normal (within 2 SD of long-term mean)</li>-->
-                        <!--<li>Warmer (more than 2 SD warmer than long-term mean)</li>-->
-                        <!--<li>Cooler (more than 2 SD cooler than long-term mean)</li>-->
-                        <!--<li>Much Warmer (more than 3 SD warmer than long-term mean)</li>-->
-                        <!--<li>Much Cooler (more than 3 SD cooler than long-term mean)</li>-->
-                <!--</ul>-->
-                <!--</div>-->
             </div>
         </div>
         </div>
@@ -147,11 +121,9 @@
     </div>
 </div>
 
-    <!-- Footer -->
-    <footer class="container-fluid bg-4 text-center">
+    <footer class="container-fluid footerClass text-center">
         <p><i>Please note that all data producta are in experimental and should not be reliied upon.<br>
             Communications issues can mean that data from some sites may be old,<br>
             check with the individual reef pages for the date and time of the last data.</i></p>
     </footer>
-<!--</div>-->
 
