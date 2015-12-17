@@ -3,6 +3,8 @@
 node.js required to run local server. After checking out project run npm install from command line then http-server to run local server.
 ```
 npm install
+```
+```
 http-server
 ```
 
