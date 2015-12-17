@@ -62,7 +62,6 @@ angular.module('bleaching.site', ["highcharts-ng"])
                     var vChannelPromise = siteService.getvChannel($scope.channelId)
                         .then(function (results) {
                             $scope.channelDetails = results;
-                            console.log($scope.channelDetails)
                         });
                     $scope.bleachingLoaded = true;
                 });
@@ -217,18 +216,13 @@ angular.module('bleaching.site', ["highcharts-ng"])
         };
 
         $scope.generateStatuses = function() {
-            //var red = [-3, -1.5, 1.5, 3];
-            //var orange = [-1.5, -1, 1, 1.5];
-            //var yellow = [-1, -0.5, 0.5, 1];
-            //var green = [-0.5, 0.5];
-            //var anomaly = 0;
+
             var ref = [];
             ref.plusOneSd = 0.5;
             ref.plusTwoSd = 1;
             ref.plusThreeSd = 1.5;
             ref.anomoly = 0;
                 ref = $scope.anomalyStatuses;
-                console.log(ref.plusOneSd, ref.plusTwoSd, ref.plusThreeSd, ref.anomoly);
                 //Anomaly
                 var red = [ref.plusThreeSd, 3];
                 var orange = [ref.plusTwoSd, ref.plusThreeSd];
@@ -389,8 +383,6 @@ angular.module('bleaching.site', ["highcharts-ng"])
                         text: 'Temperature (°C)'
                     },
                     plotLines: [{
-                        //value: 0,
-                        //width: 1,
                         color: '#000'
                     }]
                 },
@@ -460,7 +452,6 @@ angular.module('bleaching.site', ["highcharts-ng"])
                         text: 'Temperature Anomaly (°C)'
                     },
                     plotLines: [{
-                        //value: 0,
                         width: 1,
                         color: '#000'
                     }]
