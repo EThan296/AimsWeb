@@ -321,25 +321,25 @@ angular.module('bleaching.site', ["highcharts-ng"])
                         plotBands: [{
                             from: green[0],
                             to: green[1],
-                            color: '#55BF3B' // green
+                            color: '#55BF3B' // green rgba(85,191,59,1)
                         },
                             {
                             from: lightBlue[0],
                             to: lightBlue[1],
-                            color: '#33CCFF' // lightBlue
+                            color: '#33CCFF' // lightBlue rgba(51,204,255,1)
                         },  {
                             from: blue[0],
                             to: blue[1],
-                            color: '#5D5DFF' // blue
+                            color: '#5D5DFF' // blue rgba(50,93,255,1)
                         },  {
                             from: orange[0],
                             to: orange[1],
-                            color: '#ffa500' // orange
+                            color: '#ffa500' // orange rgba(,1)
                         },  {
                             from: red[0],
                             to: red[1],
-                            color: '#DF5353' // red
-                        }]
+                            color: '#DF5353' // red rgba(223,83,83,1)
+                        }] // yellow rgba(255,165,0,1)
                     },
                     exporting: {
                         enabled: false
@@ -420,24 +420,24 @@ angular.module('bleaching.site', ["highcharts-ng"])
             },{
                 name: 'Modelled Temp.',
                 data: $scope.modelledTemps,
-                color: 'green'
+                color: 'rgba(85,191,59,0.6)'
 
             },{
                 name: 'Second SD.',
                 data: $scope.modTempPlusTwoSd,
-                color: 'orange'
+                color: 'rgba(255,165,0,0.6)'
             },{
                 name: 'Third SD.',
                 data: $scope.modTempPlusThreeSd,
-                color: 'red'
+                color: 'rgba(255,0,0,0.6)'
             },{
-                name: 'Second SD',
+                name: 'Second SD.',
                 data: $scope.modTempMinusTwoSd,
-                color: '#33CCFF'
+                color: 'rgba(51,204,255,0.6)'
             },{
-                name: 'Third SD',
+                name: 'Third SD.',
                 data: $scope.modTempMinusThreeSd,
-                color: '#5D5DFF'
+                color: 'rgba(50,93,255,0.6)'
             }],
 
             loading: false
@@ -490,19 +490,19 @@ angular.module('bleaching.site', ["highcharts-ng"])
             },{
                 name:"Second SD.",
                 data: $scope.plusTwoSd,
-                color: 'orange'
+                color: 'rgba(255,165,0,0.7)'
             },{
                 name:"Third SD.",
                 data: $scope.plusThreeSd,
-                color: 'red'
+                color: 'rgba(255,0,0,0.7)'
             },{
                 name:"Second SD.",
                 data: $scope.minusTwoSd,
-                color: '#33CCFF'
+                color: 'rgba(51,204,255,0.7)'
             },{
                 name:"Third SD.",
                 data: $scope.minusThreeSd,
-                color: '#5D5DFF'
+                color: 'rgba(50,93,255,0.7)'
             }
             ],
 
