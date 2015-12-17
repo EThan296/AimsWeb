@@ -1,0 +1,131 @@
+<div class="container">
+
+    <!--heading row-->
+    <div class="row text-center">
+        <h1>Great Barrier Reef - Bleaching Indicators</h1>
+        <p>This site shows current water temperatures for selected reefs along
+        the Great Barrier Reef using real time data from the AIMS and IMOS Remote
+        Monitoring stations. Data is updated everyday.
+        </p>
+        <p><i>[Note: This site presents the results of the experimental data products - use with caution.]</i></p>
+
+    </div>
+
+
+    <!--graph raw-->
+    <div class="row" style="padding-bottom: 10px">
+
+        <!--left column-->
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-title">
+                    <h3>Bleaching Risk (BR)</h3>
+                    <span>[Click on a Graph to get more information about that reef]</span>
+                </div>
+                <div class="card-content">
+                    <div class="col-md-12"  ng-repeat="temperature in bleachingArray" style="padding: 10px;">
+                        <a href="/#/details/{{temperature.siteId}}">
+                            <highchart id="chart1" config="temperature.chartConfig"></highchart>
+                        </a>
+                    </div>
+               </div>
+                <div class="card-content">
+
+                    <div class="row" style="margin-left:10px;"  >
+                        <div class="col-md-6">
+                            <div class="indicator" style="background-color:#8cff8a;"></div>
+                            <p>&nbsp;&nbsp;No current Risk of Bleaching </p>
+                        </div>
+                        <div class="col-md-6">
+                            <div  class="indicator" style="background-color:#feaa54;"></div>
+                            <p>&nbsp;&nbsp;Low risk of Bleaching </p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-left:10px;" >
+                        <div class="col-md-6">
+                            <div  class="indicator" style="background-color:#ffff00;"></div>
+                            <p>&nbsp;&nbsp;Medium Risk of Bleaching</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div  class="indicator" style="background-color:#ff5d5d;"></div>
+                            <p>&nbsp;&nbsp;High Risk of Bleaching</p>
+                        </div>
+                    </div>
+
+                    <p style=" margin-top:20px;text-align: center;">Daily average ocean temperatures contrasted with known bleaching thresholds. Sites ordered North to South.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--right column-->
+        <div class="col-md-5" >
+            <div class="card">
+                <div class="card-title">
+                    <h3>Temperature Anomaly (A)</h3>
+                    <span>[Find the colour legend featured below the graph blocks]</span>
+                </div>
+
+                <div class="card-content">
+                    <div class="col-md-12" ng-repeat="anomaly in anomalyArray" style="padding: 10px;">
+                        <a href="/#/details/{{anomaly.siteId}}">
+                            <highchart id="chart1" config="anomaly.chartConfig"></highchart>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <div class="row" style="margin-left:10px;" >
+                        <div class="col-md-6">
+                            <div class="indicator" style="background-color:#5d5dff;"></div>
+                            <p>&nbsp;&nbsp;Much Cooler ( >3 -SD )</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="indicator" style="background-color:#33CCFF;"></div>
+                            <p>&nbsp;&nbsp;Cooler ( >2 -SD )</p>
+                        </div>
+                    </div>
+
+                    <div class="row"  style="margin-left:10px;" >
+                        <div class="col-md-6">
+                            <div class="indicator" style="background-color:#8cff8a;"></div>
+                            <p>&nbsp;&nbsp;Normal</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="indicator" style="background-color:#feaa54;"></div>
+                            <p>&nbsp;&nbsp;Warmer ( >2 SD )</p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left:10px;padding-bottom:40px;" >
+                        <div class="col-md-6">
+                            <div class="indicator" style="background-color:#ff5d5d;"></div>
+                            <p>&nbsp;&nbsp;Much Warmer ( >3 SD )</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card" id="googleMap" style="height:750px; width:100%;" ></div>
+
+
+
+    <!--button row-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group btn-group-justified">
+                <a href="#" class="btn btn-primary btn-md">
+                    <i class="fa fa-phone" style="font-size:20px"></i> Contact Us</a>
+                <a href="#" class="btn btn-primary btn-md">
+                    <i class="fa fa-twitter-square fa-2x fa-fw"></i>Twitter
+                </a>
+                <a href="#" class="btn btn-primary btn-md">
+                    <i class="fa fa-info-circle fa-2x fa-fw"></i>Subscribe
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
