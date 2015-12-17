@@ -7,7 +7,12 @@ angular.module('bleaching.overview', ["highcharts-ng"])
     $scope.mapMarkers = [];
 
     var mapProp = {
-        center: new google.maps.LatLng(-17, 144),
+        zoomControl: false,
+        scaleControl: false,
+        scrollwheel: false,
+        disableDoubleClickZoom: true,
+        disableDefaultUI: true,
+        center: new google.maps.LatLng(-17, 150),
         zoom: 6,
         mapTypeId: google.maps.MapTypeId.SATELLITE
 
