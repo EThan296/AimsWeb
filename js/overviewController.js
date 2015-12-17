@@ -14,8 +14,6 @@ angular.module('bleaching.overview', ["highcharts-ng"])
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
-    //var siteIcon = '/resources/circle_green.png';
-
     $scope.loadData = function(){
         var anomalyPromise = overviewService.getAnomalyData()
             .then(function (results) {
@@ -294,41 +292,25 @@ angular.module('bleaching.overview', ["highcharts-ng"])
                 url: values[2]
             });
 
-            //Adds a label to the map
-            //var mapLabel = new MapLabel({
-            //    text: values[0],
-            //    position: new google.maps.LatLng(values[3], values[4]),
-            //    map: map,
-            //    fontSize: 20,
-            //    fontColor: 'white',
-            //    align: 'center',
-            //    strokeWeight: 0,
-            //    url: values[2]
-            //
-            //});
 
-        var infowindow = new google.maps.InfoWindow({
-            content:values[0],
+    //creates info window
+    var infowindow = new google.maps.InfoWindow({
+        content:values[0],
 
-        })
+    })
 
-            //mapLabel.set('position', new google.maps.LatLng(values[3], values[4]));
+        google.maps.event.addListener(marker, 'click', function () {
+            window.location.href = this.url;
+        });
 
-            google.maps.event.addListener(marker, 'click', function () {
-                window.location.href = this.url;
-            });
+        google.maps.event.addListener(marker, 'mouseover', function () {
+            infowindow.open(map,marker);
+            $(".gm-style-iw").next("div").hide();
+        });
 
-            google.maps.event.addListener(marker, 'mouseover', function () {
-                infowindow.open(map,marker);
-                $(".gm-style-iw").next("div").hide();
-            });
-
-            google.maps.event.addListener(marker, 'mouseout', function () {
-                infowindow.close();
-            });
-
-
-
+        google.maps.event.addListener(marker, 'mouseout', function () {
+            infowindow.close();
+        });
 
     };
     $scope.loadData()
