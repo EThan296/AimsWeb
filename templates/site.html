@@ -17,7 +17,7 @@
                     <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails.actualWaterTemp+"  "+"&#8451"}}</span></div>
                     <div class="well well-sm">Bleaching Warning Temp:<span style="float: right;">{{siteDetails.warningTemp+"  "+"&#8451"}}</span></div>
                     <div class="well well-sm">Bleaching Warning Temp:<span style="float: right;">{{siteDetails.bleachingTemp+"  "+"&#8451"}}</span></div>
-                    <div class="well well-sm">Bleaching status:<span style="float: right;border: 1px solid {{siteDetails.color}}; background-color:{{siteDetails.color}}; border-radius: 2px;">{{siteDetails.status}}</span></div>
+                    <div class="well well-sm">Bleaching status:<span style="float: right;border: 1px solid {{siteDetails.color}}; background-color:{{siteDetails.color}}; border-radius: 2px;color:white;padding:0 10px">{{siteDetails.status}}</span></div>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                     <div class="well well-sm">Current Avg. Water Temp:<span style="float: right;">{{siteDetails.actualWaterTemp+"  "+"&#8451"}}</span></div>
                     <div class="well well-sm">Historical Avg. Water Temp:<span style="float: right;">{{modelledAnomaly+"  "+"&#8451"}}</span></div>
                     <div class="well well-sm">Temp Differential:<span style="float: right;">{{tempDifferential+"  "+"&#8451"}}</span></div>
-                    <div class="well well-sm">Thermal status:<span style="float: right;border: 1px solid {{anomalyStatuses.color}}; background-color:{{anomalyStatuses.color}}; border-radius: 2px;">{{anomalyStatus}}</span></div>
+                    <div class="well well-sm">Thermal status:<span style="float: right;border: 1px solid {{anomalyStatuses.color}}; background-color:{{anomalyStatuses.color}}; border-radius: 2px; border-radius: 2px;color:white;padding:0 10px">{{anomalyStatus}}</span></div>
                 </div>
                 </div>
         </div>
@@ -44,10 +44,10 @@
 <!--button row-->
     <div class="row">
         <div class="col-md-12">
-            <div style="margin-bottom: 15px">
-                <a href="http://data.aims.gov.au/metadataviewer/uuid/{{channelDetails.metadataId}}"><button type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 5px">Metadata</button></a>
-                <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 5px">Download Climatology</button>
-                <a href="http://data.aims.gov.au/aimsrtds/coralbleaching.xhtml"><button type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 5px">View Historical Data</button></a>
+            <div style="margin: 5px">
+                <a href="http://data.aims.gov.au/metadataviewer/uuid/{{channelDetails.metadataId}}"><button type="button" class="button btn-block" style="margin-bottom: 5px">Metadata</button></a>
+                <button type="button" class="button btn-block" style="margin-bottom: 5px">Download Climatology</button>
+                <a href="http://data.aims.gov.au/aimsrtds/coralbleaching.xhtml"><button type="button" class="button btn-block" style="margin-bottom: 5px">View Historical Data</button></a>
             </div>
         </div>
     </div>
