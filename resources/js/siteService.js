@@ -8,6 +8,8 @@ angular.module('bleaching.siteService', [])
 					var data = response.data._embedded.vbleachStatuses;
 					for (var i = 0; i < data.length; i++) {
 		                if (data[i].siteId == id) {
+							var siteName = data[i].siteName
+							data[i].climatologyFileName = "Climatology_" + siteName.replace(/ /g, '') + ".xlsx";
 
 							if (data[i].status == "No current Risk of Bleaching"){
 								data[i].color = "#33cc33";
